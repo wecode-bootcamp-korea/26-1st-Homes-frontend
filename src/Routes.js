@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import Nav from './component/Nav/Nav';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
