@@ -1,0 +1,143 @@
+div#loginPage {
+  height: 100vh;
+  // width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: block;
+    justify-content: center;
+    height: 400px;
+    width: 300px;
+    // border-style: solid;
+    // border-width: 2px;
+
+    .Logo {
+      #homeLogo {
+        display: block; // 납득이 안감
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .logoName {
+        display: flex;
+        justify-content: center;
+        color: #757575;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .viewbtnBox {
+      display: block;
+
+      .viewBtn1 {
+        width: 297px;
+        height: 44px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .viewBtn2 {
+        width: 297px;
+        height: 44px;
+        background-color: #fadb02;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .viewBtn3 {
+        width: 297px;
+        height: 44px;
+        background-color: #20c801;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+
+    .textOr {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      color: #757575;
+    }
+
+    .inputBox {
+      height: 100px;
+      position: relative;
+
+      .email {
+        width: 297px;
+        height: 44px;
+        margin-bottom: 10px;
+      }
+
+      #emailIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 17px;
+      }
+
+      .password {
+        width: 297px;
+        height: 44px;
+      }
+
+      #pwdIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+
+      ::placeholder {
+        padding-left: 40px;
+      }
+    }
+
+    .btnBox {
+      .loginBtn {
+        width: 297px;
+        height: 44px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        color: white;
+        font-weight: bold;
+        background-color: rgb(90, 197, 240);
+      }
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    .linkBox {
+      display: flex;
+      justify-content: center;
+
+      span {
+        padding: 2px;
+        font-size: 13px;
+        color: #757575;
+      }
+
+      .signupLink {
+        padding-right: 10px;
+        border-right-style: solid;
+        border-right-width: 2px;
+        border-right-color: lightgray;
+      }
+
+      .lostpwdLink {
+        padding-left: 10px;
+      }
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
