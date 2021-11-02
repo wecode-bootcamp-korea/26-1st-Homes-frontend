@@ -23,7 +23,7 @@ div#loginPage {
       .logoName {
         display: flex;
         justify-content: center;
-        color: #757575;
+        color: rgba(177, 174, 174, 0.808);
         font-size: 13px;
         margin-bottom: 20px;
       }
@@ -69,6 +69,13 @@ div#loginPage {
       height: 100px;
       position: relative;
 
+      input {
+        border-style: solid;
+        border-color: lightgray;
+        border-width: 1px;
+        padding-left: 50px;
+      }
+
       .email {
         width: 297px;
         height: 44px;
@@ -93,14 +100,10 @@ div#loginPage {
         margin-left: -282px;
         width: 15px;
       }
-
-      ::placeholder {
-        padding-left: 40px;
-      }
     }
 
     .btnBox {
-      .loginBtn {
+      #loginBtn {
         width: 297px;
         height: 44px;
         margin-top: 10px;
