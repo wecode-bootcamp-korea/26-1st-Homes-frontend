@@ -1,0 +1,177 @@
+div#SignupPage {
+  height: 100vh;
+  // width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    display: block;
+    justify-content: center;
+    height: 600px;
+    width: 300px;
+    // border-style: solid;
+    // border-width: 2px;
+
+    .Logo {
+      #homeLogo {
+        display: block; // 납득이 안감
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .logoName {
+        display: flex;
+        justify-content: center;
+        color: lightgray;
+        font-size: 15px;
+        margin-bottom: 20px;
+        margin-top: 5px;
+      }
+    }
+
+    .signupInputBox {
+      height: 100px;
+
+      input {
+        border-style: solid;
+        border-color: lightgray;
+        border-width: 1px;
+      }
+      .emailAddress {
+        position: relative;
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        padding-left: 45px;
+      }
+
+      #emailaddressIcon {
+        position: absolute;
+        margin-top: 16px;
+        margin-left: -282px;
+        width: 15px;
+        background-color: white;
+      }
+
+      .nickName {
+        position: relative;
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        padding-left: 45px;
+      }
+
+      #nicknameIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+
+      .phonNumver {
+        position: relative;
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        padding-left: 45px;
+      }
+
+      #phonnumverIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+      .signupPassword {
+        position: relative;
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        padding-left: 45px;
+      }
+
+      #signuppwdIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+
+      .signupPassword_checkt {
+        position: relative;
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        padding-left: 45px;
+      }
+
+      #signupPassword_checktIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+
+      ::placeholder {
+        // padding-left: 40px;
+        font-size: 14px;
+        color: #757575;
+      }
+    }
+
+    .checkBox {
+      margin-top: 180px;
+      .agreeText {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 15px;
+        color: black;
+      }
+      #agreeText1 {
+        margin-bottom: 25px;
+      }
+    }
+    .signupInputbox {
+      position: relative;
+
+      .emailAddress {
+        position: relative;
+
+        #emailaddressIcon {
+          position: absolute;
+        }
+      }
+    }
+    .btnBox {
+      .signupBtn {
+        width: 297px;
+        height: 44px;
+        margin-top: 20px;
+        margin-bottom: 9px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgray;
+        background-color: white;
+        font-size: 15px;
+        color: black;
+      }
+
+      .lostpwdBtn {
+        width: 297px;
+        height: 44px;
+        margin-bottom: 5px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: lightgray;
+        background-color: white;
+        font-size: 15px;
+        color: black;
+      }
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
