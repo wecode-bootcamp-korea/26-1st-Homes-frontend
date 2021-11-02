@@ -53,7 +53,7 @@ class ProductLists extends Component {
         <div className="productContainerFlex">
           {product.map(product => {
             return (
-              <ProductContainer key={product.id} name={product.userName} />
+              <ProductContainer key={product.id} name={product.brandName} />
             );
           })}
         </div>

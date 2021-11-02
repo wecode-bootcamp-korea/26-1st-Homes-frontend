@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import '../../component/ProductContainer/ProductContainer.scss';
 import '../ProductContainer/ProductContainer.scss';
@@ -6,7 +7,6 @@ class ProductContainer extends Component {
   render() {
     return (
       <main className="productContainer">
-        {/* <div className="productImage">사진대신</div> */}
         <img
           alt="상품사진"
           className="productImage"

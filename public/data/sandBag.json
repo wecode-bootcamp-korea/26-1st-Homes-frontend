@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "userName": "크렌시아",
+    "brandName": "크렌시아",
     "comment": [
       {
         "username": "모던바로크",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "userName": "크렌시아",
+    "brandName": "크렌시아",
     "comment": [
       {
         "username": "유저명",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "userName": "리샘가구",
+    "brandName": "리샘가구",
     "comment": [
       {
         "username": "유저명",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "userName": "포더홈",
+    "brandName": "포더홈",
     "comment": [
       {
         "username": "유저명",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "userName": "도담",
+    "brandName": "도담",
     "comment": [
       {
         "username": "유저명",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "userName": "일룸",
+    "brandName": "일룸",
     "comment": [
       {
         "username": "유저명",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "userName": "삼익가구",
+    "brandName": "삼익가구",
     "comment": [
       {
         "username": "유저명",
@@ -71,7 +71,7 @@
   },
   {
     "id": 8,
-    "userName": "퍼니코",
+    "brandName": "퍼니코",
     "comment": [
       {
         "username": "유저명",
@@ -81,7 +81,7 @@
   },
   {
     "id": 9,
-    "userName": "한국갤러리",
+    "brandName": "한국갤러리",
     "comment": [
       {
         "username": "유저명",
@@ -91,7 +91,7 @@
   },
   {
     "id": 10,
-    "userName": "마티노가구",
+    "brandName": "마티노가구",
     "comment": [
       {
         "username": "유저명",
@@ -101,7 +101,7 @@
   },
   {
     "id": 11,
-    "userName": "라자가구",
+    "brandName": "라자가구",
     "comment": [
       {
         "username": "유저명",
@@ -111,7 +111,7 @@
   },
   {
     "id": 12,
-    "userName": "썸앤데코",
+    "brandName": "썸앤데코",
     "comment": [
       {
         "username": "유저명",
@@ -121,7 +121,7 @@
   },
   {
     "id": 13,
-    "userName": "지누스",
+    "brandName": "지누스",
     "comment": [
       {
         "username": "유저명",
@@ -131,7 +131,7 @@
   },
   {
     "id": 14,
-    "userName": "모든갤러리",
+    "brandName": "모든갤러리",
     "comment": [
       {
         "username": "유저명",
@@ -141,7 +141,7 @@
   },
   {
     "id": 15,
-    "userName": "한국갤러리",
+    "brandName": "한국갤러리",
     "comment": [
       {
         "username": "유저명",
@@ -151,7 +151,7 @@
   },
   {
     "id": 16,
-    "userName": "에스에스퍼니처",
+    "brandName": "에스에스퍼니처",
     "comment": [
       {
         "username": "유저명",
