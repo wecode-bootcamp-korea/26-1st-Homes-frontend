@@ -1,0 +1,52 @@
+@import '../../styles/variable.scss';
+
+.productContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-bottom: 50px;
+
+  .productImage {
+    overflow: hidden;
+    margin-bottom: 10px;
+    height: 200px;
+    background-color: rgb(255, 208, 199);
+  }
+
+  .productInfo {
+    .brandName {
+      color: #646f7c;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+    .productName {
+      font-weight: normal;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .priceInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    .percent {
+      margin-right: 6px;
+      color: tomato;
+      font-weight: bolder;
+      font-size: 18px;
+    }
+    .discountPrice {
+      color: #40464c;
+      font-weight: bolder;
+      font-size: 18px;
+    }
+  }
+
+  .reviewInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+  }
+}

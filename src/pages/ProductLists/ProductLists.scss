@@ -1,0 +1,47 @@
+@import '../../styles/variable.scss';
+
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  @include alignCenter;
+  flex-direction: column;
+
+  .ProductLists {
+    font-family: 'GowunDodum-Regular';
+  }
+
+  .categoryTitle {
+    display: flex;
+    justify-content: space-between;
+    width: 870px;
+    padding: 18px 0px 18px 0px;
+
+    .selector {
+      width: 66px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .category {
+    display: flex;
+    justify-content: space-between;
+    width: 870px;
+    padding: 18px;
+    border: 1px solid rgba($color: #585858, $alpha: 0.1);
+    margin-bottom: 30px;
+  }
+}
+.productContainerFlex {
+  display: flex;
+  justify-content: space-between;
+  width: 860px;
+  flex-wrap: wrap;
+}
