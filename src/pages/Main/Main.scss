@@ -1,0 +1,109 @@
+@import '../../styles/variable.scss';
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1000px;
+  min-width: 1000px;
+  margin: 80px auto;
+
+  .eventSlideWrap {
+    background-color: purple;
+    width: 900px;
+    height: 500px;
+  }
+
+  .bestProductLists {
+    margin-top: 40px;
+
+    .bestProductName {
+      padding: 0 30px;
+      margin: 30px 0;
+      font-size: 26px;
+    }
+
+    .categoryBest {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      width: 1000px;
+
+      .categoryName {
+        color: #4a4a4a;
+
+        &:hover {
+          color: $keyColor;
+        }
+      }
+    }
+
+    .bestProductWrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+
+      .bestProduct {
+        display: flex;
+        align-items: center;
+        height: 150px;
+        margin: 10px 30px;
+
+        .bestNumber {
+          padding: 40px 15px;
+          font-size: 20px;
+        }
+
+        .bestImg {
+          width: 100px;
+          height: 100px;
+          background-color: rosybrown;
+          border-radius: 10px;
+        }
+
+        .bestProductInfo {
+          display: flex;
+          flex-direction: column;
+          margin-left: 30px;
+
+          .product {
+            margin: 5px 0;
+          }
+
+          .brandName {
+            font-size: 13px;
+            color: #7d7d7d;
+            width: 150px;
+          }
+
+          .productName {
+            font-size: 15px;
+            font-size: 15px;
+            width: 193px;
+            height: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          .price {
+            font-weight: 700;
+            margin-right: 5px;
+          }
+
+          .review {
+            font-size: 12px;
+            margin-right: 5px;
+          }
+
+          .star,
+          .starPoint {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
