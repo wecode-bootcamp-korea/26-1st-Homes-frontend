@@ -8,138 +8,149 @@ class Signup extends React.Component {
       email: '',
       nickName: '',
       phonNumver: '',
-      Password: '',
-      PasswordCheck: '',
+      password: '',
+      passwordCheck: '',
     };
-    console.log('state값 확인>>', this.state.value);
+    // console.log('state값 확인>>', this.state.value);
   }
+
+  gotoMain = () => {
+    this.props.history.push('./Main');
+  };
+
   //이메일
   handelEmail = event => {
     this.setState({
       email: event.target.value,
     });
-    // console.log(event.target.value);
+    console.log(event.target.value);
   };
   //이메일 중복검사
-  checkEamil = event => {
+  checkEmail = event => {
     event.preventDenfault();
-    this.setState({
-      email: event.target.value,
-    });
-  
-//이메일 유효성 검사
-const checkEmail = function(str) {
-    function CheckEmail(str){                                                 
-    let reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-    return reg_email.test(str) ? true : false;                           
-};
- const inputEmail = {
-   email: this.state.email
- };
- const emailInfo = {
-   method: "POST",
-   body: JSON.stringify(inputEmail),
-   headers: {
-     "Content-Type": "application/json"
-   }
- };
 
- if(checkEmail(this.state.email) === false){
-   alert("이메일 형식이 유효하지 않습니다.");
-   this.setState({
-     email:"", });
- }else{
-    fetch("url",emailInfo)
-    .then(res => res.json())
-    .then(json => {
-      if(json ===true){
-          alert("사용가능 한 아이디입니다.");
-          this.setState({
-              emailCheck: this.state.email
-          });
-     } else {
-     alert("이미 존재하는 아이디입니다.");
-     }
-    });
-  }
- };
+    //이메일 유효성 검사
+    const checkEmail = function (str) {
+      let regExp =
+        /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+      return regExp.test(str) ? true : false;
+    };
+    const inputEmail = {
+      email: this.state.email,
+    };
 
+    const emailInfo = {
+      method: 'POST',
+      body: JSON.stringify(inputEmail),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
 
-//닉네임
+    if (checkEmail(this.state.email) === false) {
+      alert('이메일 형식이 유효하지 않습니다.');
+      this.setState({
+        email: '',
+      });
+    } else {
+      fetch('url', emailInfo)
+        .then(res => res.json())
+        .then(json => {
+          if (json === true) {
+            alert('사용가능 한 아이디입니다.');
+            this.setState({
+              emailCheck: this.state.email,
+            });
+          } else {
+            alert('이미 존재하는 아이디입니다.');
+          }
+        });
+    }
+  };
+
+  //닉네임
   handelnickName = event => {
-    event.preventDenfault();
+    event.preventDefault();
     this.setState({
       nickName: event.target.value,
     });
-    // console.log(event.target.value);
+    console.log(event.target.value);
   };
-//닉네임 중복검사
-checknickName = event => {
-  event.preventDenfault();
- 
-  const checknickName = function(str) {
-  let regnicName = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-  return  regnicName.test(str) ? true : false;                           
-};
+  //닉네임 중복검사
+  checknickName = event => {
+    event.preventDenfault();
 
-   const inputnicName = {
-   nickName: this.state.nickName
-};
+    const checknickName = function (str) {
+      let regnicName =
+        /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+      return regnicName.test(str) ? true : false;
+    };
 
-const nickNameInfo = {
- method: "POST",
- body: JSON.stringify(inputnicName),
- headers: {
-   "Content-Type": "application/json"
- }
-};
+    const inputnicName = {
+      nickName: this.state.nickName,
+    };
 
-if(checknickName(this.state.nickName) === false){
- alert("한글, 영문 대소문자 2~15자리만 사용 가능합니다.");
-}else{
-  fetch("url",nickNameInfo)
-  .then(res => res.json())
-  .then(json => {
-    if(json ===true){
-        alert("사용가능 한 닉네임입니다.");
-        this.setState({
-          checknickName: this.state.nickName
+    const nickNameInfo = {
+      method: 'POST',
+      body: JSON.stringify(inputnicName),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    if (checknickName(this.state.nickName) === false) {
+      alert('한글, 영문 대소문자 2~15자리만 사용 가능합니다.');
+    } else {
+      fetch('url', nickNameInfo)
+        .then(res => res.json())
+        .then(json => {
+          if (json === true) {
+            alert('사용가능 한 닉네임입니다.');
+            this.setState({
+              checknickName: this.state.nickName,
+            });
+          } else {
+            alert('이미 존재하는 닉네임입니다.');
+          }
         });
-   } else {
-   alert("이미 존재하는 닉네임입니다.");
-  }
-});
-}
-};
+    }
+  };
 
-
-// 폰넘버
+  // 폰넘버
   handelphonNum = event => {
     this.setState({
       phonNumver: event.target.value,
     });
     // console.log(event.target.value);
   };
+  // 폰넘버
+  checkPhonNum = event => {
+    event.preventDenfault();
+    const checkPhonNum = function (str) {
+      let rephonNum = str.indexOf('-');
+    };
 
+    const inputnicName = {
+      nickName: this.state.nickName,
+    };
+  };
+
+  // 비밀번호
   handelpwd = event => {
     this.setState({
-      Password: event.target.value,
+      password: event.target.value,
     });
     // console.log(event.target.value);
   };
 
   handelpwdCheck = event => {
     this.setState({
-      PasswordCheck: event.target.value,
+      passwordCheck: event.target.value,
     });
     // console.log(event.target.value);
   };
 
-  gotoMain = () => {
-    this.props.history.push('./Main');
-  };
-
-  render(){
+  render() {
     return (
       <div id="SignupPage">
         <div className="container">
@@ -222,13 +233,13 @@ if(checknickName(this.state.nickName) === false){
                   : true
                 // (this.state.phonNumver.indexOf('-') !== -1 ? true : false)
               }
-              disabled={
-                this.state.phonNumver.indexOf('-') !== -1 &&
-                this.state.Password.value > 8
-                  ? false
-                  : true
-              }
-              disabled={this.state.PasswordCheck.value > 8 ? false : true}
+              // disabled={
+              //   this.state.phonNumver.indexOf('-') !== -1 &&
+              //   this.state.password.value > 8
+              //     ? false
+              //     : true
+              // }
+              // disabled={this.state.passwordCheck.value > 8 ? false : true}
             >
               회원가입
             </button>
