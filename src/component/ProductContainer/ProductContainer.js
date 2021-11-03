@@ -23,7 +23,7 @@ class ProductContainer extends Component {
               <span className="percent">30%</span>
               <span className="discountPrice">270,000원</span>
             </div>
-            <span className="cost">300,000원</span>
+            <del className="cost">300,000원</del>
           </div>
 
           <div className="reviewInfo">
