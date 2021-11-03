@@ -28,13 +28,6 @@ class Login extends React.Component {
     console.log('비밀번호input값>>', event.target.value);
   };
 
-  sign_in = event => {
-    this.setState({
-      pw: event.target.value,
-    });
-    console.log('비밀번호 로그인값>>', event.target.value);
-  };
-
   render() {
     return (
       <div id="loginPage">
