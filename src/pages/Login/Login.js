@@ -28,6 +28,34 @@ class Login extends React.Component {
     console.log('비밀번호input값>>', event.target.value);
   };
 
+  // 로그인 버튼 클릭시 서버로 데이터 전송
+  handleSubmit = event => {
+    event.prevenDefault();
+
+    const loginInfo = {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    fetch('url', loginInfo)
+      .then(res => {
+        res.json();
+      })
+      .then(json => {
+        if (json.success === true) {
+          alert('로그인되었습니다.');
+          window.localStorage.setItem('userInfo', JSON.stringify(json));
+          this.setState({
+            email: json.email,
+            pwd: json.pwd,
+          });
+          this.props.history.push('/Main');
+        }
+      });
+  };
+
   render() {
     return (
       <div id="loginPage">
