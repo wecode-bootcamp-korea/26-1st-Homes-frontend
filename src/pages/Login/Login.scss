@@ -36,6 +36,12 @@ div#loginPage {
         color: white;
         font-weight: bold;
         margin-bottom: 10px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+        }
       }
       .viewBtn2 {
         width: 297px;
@@ -67,9 +73,7 @@ div#loginPage {
       position: relative;
 
       input {
-        border-style: solid;
-        border-color: lightgray;
-        border-width: 1px;
+        border: 1px solid lightgray;
         padding-left: 50px;
       }
 
@@ -125,10 +129,10 @@ div#loginPage {
       }
 
       .signupLink {
+        background-color: white;
+        color: #757575;
         padding-right: 10px;
-        border-right-style: solid;
-        border-right-width: 2px;
-        border-right-color: lightgray;
+        border-right: 2px solid lightgray;
       }
 
       .lostpwdLink {
