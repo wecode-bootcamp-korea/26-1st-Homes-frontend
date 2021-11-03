@@ -11,7 +11,6 @@ class Signup extends React.Component {
       password: '',
       passwordCheck: '',
     };
-    // console.log('state값 확인>>', this.state.value);
   }
 
   gotoMain = () => {
@@ -231,15 +230,7 @@ class Signup extends React.Component {
                 this.state.nickName.length > 5
                   ? false
                   : true
-                // (this.state.phonNumver.indexOf('-') !== -1 ? true : false)
               }
-              // disabled={
-              //   this.state.phonNumver.indexOf('-') !== -1 &&
-              //   this.state.password.value > 8
-              //     ? false
-              //     : true
-              // }
-              // disabled={this.state.passwordCheck.value > 8 ? false : true}
             >
               회원가입
             </button>
