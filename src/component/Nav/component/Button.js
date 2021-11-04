@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 
 export class NavButton extends Component {
   render() {
-    // const { className, img, buttonName, link } = this.props;
-
-    // TODO: 컴포넌트 재사용 menuLeft 만 적용
     return MENU_LEFT_BUTTON_DATA.map(data => {
       return (
         <div className="NavButton">
@@ -43,18 +40,4 @@ const MENU_LEFT_BUTTON_DATA = [
   },
 ];
 
-const MENU_RIGHT_BUTTON_DATA = [
-  {
-    type: 'name',
-    text: '이름',
-  },
-  {
-    type: 'email',
-    text: '이메일',
-  },
-  {
-    type: 'password',
-    text: '비밀번호',
-  },
-];
 export default NavButton;

@@ -1,134 +1,390 @@
 [
   {
-    "table": {
-      "img": "../images/premium-icon-armchair-2355336.png",
-      "categoryName": "가구",
-      "categoryLists": [
-        {
-          "id": "1",
-          "furnitureName": "침대/매트리스",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "싱글침대"
-            },
-            {
-              "id": "2",
-              "name": "더블침대"
-            },
-            {
-              "id": "3",
-              "name": "퀸"
-            },
-            {
-              "id": "4",
-              "name": "왕"
-            }
-          ]
-        },
-        {
-          "id": "2",
-          "furnitureName": "침구",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "장식 조명"
-            },
-            {
-              "id": "2",
-              "name": "작업등"
-            },
-            {
-              "id": "3",
-              "name": "LED 전구"
-            }
-          ]
-        },
-        {
-          "id": "3",
-          "furnitureName": "매트리스",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "수납장"
-            },
-            {
-              "id": "2",
-              "name": "옷장"
-            },
-            {
-              "id": "3",
-              "name": "책장"
-            }
-          ]
-        }
-      ]
-    }
+    "img": "../images/premium-icon-armchair-2355336.png",
+    "categoryName": "가구",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "침대",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "일반침대"
+          },
+          {
+            "id": "2",
+            "name": "수납침대"
+          },
+          {
+            "id": "3",
+            "name": "저상형침대"
+          },
+          {
+            "id": "4",
+            "name": "벙커침대"
+          },
+          {
+            "id": "5",
+            "name": "모션베드"
+          },
+          {
+            "id": "6",
+            "name": "패밀리침대"
+          },
+          {
+            "id": "7",
+            "name": "돌침대/흙침대"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "소파",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "가죽소파"
+          },
+          {
+            "id": "2",
+            "name": "패브릭소파"
+          },
+          {
+            "id": "3",
+            "name": "신소재소파"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "태이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "테이블이다 이마리야"
+          }
+        ]
+      }
+    ]
   },
   {
-    "table": {
-      "img": "../images/premium-icon-armchair-2355336.png",
-      "categoryName": "조명",
-      "categoryLists": [
-        {
-          "id": "1",
-          "furnitureName": "스탠드",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "싱글침대"
-            },
-            {
-              "id": "2",
-              "name": "더블침대"
-            },
-            {
-              "id": "3",
-              "name": "퀸"
-            },
-            {
-              "id": "4",
-              "name": "왕"
-            }
-          ]
-        },
-        {
-          "id": "2",
-          "furnitureName": "테이블",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "장식 조명"
-            },
-            {
-              "id": "2",
-              "name": "작업등"
-            },
-            {
-              "id": "3",
-              "name": "LED 전구"
-            }
-          ]
-        },
-        {
-          "id": "3",
-          "furnitureName": "장스탠드",
-          "sub_category": [
-            {
-              "id": "1",
-              "name": "수납장"
-            },
-            {
-              "id": "2",
-              "name": "옷장"
-            },
-            {
-              "id": "3",
-              "name": "책장"
-            }
-          ]
-        }
-      ]
-    }
+    "img": "../images/premium-icon-blanket-3328006.png",
+    "categoryName": "패브릭",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "img": "../images/premium-icon-table-lamp-4408125.png",
+    "categoryName": "조명",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "img": "../images/premium-icon-pot-821032.png",
+    "categoryName": "주방",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "img": "../images/premium-icon-table-lamp-4408125.png",
+    "categoryName": "조명",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "img": "../images/premium-icon-table-lamp-4408125.png",
+    "categoryName": "조명",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
   }
 ]

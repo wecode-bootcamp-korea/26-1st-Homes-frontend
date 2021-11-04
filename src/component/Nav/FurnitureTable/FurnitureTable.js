@@ -2,14 +2,37 @@ import React, { Component } from 'react';
 import './FurnitureTable.scss';
 
 export class FurnitureTable extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false,
+    };
+  }
+
   render() {
+    const { furnitureName, sub_category } = this.props;
+
     return (
       <div className="FurnitureTable">
-        <li className="furnitureList">
-          <span className="furnitureName">침실가구</span>
-          <ul className="furnitures">
-            <li className="furniture {furnitureName}">일반침대</li>
-          </ul>
+        <li
+          className="furnitureList"
+          onMouseEnter={() => {
+            this.setState({ showMenu: true });
+          }}
+          onMouseLeave={() => {
+            this.setState({ showMenu: false });
+          }}
+        >
+          <span className="furnitureName">{furnitureName}</span>
+          <div className="furnitureTable">
+            <ul className="items">
+              {this.state.showMenu
+                ? sub_category.map(itemName => {
+                    return <li className="item">{itemName.name}</li>;
+                  })
+                : null}
+            </ul>
+          </div>
         </li>
       </div>
     );

@@ -11,29 +11,32 @@ export class CategoryTable extends Component {
   }
 
   render() {
+    const { categoryImg, categoryName, categoryLists } = this.props;
+
     return (
       <div className="CategoryTable">
-        <ul
-          className="categoryList"
-          onMouseOver={() => {
+        <li
+          className="category"
+          onMouseEnter={() => {
             this.setState({ showMenu: true });
           }}
           onMouseLeave={() => {
             this.setState({ showMenu: false });
           }}
         >
-          <li className="category">
-            <img
-              src="images/premium-icon-armchair-2355336.png"
-              alt="furniture img"
-              className="furnitureImg"
-            />
-            <span className="furniture">가구</span>
-            <ul className="furnitureLists">
-              {this.state.showMenu ? <FurnitureTable /> : null}
-            </ul>
-          </li>
-        </ul>
+          <img src={categoryImg} alt="furniture img" className="furnitureImg" />
+          <span className="furniture">{categoryName}</span>
+          <ul className="furnitureLists">
+            {this.state.showMenu
+              ? categoryLists.map(item => (
+                  <FurnitureTable
+                    furnitureName={item.furnitureName}
+                    sub_category={item.sub_category}
+                  />
+                ))
+              : null}
+          </ul>
+        </li>
       </div>
     );
   }

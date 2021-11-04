@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CategoryTable from './CategoryTable/CategoryTable';
+import Button from './component/Button';
 
 import './Nav.scss';
 
@@ -34,7 +35,8 @@ export class Nav extends Component {
           <div className="menuLeft">
             <div
               className="categoryMenu"
-              onMouseOver={() => {
+              // FIXME: 반복되는 함수라서 줄일 수 있어볼 듯
+              onMouseEnter={() => {
                 this.setState({ showMenu: true });
               }}
               onMouseLeave={() => {
@@ -45,21 +47,21 @@ export class Nav extends Component {
                 <div className="categoryMenuImg" />
                 <span className="categoryMenuName">카테고리</span>
               </div>
-              {/* TODO: mock data 삽입 */}
-              {this.state.showMenu ? <CategoryTable /> : null}
+              <ul className="categoryList">
+                {this.state.showMenu
+                  ? categories.map(category => {
+                      return (
+                        <CategoryTable
+                          categoryImg={category.img}
+                          categoryName={category.categoryName}
+                          categoryLists={category.categoryLists}
+                        />
+                      );
+                    })
+                  : null}
+              </ul>
             </div>
-            <div className="store">
-              {/* TODO: 컴포넌트로 분리 & 상수 데이터 사용 */}
-              <Link to="/product-lists" className="categoryMenuName">
-                스토어
-              </Link>
-            </div>
-            <div className="contents">
-              <span className="categoryMenuName">컨텐츠</span>
-            </div>
-            <div className="community">
-              <span className="categoryMenuName">커뮤니티</span>
-            </div>
+            <Button />
           </div>
           <div className="menuRight">
             <div className="searchWrap">
