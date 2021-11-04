@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-.container {
+.Container {
   @include alignCenter;
   flex-direction: column;
 
@@ -22,12 +22,25 @@
     width: 870px;
     padding: 18px 0px 18px 0px;
 
-    .selector {
-      width: 66px;
-      border: none;
+    .filterBtn {
+      width: 82px;
+      height: 30px;
+      background-color: white;
       font-size: 14px;
-      font-weight: 600;
     }
+
+    /* 셀렉트 태그에 사용한 scss */
+    // .selector {
+    //   width: 80px;
+    //   font-size: 14px;
+    //   font-weight: 600;
+    //   border: none;
+
+    //   .option {
+    //     padding: 0px 10px;
+    //   }
+    // }
+    /* 셀렉트 태그에 사용한 scss 정리 */
   }
 
   .category {
@@ -35,13 +48,13 @@
     justify-content: space-between;
     width: 870px;
     padding: 18px;
-    border: 1px solid rgba($color: #585858, $alpha: 0.1);
     margin-bottom: 30px;
+    border: 1px solid rgba($color: #585858, $alpha: 0.1);
   }
 }
 .productContainerFlex {
   display: flex;
   justify-content: space-between;
-  width: 860px;
   flex-wrap: wrap;
+  width: 860px;
 }

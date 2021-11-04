@@ -1,10 +1,11 @@
 @import '../../styles/variable.scss';
 
-.productContainer {
+.ProductContainer {
   display: flex;
   flex-direction: column;
   width: 200px;
   margin-bottom: 50px;
+  z-index: -1;
 
   .productImage {
     overflow: hidden;
@@ -13,17 +14,16 @@
     background-color: rgb(255, 208, 199);
   }
 
-  .productInfo {
-    .brandName {
-      color: #646f7c;
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-    .productName {
-      font-weight: normal;
-      font-size: 15px;
-      margin-bottom: 10px;
-    }
+  .brandName {
+    color: #ababab;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .productName {
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 115%;
   }
 
   .priceInfo {
@@ -33,14 +33,14 @@
 
     .percent {
       margin-right: 6px;
-      color: $keyColor;
       font-weight: bolder;
       font-size: 18px;
+      color: $keyColor;
     }
     .discountPrice {
-      color: #40464c;
       font-weight: bolder;
       font-size: 18px;
+      color: #ababab;
     }
   }
 
