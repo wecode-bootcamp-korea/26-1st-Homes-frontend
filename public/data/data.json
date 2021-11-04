@@ -5,7 +5,10 @@
     "productName": "캐더린 도리스 씨에라 통수납 침대 SSQ",
     "cost": 599000,
     "percent": 0.68,
-    "starPoint": 4.8
+    "starPoint": 4.8,
+    "shippingFee": "35,000",
+    "shippingTypeValue": "직접 배송",
+    "payTypeValue": "착불"
   },
   {
     "id": 2,
@@ -13,6 +16,8 @@
     "productName": "Welcome to world best coding bootcamp!",
     "cost": 123456,
     "percent": 0.68,
-    "starPoint": 4.8
+    "starPoint": 4.8,
+    "shippingTypeValue": "직접 배송",
+    "payTypeValue": "착불"
   }
 ]

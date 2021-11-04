@@ -1,16 +1,14 @@
 @import '../../styles/variable.scss';
 
-.detailPageBox {
-  .ImageAndProduct {
+.Detail {
+  .imageAndProduct {
     display: flex;
-    width: 100%;
+    justify-content: center;
     height: 100%;
     margin: 0 auto;
-    justify-content: center;
 
     .detailImage {
       width: 550px;
-      height: 550px;
       border-radius: 10px;
     }
 
@@ -18,7 +16,6 @@
       margin-left: 50px;
       margin-top: 15px;
       width: 400px;
-      height: 550px;
 
       .brandName {
         color: rgb(103, 112, 125);
@@ -33,20 +30,18 @@
       .productPrice {
         display: flex;
 
-        .costAndPercent {
-          .cost {
-            margin-bottom: 10px;
-            text-decoration: line-through;
-            color: #ababab;
-            font-size: 20px;
-          }
+        .cost {
+          margin-bottom: 10px;
+          text-decoration: line-through;
+          color: #ababab;
+          font-size: 20px;
+        }
 
-          .percent {
-            font-size: 35px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: $keyColor;
-          }
+        .percent {
+          font-size: 35px;
+          font-weight: bold;
+          margin-bottom: 15px;
+          color: $keyColor;
         }
 
         .discountPriceBox {
@@ -70,7 +65,7 @@
 
         .star {
           margin-top: -4px;
-          margin-left: 41px;
+          margin-left: 55px;
           margin-right: 2px;
           width: 19px;
           height: 19px;
@@ -87,14 +82,34 @@
         .shippingFeeLists {
           display: flex;
           flex-direction: column;
-          margin-left: 30px;
-          margin-bottom: 30px;
-          width: 265px;
+          margin-left: 42px;
+          margin-bottom: 16px;
+          width: 253px;
           list-style: none;
+        }
+        .shippingFeeNone {
+          display: none;
+        }
+        .shippingLists {
+          // display: none;
+          list-style: none;
+          .typeBox {
+            display: flex;
+
+            .shippingType,
+            .payType {
+              color: #ababab;
+              margin-left: -42px;
+              margin-right: 24px;
+              margin-bottom: 17px;
+            }
+          }
         }
 
         .shippingFeeButton {
           color: #ababab;
+          width: 30px;
+          height: 30px;
         }
       }
 
@@ -102,56 +117,153 @@
         width: 370px;
         border-bottom: solid #ababab 1px;
       }
+    }
+  }
+  .optionBox {
+    margin-top: 20px;
 
-      .optionBox {
-        margin-top: 20px;
+    .optionTop {
+      // .optionBottom {
 
-        .optionTop,
-        .optionBottom {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          width: 370px;
-          height: 43px;
-          margin-top: 13px;
-          margin-bottom: 9px;
-          border-radius: 7px;
-          border: #ababab 1px solid;
-          background-color: white;
+      position: absolute;
+      z-index: 2000;
+      width: 370px;
+      margin-top: 13px;
+      border-radius: 7px;
+      border: #ababab 1px solid;
+      background-color: white;
 
-          .firstLeftText,
-          .secondLeftText {
-            margin-left: 15px;
-            color: #ababab;
-          }
+      // .flexBox {
+      //   display: flex;
+      //   justify-content: space-between;
+      //   align-items: center;
+      //   padding-top: 15px;
+      //   padding-bottom: 13px;
 
-          .firstRightText,
-          .secondRightText {
-            margin-right: 15px;
-            color: #ababab;
-          }
-        }
-      }
-
-      .buyButtons {
+      //   .firstLeftText {
+      //     // .secondLeftText {
+      //     margin-left: 15px;
+      //     color: #ababab;
+      //   }
+      //   .firstRightText {
+      //     // .secondRightText {
+      //     margin-right: 15px;
+      //     color: #ababab;
+      //   }
+      // }
+      .flexBox,
+      .optionFlexBox {
         display: flex;
-        width: 370px;
         justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 13px;
 
-        .shoppingB1asket,
-        .shoppingBasket {
-          display: block;
-          width: 180px;
-          height: 50px;
-          border-radius: 7px;
-          color: white;
-          background-color: $keyColor;
+        .firstLeftText {
+          // .secondLeftText {
+          margin-left: 15px;
+          color: #ababab;
         }
 
-        .shoppingB1asket {
-          opacity: 0.5;
+        .firstRightText {
+          // .secondRightText {
+          margin-right: 15px;
+          color: #ababab;
+        }
+        .optionLeftText {
+          color: black;
+          margin-left: 15px;
+        }
+        .optionRightText {
+          color: black;
+          margin-right: 15px;
         }
       }
+      .flexBox:hover {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: rgb(180, 226, 248);
+      }
+      .firstOptionHover:hover {
+        background-color: rgb(180, 226, 248);
+      }
+      .secondOptionHover:hover {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: rgb(180, 226, 248);
+      }
+
+      .optionFlexBox {
+        border-top: solid 1px #ababab;
+      }
+    }
+
+    .firstOnOff {
+      display: none;
+    }
+
+    .optionBottom {
+      position: absolute;
+      z-index: 1000;
+      width: 370px;
+      border-radius: 7px;
+      border: #ababab 1px solid;
+      background-color: white;
+      margin-top: 73px;
+      .flexBox,
+      .optionFlexBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 13px;
+
+        .secondLeftText {
+          margin-left: 15px;
+          color: #ababab;
+        }
+
+        .secondRightText {
+          margin-right: 15px;
+          color: #ababab;
+        }
+        .optionLeftText {
+          color: black;
+          margin-left: 15px;
+        }
+      }
+
+      .optionFlexBox {
+        border-top: solid 1px #ababab;
+      }
+    }
+    .secondOnOff {
+      display: none;
+    }
+
+    .buyButtons {
+      display: flex;
+      width: 370px;
+      justify-content: space-between;
+      margin-top: 133px;
+
+      .shoppingB1asket,
+      .shoppingBasket {
+        display: block;
+        width: 180px;
+        height: 50px;
+        border-radius: 7px;
+        color: white;
+        background-color: $keyColor;
+        z-index: -1;
+      }
+
+      .shoppingB1asket {
+        opacity: 0.5;
+      }
+    }
+    .aa {
+      border: solid black 1px;
     }
   }
 }
