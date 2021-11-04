@@ -1,25 +1,20 @@
 @import '../../styles/variable.scss';
-@import './Categories/Categories.scss';
 
-.header {
+.Nav {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: #fff;
   box-shadow: 2px 2px 10px lightgrey;
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
+  .navWrap {
+    @include flexMix(center, space-between);
     max-width: 1400px;
     margin: auto;
     z-index: 999;
 
     .logoWrap {
-      display: flex;
-      align-items: center;
+      @include flexMix(center);
 
       .logoImg {
         width: 36px;
@@ -33,9 +28,7 @@
     }
 
     .menuLeft {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flexMix(center, space-between);
       width: 300px;
       margin: 20px;
 
@@ -44,7 +37,7 @@
         cursor: pointer;
 
         .categoryMenuHover {
-          display: flex;
+          @include flexMix();
 
           .categoryMenuImg {
             height: 20px;
@@ -77,9 +70,7 @@
     }
 
     .menuRight {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include flexMix(center, space-between);
 
       .searchWrap {
         position: relative;
@@ -112,14 +103,13 @@
         height: 35px;
         margin: 20px;
         padding: 10px;
-
         border: 1px solid $keyColor;
         color: #fff;
         background-color: $keyColor;
         border-radius: 50px;
 
         .loginLink {
-          @include flexCenter;
+          @include flexMix(center, center);
           text-decoration: none;
         }
       }

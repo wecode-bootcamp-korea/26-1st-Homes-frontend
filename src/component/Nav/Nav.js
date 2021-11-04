@@ -1,29 +1,55 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Categories from './Categories/Categories';
+import CategoryTable from './CategoryTable/CategoryTable';
+
 import './Nav.scss';
 
 export class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      categories: [],
+      showMenu: false,
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/Categories.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ categories: data });
+      });
+  }
+
   render() {
+    const { categories } = this.state;
+
     return (
-      <header className="header">
-        <nav className="nav">
+      <nav className="Nav">
+        <div className="navWrap">
           <div className="logoWrap">
-            <img src="./images/home.png" alt="logoImg" className="logoImg" />
+            <img src="./images/home.png" alt="logo img" className="logoImg" />
             <span className="logo">꾸며줘홈즈</span>
           </div>
           <div className="menuLeft">
-            <div className="categoryMenu">
+            <div
+              className="categoryMenu"
+              onMouseOver={() => {
+                this.setState({ showMenu: true });
+              }}
+              onMouseLeave={() => {
+                this.setState({ showMenu: false });
+              }}
+            >
               <div className="categoryMenuHover">
                 <div className="categoryMenuImg" />
                 <span className="categoryMenuName">카테고리</span>
               </div>
-              {/* 상수 데이터와 함께 컴포넌트로 따로 뺄 수 있도록 */}
-              <ul className="categories">
-                <Categories />
-              </ul>
+              {/* TODO: mock data 삽입 */}
+              {this.state.showMenu ? <CategoryTable /> : null}
             </div>
             <div className="store">
+              {/* TODO: 컴포넌트로 분리 & 상수 데이터 사용 */}
               <Link to="/product-lists" className="categoryMenuName">
                 스토어
               </Link>
@@ -44,14 +70,14 @@ export class Nav extends Component {
               />
               <img
                 src="images/premium-icon-magnifier-2311526.png"
-                alt="searchImg"
+                alt="search img"
                 className="searchImg"
               />
             </div>
             <div className="cartWrap">
               <img
                 src="./images/shopping-cart (2).png"
-                alt="cartImg"
+                alt="cart img"
                 className="cartImg"
               />
             </div>
@@ -61,8 +87,8 @@ export class Nav extends Component {
             </div>
             <button className="help">고객센터</button>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
     );
   }
 }
