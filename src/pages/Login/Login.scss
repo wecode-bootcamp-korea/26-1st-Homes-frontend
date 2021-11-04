@@ -1,35 +1,32 @@
-div#loginPage {
+.Login {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 
   .container {
-    display: block;
-    justify-content: center;
+    flex-direction: column;
     height: 400px;
     width: 300px;
 
-    .Logo {
-      #homeLogo {
-        display: block;
-        margin: 0 auto;
-        padding: 10px;
-      }
+    #homeLogo {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+    }
 
-      .logoName {
-        display: flex;
-        justify-content: center;
-        color: rgba(177, 174, 174, 0.808);
-        font-size: 13px;
-        margin-bottom: 20px;
-      }
+    .logoName {
+      display: flex;
+      justify-content: center;
+      color: rgba(177, 174, 174, 0.808);
+      font-size: 13px;
+      margin-bottom: 20px;
     }
 
     .viewbtnBox {
       display: block;
 
-      .viewBtn1 {
+      .viewBtnwecode {
         width: 297px;
         height: 44px;
         background-color: black;
@@ -43,7 +40,7 @@ div#loginPage {
           font-weight: bold;
         }
       }
-      .viewBtn2 {
+      .viewBtnkakao {
         width: 297px;
         height: 44px;
         background-color: #fadb02;
@@ -51,7 +48,7 @@ div#loginPage {
         font-weight: bold;
         margin-bottom: 10px;
       }
-      .viewBtn3 {
+      .viewBtnnaver {
         width: 297px;
         height: 44px;
         background-color: #20c801;
