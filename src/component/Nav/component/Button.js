@@ -6,7 +6,7 @@ export class NavButton extends Component {
     return MENU_LEFT_BUTTON_DATA.map(data => {
       return (
         <div className="NavButton">
-          <Link to={data.link} className="loginLink">
+          <Link key={data.id} to={data.link} className="loginLink">
             <button className={data.className}>
               {data.buttonName}
               {data.img && (
@@ -22,16 +22,19 @@ export class NavButton extends Component {
 
 const MENU_LEFT_BUTTON_DATA = [
   {
+    id: '1',
     className: 'store',
     buttonName: '스토어',
     link: '/product-lists',
   },
   {
+    id: '2',
     className: 'contents',
     buttonName: '컨텐츠',
     link: '/',
   },
   {
+    id: '3',
     className: 'community',
     buttonName: '커뮤니티',
     link: '/',
