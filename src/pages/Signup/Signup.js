@@ -7,48 +7,54 @@ class Signup extends React.Component {
     this.state = {
       email: '',
       nickName: '',
-      phonNumver: '',
+      phonNumvber: '',
       password: '',
-      passwordCheck: '',
+      rePassword: '',
     };
   }
 
   gotoMain = () => {
-    this.props.history.push('./Main');
+    const { history } = this.props;
+    history.push('./Main');
   };
 
-  //이메일
-  handelEmail = event => {
+  //이메일 인풋창 핸들링
+  handleEmail = event => {
+    event.preventDefault();
     this.setState({
       email: event.target.value,
     });
-    console.log(event.target.value);
+    console.log('이메일입력값>>', event.target.value);
   };
+
   //이메일 중복검사
   checkEmail = event => {
     event.preventDenfault();
 
     //이메일 유효성 검사
-    const checkEmail = function (str) {
+    const chkEmail = function (str) {
       let regExp =
         /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
       return regExp.test(str) ? true : false;
     };
+
+    //초기빈 이메일 값을 왜 주었을까
     const inputEmail = {
       email: this.state.email,
     };
 
     const emailInfo = {
       method: 'POST',
-      body: JSON.stringify(inputEmail),
+      body: JSON.stringify(inputEmail), //초기 값이 들어온다
       headers: {
         'Content-Type': 'application/json',
       },
     };
 
-    if (checkEmail(this.state.email) === false) {
+    if (chkEmail(this.state.email) === false) {
       alert('이메일 형식이 유효하지 않습니다.');
       this.setState({
+        //왜 여기서 이걸 주지?
         email: '',
       });
     } else {
@@ -67,19 +73,19 @@ class Signup extends React.Component {
     }
   };
 
-  //닉네임
-  handelnickName = event => {
+  //닉네임 핸들링
+  handlenickName = event => {
     event.preventDefault();
     this.setState({
       nickName: event.target.value,
     });
-    console.log(event.target.value);
+    console.log('닉네임 사용자 입력값>>', event.target.value);
   };
   //닉네임 중복검사
   checknickName = event => {
     event.preventDenfault();
 
-    const checknickName = function (str) {
+    const chknickName = function (str) {
       let regnicName =
         /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
       return regnicName.test(str) ? true : false;
@@ -97,7 +103,7 @@ class Signup extends React.Component {
       },
     };
 
-    if (checknickName(this.state.nickName) === false) {
+    if (chknickName(this.state.nickName) === false) {
       alert('한글, 영문 대소문자 2~15자리만 사용 가능합니다.');
     } else {
       fetch('url', nickNameInfo)
@@ -106,7 +112,7 @@ class Signup extends React.Component {
           if (json === true) {
             alert('사용가능 한 닉네임입니다.');
             this.setState({
-              checknickName: this.state.nickName,
+              chknickName: this.state.nickName,
             });
           } else {
             alert('이미 존재하는 닉네임입니다.');
@@ -116,32 +122,33 @@ class Signup extends React.Component {
   };
 
   // 폰넘버
-  handelphonNum = event => {
-    this.setState({
-      phonNumver: event.target.value,
-    });
-    // console.log(event.target.value);
-  };
-  // 폰넘버
-  checkPhonNum = event => {
+  // handelphonNum = event => {
+  //   this.setState({
+  //     phonNumver: event.target.value,
+  //   });
+  //   // console.log(event.target.value);
+  // };
+  // // 폰넘버
+  // checkPhonNum = event => {
+  //   event.preventDenfault();
+  //   const checkPhonNum = function (str) {
+  //     let rephonNum = str.indexOf('-');
+  //   };
+
+  //   const inputnicName = {
+  //     nickName: this.state.nickName,
+  //   };
+  // };
+
+  // 비밀번호 첫번째
+  handelPwd = event => {
     event.preventDenfault();
-    const checkPhonNum = function (str) {
-      let rephonNum = str.indexOf('-');
-    };
-
-    const inputnicName = {
-      nickName: this.state.nickName,
-    };
-  };
-
-  // 비밀번호
-  handelpwd = event => {
     this.setState({
       password: event.target.value,
     });
-    // console.log(event.target.value);
+    console.log('비번 첫번째 입력>>', event.target.value);
   };
-
+  // 비빌번호 두번째
   handelpwdCheck = event => {
     this.setState({
       passwordCheck: event.target.value,
