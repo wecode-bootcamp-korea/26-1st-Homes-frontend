@@ -6,11 +6,32 @@ export class Main extends Component {
   render() {
     return (
       <main className="main">
-        <div className="eventSlideWrap">
-          <img src="#" alt="eventSlideImg" className="eventSlideImg" />
-        </div>
+        <ul className="eventSlideWrap">
+          <li>
+            <img
+              src="./images/_ (2).jpeg"
+              alt="event slide img"
+              className="eventSlideImg"
+            />
+          </li>
+          <li>
+            <img
+              src="./images/Lewisham House by Sanders & King _ Australian Interiors _ est living.png"
+              alt="event slide img"
+              className="eventSlideImg"
+            />
+          </li>
+          <li>
+            <img
+              src="./images/오늘도 행복한  시골집.jpeg"
+              alt="event slide img"
+              className="eventSlideImg"
+            />
+          </li>
+        </ul>
         <div className="bestProductLists">
           <h1 className="bestProductName">집꾸미기 베스트 30</h1>
+          {/* TODO: 버튼 컴포넌트 가져와서 사용하기 */}
           <ul className="categoryBest">
             <li className="categoryName">가구</li>
             <li className="categoryName">패브릭</li>
