@@ -2,10 +2,11 @@
 
 .modal {
   display: flex;
+  justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 150px;
   height: 50px;
-  background: blue;
+  background: skyblue;
   color: white;
 
   .circleBtn {

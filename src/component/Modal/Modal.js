@@ -3,12 +3,12 @@ import '../Modal/Modal.scss';
 
 class Modal extends Component {
   render() {
-    const { sequence } = this.props;
-    const { filter } = this.props;
+    const { sequence, filter } = this.props;
+
     return (
       <div className="modal">
         <div className="circleBtn" />
-        <p onClick={filter}>{sequence}</p>
+        <p onClick={() => filter}>{sequence}</p>
       </div>
     );
   }

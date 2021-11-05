@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProductContainer from '../../component/ProductContainer/ProductContainer';
 import Modal from '../../component/Modal/Modal';
-
 import '../ProductLists/ProductLists.scss';
 
 class ProductLists extends Component {
@@ -37,7 +36,7 @@ class ProductLists extends Component {
   searchPrice = () => {
     const { product } = this.state;
     return product.filter(el => {
-      return el.discountPrice >= 300000;
+      return el.discountPrice >= 300000 ? <Modal /> : null;
     });
   };
 
@@ -65,7 +64,7 @@ class ProductLists extends Component {
                     <Modal
                       key={modalMenu.id}
                       sequence={modalMenu.sequence}
-                      filter={this.searchPrice}
+                      filter={this.searchPrice()}
                     />
                   );
                 })}
@@ -83,16 +82,17 @@ class ProductLists extends Component {
           <p>패밀리침대</p>
           <p>돌침대/흙침대</p>
         </div>
-
         <div className="productContainerFlex">
           {product.map(productInfo => {
+            const { id, brandName, productName, percent, discountPrice } =
+              productInfo;
             return (
               <ProductContainer
-                key={productInfo.id}
-                name={productInfo.brandName}
-                productName={productInfo.productName}
-                percent={productInfo.percent}
-                discountPrice={productInfo.discountPrice}
+                key={id}
+                name={brandName}
+                productName={productName}
+                percent={percent}
+                discountPrice={discountPrice}
               />
             );
           })}
