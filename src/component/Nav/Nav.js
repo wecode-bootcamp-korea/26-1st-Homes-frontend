@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
 
@@ -23,6 +23,7 @@ export class Nav extends Component {
   }
 
   hendleMouseEvent = showMenu => {
+    // this.setState(prev => ({ showMenu: !prev.showMenu }));
     !showMenu
       ? this.setState({ showMenu: true })
       : this.setState({ showMenu: false });
@@ -30,7 +31,6 @@ export class Nav extends Component {
 
   render() {
     const { categories, showMenu } = this.state;
-
     return (
       <nav className="Nav">
         <div className="navWrap">
@@ -54,20 +54,20 @@ export class Nav extends Component {
                 <span className="categoryMenuName">카테고리</span>
               </div>
               <ul className="categoryList">
-                {this.state.showMenu
-                  ? categories.map(category => {
-                      return (
-                        <CategoryTable
-                          key={category.id}
-                          categoryImg={category.img}
-                          categoryName={category.categoryName}
-                          categoryLists={category.categoryLists}
-                        />
-                      );
-                    })
-                  : null}
+                {showMenu &&
+                  categories.map(category => {
+                    return (
+                      <CategoryTable
+                        key={category.id}
+                        categoryImg={category.img}
+                        categoryName={category.categoryName}
+                        categoryLists={category.categoryLists}
+                      />
+                    );
+                  })}
               </ul>
             </div>
+
             <Button />
           </div>
           <div className="menuRight">

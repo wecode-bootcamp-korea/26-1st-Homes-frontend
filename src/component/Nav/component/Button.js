@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 export class NavButton extends Component {
   render() {
@@ -41,4 +41,4 @@ const MENU_LEFT_BUTTON_DATA = [
   },
 ];
 
-export default NavButton;
+export default withRouter(NavButton);

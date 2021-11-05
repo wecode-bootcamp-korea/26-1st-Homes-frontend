@@ -30,7 +30,7 @@
     .menuLeft {
       @include flexMix(center, space-between);
       width: 300px;
-      margin: 20px;
+      margin: 0 20px;
 
       .categoryMenu {
         position: relative;
@@ -38,6 +38,7 @@
 
         .categoryMenuHover {
           @include flexMix();
+          height: 50px;
 
           .categoryMenuImg {
             height: 20px;
@@ -69,8 +70,10 @@
 
         .categoryList {
           position: absolute;
+          top: 50px;
           left: -20px;
           background-color: #fff;
+          box-shadow: 1px 1px 5px lightgrey;
         }
       }
 
