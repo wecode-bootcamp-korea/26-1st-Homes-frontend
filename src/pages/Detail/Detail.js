@@ -9,7 +9,6 @@ export class Detail extends Component {
       buttonValue: true,
       buttonDropDown: true,
       secondDropDown: true,
-      disabled: false,
       productName: '제품 이름',
       productPrice: 0,
       productColor: '색상 이름',
@@ -28,54 +27,71 @@ export class Detail extends Component {
   }
 
   shippingButtonClick = event => {
+    const { buttonValue } = this.state;
     this.setState({
-      buttonValue: this.state.buttonValue == true ? false : true,
+      buttonValue: buttonValue === true ? false : true,
     });
   };
 
   optionButtonClick = event => {
+    const { buttonDropDown } = this.state;
     this.setState({
-      buttonDropDown: this.state.buttonDropDown == true ? false : true,
+      buttonDropDown: buttonDropDown === true ? false : true,
       secondDropDown: true,
     });
   };
 
   firstProductSelect = event => {
+    const { secondDropDown, productInfo } = this.state;
+    const { firstProductName, firstProductPrice } = productInfo;
     this.setState({
-      secondDropDown: this.state.secondDropDown == true ? false : true,
+      secondDropDown: secondDropDown === true ? false : true,
       buttonDropDown: true,
-      productName: this.state.productInfo.firstProductName,
-      productPrice: this.state.productInfo.firstProductPrice,
+      productName: firstProductName,
+      productPrice: firstProductPrice,
     });
   };
 
   secondProductSelect = event => {
+    const { secondDropDown, productInfo } = this.state;
+    const { secondProductName, secondProductPrice } = productInfo;
     this.setState({
-      secondDropDown: this.state.secondDropDown == true ? false : true,
+      secondDropDown: secondDropDown === true ? false : true,
       buttonDropDown: true,
-      productName: this.state.productInfo.secondProductName,
-      productPrice: this.state.productInfo.secondProductPrice,
+      productName: secondProductName,
+      productPrice: secondProductPrice,
     });
   };
 
   firstProductColor = event => {
+    const { productInfo } = this.state;
+    const { firstProductColor } = productInfo;
     this.setState({
-      secondDropDown: this.state.secondDropDown == true ? false : true,
       secondDropDown: true,
-      productColor: this.state.productInfo.firstProductColor,
+      productColor: firstProductColor,
     });
   };
 
   secondProductColor = event => {
+    const { productInfo } = this.state;
+    const { secondProductColor } = productInfo;
     this.setState({
-      secondDropDown: this.state.secondDropDown == true ? false : true,
       secondDropDown: true,
-      productColor: this.state.productInfo.secondProductColor,
+      productColor: secondProductColor,
     });
   };
 
   render() {
-    const { productInfo } = this.state;
+    const {
+      productInfo,
+      buttonValue,
+      productName,
+      buttonDropDown,
+      productColor,
+      secondDropDown,
+      quantityCalculation,
+      productPrice,
+    } = this.state;
     const costPrice = () => {
       return Math.round(
         ((productInfo.cost * (1 - productInfo.percent)) / 10) * 10
@@ -114,9 +130,7 @@ export class Detail extends Component {
                 </ul>
                 <li
                   className={
-                    this.state.buttonValue == true
-                      ? 'shippingFeeNone'
-                      : 'shippingLists'
+                    buttonValue === true ? 'shippingFeeNone' : 'shippingLists'
                   }
                 >
                   <div className="typeBox">
@@ -143,14 +157,10 @@ export class Detail extends Component {
               <p>옵션 선택</p>
               <div className="optionTop">
                 <bitton className="flexBox" onClick={this.optionButtonClick}>
-                  <p className="firstLeftText">{this.state.productName}</p>
+                  <p className="firstLeftText">{productName}</p>
                   <p className="firstRightText">∨</p>
                 </bitton>
-                <div
-                  className={
-                    this.state.buttonDropDown == true ? 'firstOnOff' : ''
-                  }
-                >
+                <div className={buttonDropDown == true ? 'firstOnOff' : ''}>
                   <div className="firstOptionHover">
                     <div
                       className="optionFlexBox "
@@ -181,14 +191,10 @@ export class Detail extends Component {
               </div>
               <div className="optionBottom">
                 <div className="flexBox">
-                  <p className="secondLeftText">{this.state.productColor}</p>
+                  <p className="secondLeftText">{productColor}</p>
                   <p className="secondRightText">∨</p>
                 </div>
-                <div
-                  className={
-                    this.state.secondDropDown == true ? 'secondOnOff' : ''
-                  }
-                >
+                <div className={secondDropDown === true ? 'secondOnOff' : ''}>
                   <div className="firstOptionHover">
                     <div
                       className="optionFlexBox "
@@ -215,31 +221,25 @@ export class Detail extends Component {
                 <div className="QuantityBox">
                   <div className="closeButtonFlex">
                     <div className="nameAndColor">
-                      {this.state.productName} / {this.state.productColor}
+                      {productName} / {productColor}
                     </div>
                     <button>✕</button>
                   </div>
                   <div className="buttonsAndPrice">
                     <div className="twoButtons">
                       <button className="minusButton">-</button>
-                      <div className="calculator">
-                        {this.state.quantityCalculation}
-                      </div>
+                      <div className="calculator">{quantityCalculation}</div>
                       <button className="plusButton">+</button>
                     </div>
-                    <div className="priceCalculator">
-                      {this.state.productPrice}
-                    </div>
+                    <div className="priceCalculator">{productPrice}</div>
                   </div>
                 </div>
                 <div className="priceBox">
                   <div className="QuantityAndPrice">
                     <div className="QuantityBottom">
-                      총 {this.state.quantityCalculation}개
+                      총 {quantityCalculation}개
                     </div>
-                    <div className="PriceBottom">
-                      {this.state.productPrice}원
-                    </div>
+                    <div className="PriceBottom">{productPrice}원</div>
                   </div>
                 </div>
                 <div className="buyButtons">
