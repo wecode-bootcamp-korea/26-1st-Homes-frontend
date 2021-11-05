@@ -5,8 +5,8 @@ export class NavButton extends Component {
   render() {
     return MENU_LEFT_BUTTON_DATA.map(data => {
       return (
-        <div className="NavButton">
-          <Link key={data.id} to={data.link} className="loginLink">
+        <div className="NavButton" key={data.id}>
+          <Link to={data.link} className="loginLink">
             <button className={data.className}>
               {data.buttonName}
               {data.img && (
