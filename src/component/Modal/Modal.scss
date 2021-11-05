@@ -1,9 +1,6 @@
 @import '../../styles/variable.scss';
 
 .modal {
-  @include flexCenter;
-  width: 100px;
-  height: 50px;
-  background: skyblue;
-  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
 }

@@ -8,7 +8,8 @@ class ProductLists extends Component {
     super();
     this.state = {
       product: [],
-      modal: [],
+      modalInfo: [],
+      isModalOn: false,
     };
   }
 
@@ -29,10 +30,12 @@ class ProductLists extends Component {
       .then(res => res.json())
       .then(sequence => {
         this.setState({
-          modal: sequence,
+          modalInfo: sequence,
         });
       });
   }
+
+  // filter 함수 구현 시작
 
   searchName = () => {
     const { product } = this.state;
@@ -41,21 +44,33 @@ class ProductLists extends Component {
     });
   };
 
-  render() {
-    const { product, modal } = this.state;
+  //모달창 on/off 함수 구현 시작
 
+  handleClick = () => {
+    this.setState(state => ({
+      isModalOn: !state.isModalOn,
+    }));
+  };
+
+  render() {
+    const { product, modalInfo, isModalOn } = this.state;
+    console.log(modalInfo);
     return (
       <div className="Container">
         <div className="categoryTitle">
           <p>침대</p>
 
           <div className="checkBox">
-            <button className="filterBtn">
-              인기순 ▼
-              {modal.map(modalInfo => {
-                return <Modal key={modalInfo.id} />;
-              })}
+            <button className="filterBtn" onClick={this.handleClick}>
+              인기순 ▼{isModalOn === true ? 'optionBox' : null}
             </button>
+            <div className="modalBox">
+              {modalInfo.map(modalMenu => {
+                return (
+                  <Modal key={modalMenu.id} sequence={modalMenu.sequence} />
+                );
+              })}
+            </div>
           </div>
         </div>
 

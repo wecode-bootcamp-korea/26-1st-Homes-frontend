@@ -3,10 +3,11 @@ import '../Modal/Modal.scss';
 
 class Modal extends Component {
   render() {
+    const { sequence } = this.props;
     return (
       <div className="modal">
         <input type="radio" />
-        <p>이름순</p>
+        <p>{sequence}</p>
       </div>
     );
   }
