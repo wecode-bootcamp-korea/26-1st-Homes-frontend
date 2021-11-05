@@ -94,6 +94,7 @@
         .shippingLists {
           // display: none;
           list-style: none;
+
           .typeBox {
             display: flex;
 
@@ -134,25 +135,6 @@
       border: #ababab 1px solid;
       background-color: white;
 
-      // .flexBox {
-      //   display: flex;
-      //   justify-content: space-between;
-      //   align-items: center;
-      //   padding-top: 15px;
-      //   padding-bottom: 13px;
-
-      //   .firstLeftText {
-      //     // .secondLeftText {
-      //     margin-left: 15px;
-      //     color: #ababab;
-      //   }
-      //   .firstRightText {
-      //     // .secondRightText {
-      //     margin-right: 15px;
-      //     color: #ababab;
-      //   }
-      // }
-
       .flexBox,
       .optionFlexBox {
         display: flex;
@@ -172,10 +154,12 @@
           margin-right: 15px;
           color: #ababab;
         }
+
         .optionLeftText {
           color: black;
           margin-left: 15px;
         }
+
         .optionRightText {
           color: black;
           margin-right: 15px;
@@ -186,9 +170,11 @@
         border-radius: 5px;
         background-color: rgb(180, 226, 248);
       }
+
       .firstOptionHover:hover {
         background-color: rgb(180, 226, 248);
       }
+
       .secondOptionHover:hover {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -229,6 +215,7 @@
           margin-right: 15px;
           color: #ababab;
         }
+
         .optionLeftText {
           color: black;
           margin-left: 15px;
@@ -238,9 +225,11 @@
         border-radius: 5px;
         background-color: rgb(180, 226, 248);
       }
+
       .firstOptionHover:hover {
         background-color: rgb(180, 226, 248);
       }
+
       .secondOptionHover:hover {
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -254,27 +243,33 @@
     .secondOnOff {
       display: none;
     }
+
     .boxAndBuy {
       margin-top: 133px;
+
       .QuantityBox {
         width: 370px;
         height: 90px;
         border-radius: 5px;
         background-color: rgb(248, 248, 248);
+
         .closeButtonFlex {
           display: flex;
           justify-content: space-between;
           border: 1px solid black;
+
           .nameAndColor {
             font-size: 14px;
             margin-left: 20px;
             padding-top: 20px;
           }
         }
+
         .buttonsAndPrice {
           display: flex;
           justify-content: space-between;
           border: 1px solid black;
+
           .twoButtons {
             display: flex;
           }
@@ -285,6 +280,7 @@
         width: 370px;
         height: 40px;
         margin-top: 15px;
+
         .QuantityAndPrice {
           display: flex;
           justify-content: space-between;

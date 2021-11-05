@@ -179,7 +179,6 @@ export class Detail extends Component {
                   </div>
                 </div>
               </div>
-
               <div className="optionBottom">
                 <div className="flexBox">
                   <p className="secondLeftText">{this.state.productColor}</p>
