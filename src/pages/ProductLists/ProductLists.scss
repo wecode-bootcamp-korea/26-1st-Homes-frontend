@@ -1,20 +1,8 @@
 @import '../../styles/variable.scss';
 
-@font-face {
-  font-family: 'GowunDodum-Regular';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 .Container {
   @include alignCenter;
   flex-direction: column;
-
-  .ProductLists {
-    font-family: 'GowunDodum-Regular';
-  }
 
   .categoryTitle {
     display: flex;
@@ -24,25 +12,15 @@
     padding: 18px 0px 18px 0px;
 
     .filterBtn {
+      position: relative;
       width: 82px;
       height: 30px;
       background-color: white;
       font-size: 14px;
-      position: relative;
-    }
 
-    .modalBox {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      width: 340px;
-      height: 150px;
-      font-size: 16px;
-      background: $keyColor;
-      position: absolute;
-      right: 413px;
-      z-index: 1000;
+      .modalBox {
+        position: absolute;
+      }
     }
   }
 
@@ -53,9 +31,9 @@
     padding: 18px;
     margin-bottom: 30px;
     border: 1px solid rgba($color: #585858, $alpha: 0.1);
-    z-index: 1;
   }
 }
+
 .productContainerFlex {
   display: flex;
   justify-content: space-between;

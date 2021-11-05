@@ -2,5 +2,17 @@
 
 .modal {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  background: blue;
+  color: white;
+
+  .circleBtn {
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+  }
 }

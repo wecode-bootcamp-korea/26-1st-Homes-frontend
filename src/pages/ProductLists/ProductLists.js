@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductContainer from '../../component/ProductContainer/ProductContainer';
 import Modal from '../../component/Modal/Modal';
+
 import '../ProductLists/ProductLists.scss';
 
 class ProductLists extends Component {
@@ -14,9 +15,7 @@ class ProductLists extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/sandBag.json', {
-      method: 'GET',
-    })
+    fetch('/data/productData.json')
       .then(res => res.json())
       .then(info => {
         this.setState({
@@ -24,9 +23,7 @@ class ProductLists extends Component {
         });
       });
 
-    fetch('http://localhost:3000/data/modalData.json', {
-      method: 'GET',
-    })
+    fetch('/data/modalData.json')
       .then(res => res.json())
       .then(sequence => {
         this.setState({
@@ -37,7 +34,7 @@ class ProductLists extends Component {
 
   // filter 함수 구현 시작
 
-  searchName = () => {
+  searchPrice = () => {
     const { product } = this.state;
     return product.filter(el => {
       return el.discountPrice >= 300000;
@@ -54,7 +51,6 @@ class ProductLists extends Component {
 
   render() {
     const { product, modalInfo, isModalOn } = this.state;
-    console.log(modalInfo);
     return (
       <div className="Container">
         <div className="categoryTitle">
@@ -62,15 +58,18 @@ class ProductLists extends Component {
 
           <div className="checkBox">
             <button className="filterBtn" onClick={this.handleClick}>
-              인기순 ▼{isModalOn === true ? 'optionBox' : null}
+              인기순 ▼
+              {isModalOn &&
+                modalInfo.map(modalMenu => {
+                  return (
+                    <Modal
+                      key={modalMenu.id}
+                      sequence={modalMenu.sequence}
+                      filter={this.searchPrice}
+                    />
+                  );
+                })}
             </button>
-            <div className="modalBox">
-              {modalInfo.map(modalMenu => {
-                return (
-                  <Modal key={modalMenu.id} sequence={modalMenu.sequence} />
-                );
-              })}
-            </div>
           </div>
         </div>
 

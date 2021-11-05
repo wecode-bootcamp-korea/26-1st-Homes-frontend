@@ -4,10 +4,11 @@ import '../Modal/Modal.scss';
 class Modal extends Component {
   render() {
     const { sequence } = this.props;
+    const { filter } = this.props;
     return (
       <div className="modal">
-        <input type="radio" />
-        <p>{sequence}</p>
+        <div className="circleBtn" />
+        <p onClick={filter}>{sequence}</p>
       </div>
     );
   }
