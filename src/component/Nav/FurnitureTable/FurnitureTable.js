@@ -26,11 +26,14 @@ export class FurnitureTable extends Component {
           <span className="furnitureName">{furnitureName}</span>
           <div className="furnitureTable">
             <ul className="items">
-              {this.state.showMenu
-                ? sub_category.map(itemName => {
-                    return <li className="item">{itemName.name}</li>;
-                  })
-                : null}
+              {this.state.showMenu &&
+                sub_category.map(itemName => {
+                  return (
+                    <li className="item" key={itemName.id}>
+                      {itemName.name}
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </li>

@@ -22,6 +22,8 @@ export class Nav extends Component {
       });
   }
 
+  hendleMouseEvent = () => {};
+
   render() {
     const { categories } = this.state;
 
@@ -52,6 +54,7 @@ export class Nav extends Component {
                   ? categories.map(category => {
                       return (
                         <CategoryTable
+                          key={category.id}
                           categoryImg={category.img}
                           categoryName={category.categoryName}
                           categoryLists={category.categoryLists}

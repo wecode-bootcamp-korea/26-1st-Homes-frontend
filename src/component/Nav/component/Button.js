@@ -6,16 +6,14 @@ export class NavButton extends Component {
     return MENU_LEFT_BUTTON_DATA.map(data => {
       return (
         <div className="NavButton">
-          {data.link && (
-            <Link to={data.link} className="loginLink">
-              <button className={data.className}>
-                {data.buttonName}
-                {data.img && (
-                  <img src={data.img} alt="cart img" className="cartImg" />
-                )}
-              </button>
-            </Link>
-          )}
+          <Link to={data.link} className="loginLink">
+            <button className={data.className}>
+              {data.buttonName}
+              {data.img && (
+                <img src={data.img} alt="cart img" className="cartImg" />
+              )}
+            </button>
+          </Link>
         </div>
       );
     });
@@ -36,7 +34,7 @@ const MENU_LEFT_BUTTON_DATA = [
   {
     className: 'community',
     buttonName: '커뮤니티',
-    link: '/login', // test
+    link: '/',
   },
 ];
 

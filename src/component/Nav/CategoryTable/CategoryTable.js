@@ -27,14 +27,14 @@ export class CategoryTable extends Component {
           <img src={categoryImg} alt="furniture img" className="furnitureImg" />
           <span className="furniture">{categoryName}</span>
           <ul className="furnitureLists">
-            {this.state.showMenu
-              ? categoryLists.map(item => (
-                  <FurnitureTable
-                    furnitureName={item.furnitureName}
-                    sub_category={item.sub_category}
-                  />
-                ))
-              : null}
+            {this.state.showMenu &&
+              categoryLists.map(item => (
+                <FurnitureTable
+                  key={item.id}
+                  furnitureName={item.furnitureName}
+                  sub_category={item.sub_category}
+                />
+              ))}
           </ul>
         </li>
       </div>

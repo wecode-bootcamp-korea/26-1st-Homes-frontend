@@ -1,53 +1,38 @@
 @import '../../../styles/variable.scss';
 
-.Nav {
-  .menuLeft {
-    .categoryMenu {
-      .categoryList {
-        .furnitureLists {
-          position: absolute;
-          top: 10px;
-          right: -172px;
-          border: solid 1px #eee;
-          background-color: #fff;
-          box-shadow: 0px 1px 2px lightgrey;
-        }
+.FurnitureTable {
+  .furnitureList {
+    padding: 5px 10px;
+    width: 170px;
+    margin: 20px 0;
+    transition: 0.3s;
+  }
 
-        .furnitureList {
-          padding: 5px 10px;
-          width: 170px;
-          margin: 20px 0;
-          transition: 0.3s;
-        }
+  .furnitureName {
+    &:hover {
+      color: $keyColor;
+    }
+  }
 
-        .furnitureName {
-          &:hover {
-            color: $keyColor;
-          }
-        }
+  .items {
+    position: absolute;
+    top: -1px;
+    right: -172px;
+    border: solid 1px #eee;
+    background-color: #fff;
+    box-shadow: 0px 1px 2px lightgrey;
+  }
 
-        .items {
-          position: absolute;
-          top: -1px;
-          right: -172px;
-          border: solid 1px #eee;
-          background-color: #fff;
-          box-shadow: 0px 1px 2px lightgrey;
-        }
+  .item,
+  .furniture,
+  .categoryMenuName {
+    padding: 5px 10px;
+    width: 170px;
+    margin: 20px 0;
+    transition: 0.3s;
 
-        .item,
-        .furniture,
-        .categoryMenuName {
-          padding: 5px 10px;
-          width: 170px;
-          margin: 20px 0;
-          transition: 0.3s;
-
-          &:hover {
-            color: $keyColor;
-          }
-        }
-      }
+    &:hover {
+      color: $keyColor;
     }
   }
 }
