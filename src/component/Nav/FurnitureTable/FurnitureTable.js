@@ -10,10 +10,10 @@ export class FurnitureTable extends Component {
   }
 
   render() {
-    const { furnitureName, sub_category } = this.props;
+    const { key, furnitureName, sub_category } = this.props;
 
     return (
-      <div className="FurnitureTable">
+      <div className="FurnitureTable" key={key}>
         <li
           className="furnitureList"
           onMouseEnter={() => {

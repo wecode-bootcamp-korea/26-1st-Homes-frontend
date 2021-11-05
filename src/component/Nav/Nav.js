@@ -15,17 +15,21 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/Categories.json')
+    fetch('/data/Categories.json')
       .then(res => res.json())
       .then(data => {
         this.setState({ categories: data });
       });
   }
 
-  hendleMouseEvent = () => {};
+  hendleMouseEvent = showMenu => {
+    !showMenu
+      ? this.setState({ showMenu: true })
+      : this.setState({ showMenu: false });
+  };
 
   render() {
-    const { categories } = this.state;
+    const { categories, showMenu } = this.state;
 
     return (
       <nav className="Nav">
@@ -39,10 +43,10 @@ export class Nav extends Component {
               className="categoryMenu"
               // FIXME: 반복되는 함수라서 줄일 수 있어볼 듯
               onMouseEnter={() => {
-                this.setState({ showMenu: true });
+                this.hendleMouseEvent(showMenu);
               }}
               onMouseLeave={() => {
-                this.setState({ showMenu: false });
+                this.hendleMouseEvent(showMenu);
               }}
             >
               <div className="categoryMenuHover">

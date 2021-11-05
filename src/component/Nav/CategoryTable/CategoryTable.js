@@ -11,10 +11,10 @@ export class CategoryTable extends Component {
   }
 
   render() {
-    const { categoryImg, categoryName, categoryLists } = this.props;
+    const { key, categoryImg, categoryName, categoryLists } = this.props;
 
     return (
-      <div className="CategoryTable">
+      <div className="CategoryTable" key={key}>
         <li
           className="category"
           onMouseEnter={() => {
