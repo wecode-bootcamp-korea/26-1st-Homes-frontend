@@ -124,121 +124,121 @@
   .optionBox {
     margin-top: 20px;
 
-    .optionTop {
-      position: absolute;
-      z-index: 2000;
-      width: 370px;
-      margin-top: 13px;
-      border-radius: 7px;
-      border: #ababab 1px solid;
-      background-color: white;
+    // .optionTop {
+    //   position: absolute;
+    //   z-index: 2000;
+    //   width: 370px;
+    //   margin-top: 13px;
+    //   border-radius: 7px;
+    //   border: #ababab 1px solid;
+    //   background-color: white;
 
-      .flexBox,
-      .optionFlexBox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 15px;
-        padding-bottom: 13px;
+    //   .flexBox,
+    //   .optionFlexBox {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     padding-top: 15px;
+    //     padding-bottom: 13px;
 
-        .firstLeftText {
-          margin-left: 15px;
-          color: #ababab;
-        }
+    //     .firstLeftText {
+    //       margin-left: 15px;
+    //       color: #ababab;
+    //     }
 
-        .firstRightText {
-          margin-right: 15px;
-          color: #ababab;
-        }
+    //     .firstRightText {
+    //       margin-right: 15px;
+    //       color: #ababab;
+    //     }
 
-        .optionLeftText {
-          color: black;
-          margin-left: 15px;
-        }
+    //     .optionLeftText {
+    //       color: black;
+    //       margin-left: 15px;
+    //     }
 
-        .optionRightText {
-          color: black;
-          margin-right: 15px;
-        }
-      }
+    //     .optionRightText {
+    //       color: black;
+    //       margin-right: 15px;
+    //     }
+    //   }
 
-      .flexBox:hover {
-        border-radius: 5px;
-        background-color: rgb(180, 226, 248);
-      }
+    //   .flexBox:hover {
+    //     border-radius: 5px;
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .firstOptionHover:hover {
-        background-color: rgb(180, 226, 248);
-      }
+    //   .firstOptionHover:hover {
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .secondOptionHover:hover {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        background-color: rgb(180, 226, 248);
-      }
+    //   .secondOptionHover:hover {
+    //     border-bottom-left-radius: 5px;
+    //     border-bottom-right-radius: 5px;
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .optionFlexBox {
-        border-top: solid 1px #ababab;
-      }
-    }
+    //   .optionFlexBox {
+    //     border-top: solid 1px #ababab;
+    //   }
+    // }
 
-    .firstOnOff {
-      display: none;
-    }
+    // .firstOnOff {
+    //   display: none;
+    // }
 
-    .optionBottom {
-      position: absolute;
-      z-index: 1000;
-      width: 370px;
-      border-radius: 7px;
-      border: #ababab 1px solid;
-      background-color: white;
-      margin-top: 73px;
-      .flexBox,
-      .optionFlexBox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 15px;
-        padding-bottom: 13px;
+    // .optionBottom {
+    //   position: absolute;
+    //   z-index: 1000;
+    //   width: 370px;
+    //   border-radius: 7px;
+    //   border: #ababab 1px solid;
+    //   background-color: white;
+    //   margin-top: 73px;
+    //   .flexBox,
+    //   .optionFlexBox {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     padding-top: 15px;
+    //     padding-bottom: 13px;
 
-        .secondLeftText {
-          margin-left: 15px;
-          color: #ababab;
-        }
+    //     .secondLeftText {
+    //       margin-left: 15px;
+    //       color: #ababab;
+    //     }
 
-        .secondRightText {
-          margin-right: 15px;
-          color: #ababab;
-        }
+    //     .secondRightText {
+    //       margin-right: 15px;
+    //       color: #ababab;
+    //     }
 
-        .optionLeftText {
-          color: black;
-          margin-left: 15px;
-        }
-      }
-      .flexBox:hover {
-        border-radius: 5px;
-        background-color: rgb(180, 226, 248);
-      }
+    //     .optionLeftText {
+    //       color: black;
+    //       margin-left: 15px;
+    //     }
+    //   }
+    //   .flexBox:hover {
+    //     border-radius: 5px;
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .firstOptionHover:hover {
-        background-color: rgb(180, 226, 248);
-      }
+    //   .firstOptionHover:hover {
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .secondOptionHover:hover {
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        background-color: rgb(180, 226, 248);
-      }
+    //   .secondOptionHover:hover {
+    //     border-bottom-left-radius: 5px;
+    //     border-bottom-right-radius: 5px;
+    //     background-color: rgb(180, 226, 248);
+    //   }
 
-      .optionFlexBox {
-        border-top: solid 1px #ababab;
-      }
-    }
-    .secondOnOff {
-      display: none;
-    }
+    //   .optionFlexBox {
+    //     border-top: solid 1px #ababab;
+    //   }
+    // }
+    // .secondOnOff {
+    //   display: none;
+    // }
 
     .boxAndBuy {
       margin-top: 133px;

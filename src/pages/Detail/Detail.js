@@ -17,7 +17,7 @@ export class Detail extends Component {
   }
 
   componentDidMount() {
-    fetch('http:/data/data.json')
+    fetch('/data/data.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -92,6 +92,7 @@ export class Detail extends Component {
       quantityCalculation,
       productPrice,
     } = this.state;
+    const productOption = productInfo.productOption;
     const costPrice = () => {
       return Math.round(
         ((productInfo.cost * (1 - productInfo.percent)) / 10) * 10
@@ -155,12 +156,12 @@ export class Detail extends Component {
             <div className="contour" />
             <div className="optionBox">
               <p>옵션 선택</p>
-              <div className="optionTop">
-                <bitton className="flexBox" onClick={this.optionButtonClick}>
+              {/* <div className="optionTop">
+                <button className="flexBox" onClick={this.optionButtonClick}>
                   <p className="firstLeftText">{productName}</p>
                   <p className="firstRightText">∨</p>
-                </bitton>
-                <div className={buttonDropDown == true ? 'firstOnOff' : ''}>
+                </button>
+                <div className={buttonDropDown === true ? 'firstOnOff' : ''}>
                   <div className="firstOptionHover">
                     <div
                       className="optionFlexBox "
@@ -216,7 +217,10 @@ export class Detail extends Component {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+
+              {/* <div>{productOption && productOption[0].productName}</div> */}
+
               <div className="boxAndBuy">
                 <div className="QuantityBox">
                   <div className="closeButtonFlex">
