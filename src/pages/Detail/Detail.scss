@@ -9,6 +9,7 @@
 
     .detailImage {
       width: 550px;
+      height: 550px;
       border-radius: 10px;
     }
 
@@ -151,6 +152,7 @@
       //     color: #ababab;
       //   }
       // }
+
       .flexBox,
       .optionFlexBox {
         display: flex;
@@ -179,9 +181,9 @@
           margin-right: 15px;
         }
       }
+
       .flexBox:hover {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+        border-radius: 5px;
         background-color: rgb(180, 226, 248);
       }
       .firstOptionHover:hover {
@@ -232,6 +234,18 @@
           margin-left: 15px;
         }
       }
+      .flexBox:hover {
+        border-radius: 5px;
+        background-color: rgb(180, 226, 248);
+      }
+      .firstOptionHover:hover {
+        background-color: rgb(180, 226, 248);
+      }
+      .secondOptionHover:hover {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: rgb(180, 226, 248);
+      }
 
       .optionFlexBox {
         border-top: solid 1px #ababab;
@@ -240,30 +254,65 @@
     .secondOnOff {
       display: none;
     }
-
-    .buyButtons {
-      display: flex;
-      width: 370px;
-      justify-content: space-between;
+    .boxAndBuy {
       margin-top: 133px;
-
-      .shoppingB1asket,
-      .shoppingBasket {
-        display: block;
-        width: 180px;
-        height: 50px;
-        border-radius: 7px;
-        color: white;
-        background-color: $keyColor;
-        z-index: -1;
+      .QuantityBox {
+        width: 370px;
+        height: 90px;
+        border-radius: 5px;
+        background-color: rgb(248, 248, 248);
+        .closeButtonFlex {
+          display: flex;
+          justify-content: space-between;
+          border: 1px solid black;
+          .nameAndColor {
+            font-size: 14px;
+            margin-left: 20px;
+            padding-top: 20px;
+          }
+        }
+        .buttonsAndPrice {
+          display: flex;
+          justify-content: space-between;
+          border: 1px solid black;
+          .twoButtons {
+            display: flex;
+          }
+        }
       }
 
-      .shoppingB1asket {
-        opacity: 0.5;
+      .priceBox {
+        width: 370px;
+        height: 40px;
+        margin-top: 15px;
+        .QuantityAndPrice {
+          display: flex;
+          justify-content: space-between;
+          border: black solid 1px;
+        }
       }
-    }
-    .aa {
-      border: solid black 1px;
+
+      .buyButtons {
+        display: flex;
+        width: 370px;
+        margin-top: 15px;
+        justify-content: space-between;
+
+        .shoppingBasket,
+        .nowBuy {
+          display: block;
+          width: 180px;
+          height: 50px;
+          border-radius: 7px;
+          color: white;
+          background-color: $keyColor;
+          z-index: -1;
+        }
+
+        .shoppingBasket {
+          opacity: 0.5;
+        }
+      }
     }
   }
 }

@@ -8,7 +8,13 @@
     "starPoint": 4.8,
     "shippingFee": "35,000",
     "shippingTypeValue": "직접 배송",
-    "payTypeValue": "착불"
+    "payTypeValue": "착불",
+    "firstProductName": "캐더린 통수납 침대 SS 프레임만",
+    "secondProductName": "캐더린린론 수납 침대 AS 프레임만",
+    "firstProductPrice": 189000,
+    "secondProductPrice": 229000,
+    "firstProductColor": "화이트",
+    "secondProductColor": "그레이"
   },
   {
     "id": 2,

@@ -8,13 +8,15 @@ export class Detail extends Component {
       productInfo: [],
       buttonValue: true,
       buttonDropDown: true,
+      secondDropDown: true,
+      disabled: false,
+      productName: '제품 이름',
+      productPrice: 0,
+      productColor: '색상 이름',
+      quantityCalculation: 1,
     };
   }
-  buttonClick = event => {
-    this.setState({
-      buttonValue: this.state.buttonValue == true ? false : true,
-    });
-  };
+
   componentDidMount() {
     fetch('http:/data/data.json')
       .then(res => res.json())
@@ -25,9 +27,50 @@ export class Detail extends Component {
       });
   }
 
-  buttonClick = event => {
+  shippingButtonClick = event => {
     this.setState({
       buttonValue: this.state.buttonValue == true ? false : true,
+    });
+  };
+
+  optionButtonClick = event => {
+    this.setState({
+      buttonDropDown: this.state.buttonDropDown == true ? false : true,
+      secondDropDown: true,
+    });
+  };
+
+  firstProductSelect = event => {
+    this.setState({
+      secondDropDown: this.state.secondDropDown == true ? false : true,
+      buttonDropDown: true,
+      productName: this.state.productInfo.firstProductName,
+      productPrice: this.state.productInfo.firstProductPrice,
+    });
+  };
+
+  secondProductSelect = event => {
+    this.setState({
+      secondDropDown: this.state.secondDropDown == true ? false : true,
+      buttonDropDown: true,
+      productName: this.state.productInfo.secondProductName,
+      productPrice: this.state.productInfo.secondProductPrice,
+    });
+  };
+
+  firstProductColor = event => {
+    this.setState({
+      secondDropDown: this.state.secondDropDown == true ? false : true,
+      secondDropDown: true,
+      productColor: this.state.productInfo.firstProductColor,
+    });
+  };
+
+  secondProductColor = event => {
+    this.setState({
+      secondDropDown: this.state.secondDropDown == true ? false : true,
+      secondDropDown: true,
+      productColor: this.state.productInfo.secondProductColor,
     });
   };
 
@@ -88,7 +131,10 @@ export class Detail extends Component {
                   </div>
                 </li>
               </div>
-              <bitton className="shippingFeeButton" onClick={this.buttonClick}>
+              <bitton
+                className="shippingFeeButton"
+                onClick={this.shippingButtonClick}
+              >
                 ∨
               </bitton>
             </div>
@@ -96,25 +142,39 @@ export class Detail extends Component {
             <div className="optionBox">
               <p>옵션 선택</p>
               <div className="optionTop">
-                <div className="flexBox" onClick={this.buttonClick}>
-                  <p className="firstLeftText">제품 선택</p>
+                <bitton className="flexBox" onClick={this.optionButtonClick}>
+                  <p className="firstLeftText">{this.state.productName}</p>
                   <p className="firstRightText">∨</p>
-                </div>
-                <div className="firstOnOf">
+                </bitton>
+                <div
+                  className={
+                    this.state.buttonDropDown == true ? 'firstOnOff' : ''
+                  }
+                >
                   <div className="firstOptionHover">
-                    <div className="optionFlexBox ">
+                    <div
+                      className="optionFlexBox "
+                      onClick={this.firstProductSelect}
+                    >
                       <p className="optionLeftText">
-                        1. 캐더린 통수납 침대 SS 프레임만
+                        1. {productInfo.firstProductName}
                       </p>
-                      <p className="optionRightText">189,000원~</p>
+                      <p className="optionRightText">
+                        {productInfo.firstProductPrice}원~
+                      </p>
                     </div>
                   </div>
                   <div className="secondOptionHover">
-                    <div className="optionFlexBox">
+                    <div
+                      className="optionFlexBox"
+                      onClick={this.secondProductSelect}
+                    >
                       <p className="optionLeftText">
-                        2. 캐더린린론 수납 침대 AS 프레임만
+                        2. {productInfo.secondProductName}
                       </p>
-                      <p className="optionRightText">229,000원~</p>
+                      <p className="optionRightText">
+                        {productInfo.secondProductPrice}원~
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -122,21 +182,71 @@ export class Detail extends Component {
 
               <div className="optionBottom">
                 <div className="flexBox">
-                  <p className="secondLeftText">색상 선택</p>
+                  <p className="secondLeftText">{this.state.productColor}</p>
                   <p className="secondRightText">∨</p>
                 </div>
-                <div className="secondOnOff">
-                  <div className="optionFlexBox ">
-                    <p className="optionLeftText">1. 화이트</p>
+                <div
+                  className={
+                    this.state.secondDropDown == true ? 'secondOnOff' : ''
+                  }
+                >
+                  <div className="firstOptionHover">
+                    <div
+                      className="optionFlexBox "
+                      onClick={this.firstProductColor}
+                    >
+                      <p className="optionLeftText">
+                        1. {productInfo.firstProductColor}
+                      </p>
+                    </div>
                   </div>
-                  <div className="optionFlexBox ">
-                    <p className="optionLeftText">2. 블루</p>
+                  <div className="secondOptionHover">
+                    <div
+                      className="optionFlexBox "
+                      onClick={this.secondProductColor}
+                    >
+                      <p className="optionLeftText">
+                        2. {productInfo.secondProductColor}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="buyButtons">
-                <button className="shoppingB1asket">장바구니</button>
-                <button className="shoppingBasket">바로구매</button>
+              <div className="boxAndBuy">
+                <div className="QuantityBox">
+                  <div className="closeButtonFlex">
+                    <div className="nameAndColor">
+                      {this.state.productName} / {this.state.productColor}
+                    </div>
+                    <button>✕</button>
+                  </div>
+                  <div className="buttonsAndPrice">
+                    <div className="twoButtons">
+                      <button className="minusButton">-</button>
+                      <div className="calculator">
+                        {this.state.quantityCalculation}
+                      </div>
+                      <button className="plusButton">+</button>
+                    </div>
+                    <div className="priceCalculator">
+                      {this.state.productPrice}
+                    </div>
+                  </div>
+                </div>
+                <div className="priceBox">
+                  <div className="QuantityAndPrice">
+                    <div className="QuantityBottom">
+                      총 {this.state.quantityCalculation}개
+                    </div>
+                    <div className="PriceBottom">
+                      {this.state.productPrice}원
+                    </div>
+                  </div>
+                </div>
+                <div className="buyButtons">
+                  <button className="shoppingBasket">장바구니</button>
+                  <button className="nowBuy">바로구매</button>
+                </div>
               </div>
             </div>
           </div>
