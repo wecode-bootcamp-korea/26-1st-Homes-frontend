@@ -9,9 +9,10 @@ class Login extends React.Component {
       pwd: '',
     };
   }
-
   goToSinup = () => {
-    this.props.history.push('./Signup');
+    const { history } = this.props;
+
+    history.push('./Signup');
   };
 
   handleInput = event => {
@@ -20,15 +21,17 @@ class Login extends React.Component {
       [name]: value,
     });
   };
-
   handleLogin = () => {
-    fetch('http://localhost:3000/data/commentData.json', {
+    const { history } = this.props;
+    const login_info = {
       method: 'POST',
-      body: JSON.stringify({
-        email: this.state.email,
-        pwd: this.state.pwd,
-      }),
-    })
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    fetch('http://data/commentData.json', login_info)
       .then(response => response.json())
       .then(result => {
         if (result.message === 'USER_DOES_NOT_EXIST') {
@@ -38,16 +41,17 @@ class Login extends React.Component {
         } else if (result.token) {
           alert('로그인 성공');
           localStorage.setItem('token', result.token);
-          this.props.history.push('/Main');
+          history.push('/Main');
         }
       });
   };
 
   render() {
+    const { email, pwd } = this.state;
     return (
       <div className="Login">
         <div className="container">
-          <div>
+          <div className="logoBox">
             <img id="homeLogo" src="/images/home.png" alt="집꾸미기로고" />
             <div className="logoName">집꾸미기 로그인</div>
           </div>
@@ -84,10 +88,7 @@ class Login extends React.Component {
               id="loginBtn"
               type="submit"
               onClick={this.handleLogin}
-              disabled={
-                this.state.email.indexOf('@') !== -1 &&
-                !(this.state.pwd.length > 7)
-              }
+              disabled={email.indexOf('@') !== -1 && !(pwd.length > 7)}
             >
               LOGIN
             </button>
