@@ -20,6 +20,7 @@ class Login extends React.Component {
       [name]: value,
     });
   };
+
   handleLogin = () => {
     const { history } = this.props;
     const login_info = {
