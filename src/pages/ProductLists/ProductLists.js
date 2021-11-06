@@ -31,12 +31,6 @@ class ProductLists extends Component {
       });
   }
 
-  // filtering button functionality
-
-  handleBtn = e => {
-    // console.log(e.target.value);
-  };
-
   //모달창 on/off 함수 구현 시작
 
   handleClick = () => {

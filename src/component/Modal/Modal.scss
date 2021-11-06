@@ -1,12 +1,12 @@
 @import '../../styles/variable.scss';
 
-.modal {
+.Modal {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 220px;
   height: 40px;
-  background: white;
+  background: lightgray;
   color: black;
 
   .circleBtn {
