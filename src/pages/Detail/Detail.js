@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Detail.scss';
+import ProductSelectOptions from './ProductSelectOptions/ProductSelectOptions';
 
 export class Detail extends Component {
   constructor() {
@@ -10,9 +11,8 @@ export class Detail extends Component {
       buttonDropDown: true,
       secondDropDown: true,
       productName: '제품 이름',
-      productPrice: 0,
       productColor: '색상 이름',
-      quantityCalculation: 1,
+      quantityCalculation: '0',
     };
   }
 
@@ -34,50 +34,18 @@ export class Detail extends Component {
   };
 
   optionButtonClick = event => {
+    const { buttonDropDown, secondDropDown } = this.state;
+    this.setState({
+      buttonDropDown: buttonDropDown === true ? false : true,
+      secondDropDown: secondDropDown === true ? false : true,
+    });
+  };
+
+  optionSelectButton = event => {
     const { buttonDropDown } = this.state;
     this.setState({
       buttonDropDown: buttonDropDown === true ? false : true,
       secondDropDown: true,
-    });
-  };
-
-  firstProductSelect = event => {
-    const { secondDropDown, productInfo } = this.state;
-    const { firstProductName, firstProductPrice } = productInfo;
-    this.setState({
-      secondDropDown: secondDropDown === true ? false : true,
-      buttonDropDown: true,
-      productName: firstProductName,
-      productPrice: firstProductPrice,
-    });
-  };
-
-  secondProductSelect = event => {
-    const { secondDropDown, productInfo } = this.state;
-    const { secondProductName, secondProductPrice } = productInfo;
-    this.setState({
-      secondDropDown: secondDropDown === true ? false : true,
-      buttonDropDown: true,
-      productName: secondProductName,
-      productPrice: secondProductPrice,
-    });
-  };
-
-  firstProductColor = event => {
-    const { productInfo } = this.state;
-    const { firstProductColor } = productInfo;
-    this.setState({
-      secondDropDown: true,
-      productColor: firstProductColor,
-    });
-  };
-
-  secondProductColor = event => {
-    const { productInfo } = this.state;
-    const { secondProductColor } = productInfo;
-    this.setState({
-      secondDropDown: true,
-      productColor: secondProductColor,
     });
   };
 
@@ -88,11 +56,10 @@ export class Detail extends Component {
       productName,
       buttonDropDown,
       productColor,
-      secondDropDown,
       quantityCalculation,
       productPrice,
     } = this.state;
-    const productOption = productInfo.productOption;
+
     const costPrice = () => {
       return Math.round(
         ((productInfo.cost * (1 - productInfo.percent)) / 10) * 10
@@ -156,70 +123,31 @@ export class Detail extends Component {
             <div className="contour" />
             <div className="optionBox">
               <p>옵션 선택</p>
-              {/* <div className="optionTop">
-                <button className="flexBox" onClick={this.optionButtonClick}>
-                  <p className="firstLeftText">{productName}</p>
-                  <p className="firstRightText">∨</p>
-                </button>
-                <div className={buttonDropDown === true ? 'firstOnOff' : ''}>
-                  <div className="firstOptionHover">
-                    <div
-                      className="optionFlexBox "
-                      onClick={this.firstProductSelect}
-                    >
-                      <p className="optionLeftText">
-                        1. {productInfo.firstProductName}
-                      </p>
-                      <p className="optionRightText">
-                        {productInfo.firstProductPrice}원~
-                      </p>
-                    </div>
-                  </div>
-                  <div className="secondOptionHover">
-                    <div
-                      className="optionFlexBox"
-                      onClick={this.secondProductSelect}
-                    >
-                      <p className="optionLeftText">
-                        2. {productInfo.secondProductName}
-                      </p>
-                      <p className="optionRightText">
-                        {productInfo.secondProductPrice}원~
-                      </p>
-                    </div>
-                  </div>
+
+              <div className="optionsBoxTest">
+                <div
+                  onClick={this.optionButtonClick}
+                  className={buttonDropDown === true ? 'testBox2' : 'testBox'}
+                >
+                  제품이름
+                </div>
+                <div className="testMap">
+                  {productInfo.productOption &&
+                    productInfo.productOption.map(option => {
+                      return (
+                        <div key={option.id}>
+                          <ProductSelectOptions
+                            id={option.id}
+                            productName={option.productName}
+                            productPrice={option.productPrice}
+                            secondDropDown={this.secondDropDown}
+                            optionSelectButton={this.optionSelectButton}
+                          />
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
-              <div className="optionBottom">
-                <div className="flexBox">
-                  <p className="secondLeftText">{productColor}</p>
-                  <p className="secondRightText">∨</p>
-                </div>
-                <div className={secondDropDown === true ? 'secondOnOff' : ''}>
-                  <div className="firstOptionHover">
-                    <div
-                      className="optionFlexBox "
-                      onClick={this.firstProductColor}
-                    >
-                      <p className="optionLeftText">
-                        1. {productInfo.firstProductColor}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="secondOptionHover">
-                    <div
-                      className="optionFlexBox "
-                      onClick={this.secondProductColor}
-                    >
-                      <p className="optionLeftText">
-                        2. {productInfo.secondProductColor}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-
-              {/* <div>{productOption && productOption[0].productName}</div> */}
 
               <div className="boxAndBuy">
                 <div className="QuantityBox">

@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff');
+
 * {
   box-sizing: border-box;
   @font-face {
@@ -15,7 +17,11 @@ body,
   height: 100%;
 }
 
-image {
+body {
+  font-family: 'GowunDodum-Regular', sans-serif;
+}
+
+∫ image {
   border: none;
 }
 
