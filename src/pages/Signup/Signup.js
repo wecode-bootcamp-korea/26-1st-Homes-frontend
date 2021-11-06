@@ -7,24 +7,24 @@ class Signup extends React.Component {
     this.state = {
       email: '',
       nickName: '',
-      phonNumber: '',
+      phone_number: '',
       password: '',
       rePassword: '',
     };
   }
 
-  gotoMain = () => {
+  gotoLogin = () => {
     const { history } = this.props;
-    history.push('./Main');
+    history.push('./Login');
   };
 
   //이메일 인풋창 핸들링
   handleEmail = event => {
     event.preventDefault();
+    const { value } = event.target;
     this.setState({
-      email: event.target.value,
+      email: value,
     });
-    console.log('이메일입력값>>', event.target.value);
   };
 
   //이메일 중복검사
@@ -78,7 +78,6 @@ class Signup extends React.Component {
     this.setState({
       nickName: event.target.value,
     });
-    console.log('닉네임 사용자 입력값>>', event.target.value);
   };
   //닉네임 중복검사
   checknickName = event => {
@@ -91,7 +90,7 @@ class Signup extends React.Component {
     };
 
     const inputnicName = {
-      nickName: this.state.nickName,
+      nickName: this.state.nickMame,
     };
 
     const nickNameInfo = {
@@ -140,7 +139,7 @@ class Signup extends React.Component {
     };
 
     const inputPhonNum = {
-      phonNumber: this.state.phonNumber,
+      phone_number: this.state.phone_number,
     };
 
     const phonNumInfo = {
@@ -160,7 +159,7 @@ class Signup extends React.Component {
           if (json === true) {
             alert('사용가능 한 전화번호입니다. ');
             this.setState({
-              chkPhonNum: this.state.phonNumber,
+              chkPhonNum: this.state.phone_number,
             });
           } else {
             alert('이미 존재하는 전화번호입니다.');
@@ -250,8 +249,6 @@ class Signup extends React.Component {
   };
 
   render() {
-    console.log(this.handleSubmit);
-
     return (
       <div id="SignupPage">
         <div className="container">
@@ -326,7 +323,7 @@ class Signup extends React.Component {
           <div className="btnBox">
             <button
               className="signupBtn"
-              onClick={this.gotoMain}
+              onClick={this.handleSubmit}
               disabled={
                 this.state.email.indexOf('@') !== -1 &&
                 this.state.nickName.length > 5
@@ -336,7 +333,7 @@ class Signup extends React.Component {
             >
               회원가입
             </button>
-            <button className="lostpwdBtn" onClick={this.handleSubmit}>
+            <button className="lostpwdBtn" onClick={this.gotoLogin}>
               로그인 하기
             </button>
           </div>
