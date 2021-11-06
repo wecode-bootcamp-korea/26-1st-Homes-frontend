@@ -6,12 +6,11 @@ class Login extends React.Component {
     super(props);
     this.state = {
       email: '',
-      pwd: '',
+      password: '',
     };
   }
-  goToSinup = () => {
+  goToSignup = () => {
     const { history } = this.props;
-
     history.push('./Signup');
   };
 
@@ -47,7 +46,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { email, pwd } = this.state;
+    const { email, password } = this.state;
     return (
       <div className="Login">
         <div className="container">
@@ -75,7 +74,7 @@ class Login extends React.Component {
             />
             <img id="emailIcon" src="./images/email.png" alt="이메일아이콘" />
             <input
-              name="pwd"
+              name="password"
               className="password"
               type="password"
               placeholder="PASSWORD"
@@ -88,13 +87,13 @@ class Login extends React.Component {
               id="loginBtn"
               type="submit"
               onClick={this.handleLogin}
-              disabled={email.indexOf('@') !== -1 && !(pwd.length > 7)}
+              disabled={email.indexOf('@') !== -1 && !(password.length > 7)}
             >
               LOGIN
             </button>
           </div>
           <div className="linkBox">
-            <button className="signupLink" onClick={this.goToSinup}>
+            <button className="signupLink" onClick={this.goToSignup}>
               회원가입
             </button>
             <span className="lostpwdLink">비밀번호 찾기</span>
