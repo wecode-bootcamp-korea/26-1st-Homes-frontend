@@ -233,12 +233,8 @@ class Signup extends React.Component {
       email &&
       nickName &&
       phonNumvber &&
-      password &&
-      rePassword &&
-      email === this.checkEmail &&
-      nickName === this.checknickName &&
       password === rePassword &&
-      rePassword === this.chkPw
+      email === this.checkEmail
     ) {
       fetch('http://localhost:3000/data/commentData.json/user', signupInfo)
         .then(alert('가입이 완료되었습니다.'))
