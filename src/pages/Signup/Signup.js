@@ -7,7 +7,7 @@ class Signup extends React.Component {
     this.state = {
       email: '',
       nickName: '',
-      phonNumvber: '',
+      phonNumber: '',
       password: '',
       rePassword: '',
     };
@@ -33,8 +33,7 @@ class Signup extends React.Component {
 
     //이메일 유효성 검사
     const chkEmail = function (str) {
-      let regExp =
-        /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+      let regExp = '^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$';
       return regExp.test(str) ? true : false;
     };
 
@@ -58,7 +57,7 @@ class Signup extends React.Component {
         email: '',
       });
     } else {
-      fetch('url', emailInfo)
+      fetch('http://localhost:3000/data/commentData.json', emailInfo)
         .then(res => res.json())
         .then(json => {
           if (json === true) {
@@ -106,7 +105,7 @@ class Signup extends React.Component {
     if (chknickName(this.state.nickName) === false) {
       alert('한글, 영문 대소문자 2~15자리만 사용 가능합니다.');
     } else {
-      fetch('url', nickNameInfo)
+      fetch('http://localhost:3000/data/commentData.json', nickNameInfo)
         .then(res => res.json())
         .then(json => {
           if (json === true) {
@@ -122,27 +121,57 @@ class Signup extends React.Component {
   };
 
   // 폰넘버
-  // handelphonNum = event => {
-  //   this.setState({
-  //     phonNumver: event.target.value,
-  //   });
-  //   // console.log(event.target.value);
-  // };
-  // // 폰넘버
-  // checkPhonNum = event => {
-  //   event.preventDenfault();
-  //   const checkPhonNum = function (str) {
-  //     let rephonNum = str.indexOf('-');
-  //   };
+  handlephonNum = event => {
+    event.preventDefault();
+    this.setState({
+      phonNumber: event.target.value,
+    });
+    console.log('전화번호 입력>>', event.target.value);
+  };
 
-  //   const inputnicName = {
-  //     nickName: this.state.nickName,
-  //   };
-  // };
+  //이메일 중복검사
+  checkPhonNum = event => {
+    event.preventDenfault();
+
+    //이메일 유효성 검사
+    const chkPhonNum = function (str) {
+      let regPhonNum = '^01([0|1|6|7|8|9]?)([0-9]{3,4})([0-9]{4})$';
+      return regPhonNum.test(str) ? true : false;
+    };
+
+    const inputPhonNum = {
+      phonNumber: this.state.phonNumber,
+    };
+
+    const phonNumInfo = {
+      method: 'POST',
+      body: JSON.stringify(inputPhonNum),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    if (chkPhonNum(this.state.phonNumber) === false) {
+      alert('-을 제외하고 입력해주세요');
+    } else {
+      fetch('url', phonNumInfo)
+        .then(res => res.json())
+        .then(json => {
+          if (json === true) {
+            alert('사용가능 한 전화번호입니다. ');
+            this.setState({
+              chkPhonNum: this.state.phonNumber,
+            });
+          } else {
+            alert('이미 존재하는 전화번호입니다.');
+          }
+        });
+    }
+  };
 
   // 비밀번호 첫번째
   handelPwd = event => {
-    event.preventDenfault();
+    event.preventDefault();
     this.setState({
       password: event.target.value,
     });
@@ -150,13 +179,79 @@ class Signup extends React.Component {
   };
   // 비빌번호 두번째
   handelpwdCheck = event => {
+    event.preventDefault();
     this.setState({
-      passwordCheck: event.target.value,
+      rePassword: event.target.value,
     });
-    // console.log(event.target.value);
+  };
+
+  chkPw = event => {
+    event.preventDenfault();
+
+    const chkPwd = function (str) {
+      let regPwd =
+        '^(?=.*[A-Za-z])(?=.*d)(?=.*[$@$!%*#?&])[A-Za-zd$@$!%*#?&]{8,}$';
+      return regPwd.test(str) ? true : false;
+    };
+
+    if (chkPwd(this.state.rePassword) === false) {
+      alert('영문, 숫자, 기호를 혼합하여 8자 이상');
+      this.setState({
+        password: '',
+        rePassword: '',
+      });
+    } else {
+      if (this.state.password === this.state.rePassword) {
+        alert('일치합니다.');
+        this.setState({
+          pwCheck: this.state.rePassword,
+        });
+      } else {
+        alert('비밀번호를 확인해주세요');
+      }
+    }
+  };
+
+  gotoMain = () => {
+    const { history } = this.props;
+    history.push('./Main');
+  };
+
+  handleSubmit = event => {
+    event.preventDenfault();
+
+    const { email, nickName, phonNumvber, password, rePassword } = this.state;
+
+    const signupInfo = {
+      method: 'POST',
+      body: JSON.stringify(signupInfo),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    if (
+      email &&
+      nickName &&
+      phonNumvber &&
+      password &&
+      rePassword &&
+      email === this.checkEmail &&
+      nickName === this.checknickName &&
+      password === rePassword &&
+      rePassword === this.chkPw
+    ) {
+      fetch('http://localhost:3000/data/commentData.json/user', signupInfo)
+        .then(alert('가입이 완료되었습니다.'))
+        .then(this.props.history.push('/Main'));
+    } else {
+      alert('입력값을 확인해주세요');
+    }
   };
 
   render() {
+    console.log(this.handleSubmit);
+
     return (
       <div id="SignupPage">
         <div className="container">
@@ -241,7 +336,7 @@ class Signup extends React.Component {
             >
               회원가입
             </button>
-            <button button className="lostpwdBtn" onClick={this.goToMain}>
+            <button className="lostpwdBtn" onClick={this.handleSubmit}>
               로그인 하기
             </button>
           </div>
