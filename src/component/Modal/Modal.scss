@@ -4,16 +4,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 50px;
-  background: skyblue;
-  color: white;
+  width: 220px;
+  height: 40px;
+  background: white;
+  color: black;
 
   .circleBtn {
     margin-right: 5px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: white;
+    background: $keyColor;
   }
 }

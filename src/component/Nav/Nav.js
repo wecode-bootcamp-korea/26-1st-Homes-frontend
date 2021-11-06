@@ -54,7 +54,7 @@ export class Nav extends Component {
                 <span className="categoryMenuName">카테고리</span>
               </div>
               <ul className="categoryList">
-                {this.state.showMenu
+                {showMenu
                   ? categories.map(category => {
                       return (
                         <CategoryTable

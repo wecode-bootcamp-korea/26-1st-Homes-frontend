@@ -6,7 +6,7 @@ class Modal extends Component {
     const { sequence, filter } = this.props;
 
     return (
-      <div className="modal">
+      <div className="Modal">
         <div className="circleBtn" />
         <p onClick={() => filter}>{sequence}</p>
       </div>

@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
-    "sequence": "이름순"
+    "sequence": "낮은가격순"
   },
+
   {
     "id": 2,
-    "sequence": "판매순"
+    "sequence": "높은가격순"
   },
+
   {
     "id": 3,
     "sequence": "인기순"
   },
+
   {
     "id": 4,
-    "sequence": "낮은가격순"
+    "sequence": "판매순"
   },
+
   {
     "id": 5,
-    "sequence": "높은가격순"
-  },
-  {
-    "id": 6,
     "sequence": "리뷰많은순"
   }
 ]

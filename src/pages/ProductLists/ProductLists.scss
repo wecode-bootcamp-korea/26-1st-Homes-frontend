@@ -3,6 +3,7 @@
 .Container {
   @include alignCenter;
   flex-direction: column;
+  margin-top: 80px;
 
   .categoryTitle {
     display: flex;

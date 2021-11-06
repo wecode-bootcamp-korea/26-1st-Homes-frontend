@@ -31,13 +31,10 @@ class ProductLists extends Component {
       });
   }
 
-  // filter 함수 구현 시작
+  // filtering button functionality
 
-  searchPrice = () => {
-    const { product } = this.state;
-    return product.filter(el => {
-      return el.discountPrice >= 300000 ? <Modal /> : null;
-    });
+  handleBtn = e => {
+    // console.log(e.target.value);
   };
 
   //모달창 on/off 함수 구현 시작
@@ -49,7 +46,7 @@ class ProductLists extends Component {
   };
 
   render() {
-    const { product, modalInfo, isModalOn } = this.state;
+    const { product, modalInfo, isModalOn, handleBtn } = this.state;
     return (
       <div className="Container">
         <div className="categoryTitle">
@@ -64,7 +61,7 @@ class ProductLists extends Component {
                     <Modal
                       key={modalMenu.id}
                       sequence={modalMenu.sequence}
-                      filter={this.searchPrice()}
+                      handleBtn={handleBtn}
                     />
                   );
                 })}
@@ -72,7 +69,7 @@ class ProductLists extends Component {
           </div>
         </div>
 
-        <div className="category">
+        {/* <div className="category">
           <p>일반침대</p>
           <p>수납침대</p>
           <p>LED침대</p>
@@ -81,7 +78,7 @@ class ProductLists extends Component {
           <p>모션베드</p>
           <p>패밀리침대</p>
           <p>돌침대/흙침대</p>
-        </div>
+        </div> */}
         <div className="productContainerFlex">
           {product.map(productInfo => {
             const { id, brandName, productName, percent, discountPrice } =
@@ -89,6 +86,7 @@ class ProductLists extends Component {
             return (
               <ProductContainer
                 key={id}
+                id={id}
                 name={brandName}
                 productName={productName}
                 percent={percent}
@@ -96,6 +94,10 @@ class ProductLists extends Component {
               />
             );
           })}
+        </div>
+        <div className="pageNation">
+          <span className="firstPage">1</span>
+          <span className="secondPage">2</span>
         </div>
       </div>
     );
