@@ -31,14 +31,14 @@ class Login extends React.Component {
       },
     };
 
-    fetch('http://data/commentData.json', login_info)
+    fetch('http://10.58.4.252:8000/users/signin', login_info)
       .then(response => response.json())
       .then(result => {
-        if (result.message === 'USER_DOES_NOT_EXIST') {
+        if (result.message === 'INVALID_USER') {
           alert('존재하지 않는 아이디입니다.');
-        } else if (result.message === 'INVALID_PASSWORD') {
+        } else if (result.message === 'INVALID_USER') {
           alert('비밀번호가 틀렸습니다.');
-        } else if (result.token) {
+        } else if (result.access_token) {
           alert('로그인 성공');
           localStorage.setItem('token', result.token);
           history.push('/Main');
