@@ -13,7 +13,7 @@ export class Detail extends Component {
       productName: '제품 이름',
       productColor: '색상 이름',
       quantityCalculation: '0',
-      testText: '제품이름ㄱ',
+      testText: '제품 이름',
     };
   }
 
@@ -47,17 +47,10 @@ export class Detail extends Component {
     this.setState({
       buttonDropDown: buttonDropDown === true ? false : true,
       secondDropDown: true,
-      testText: event.target.value,
+      testText: event.target.innerText,
     });
-    console.log(event.target.childNodes);
+    console.log(event.target.childNodes[0].childNodes[1]);
   };
-
-  testClick = event => {
-    this.setState({
-      testText: event.target.value,
-    });
-  };
-
   render() {
     const {
       productInfo,
@@ -148,11 +141,18 @@ export class Detail extends Component {
                     productInfo.productOption.map(option => {
                       return (
                         <div
+                          key={option.id}
                           className="test123"
-                          onClick={this.optionSelectButton}
+                          value={option.productName}
                         >
-                          <div value={option.productName}>
-                            {option.id}.{option.productName}
+                          <div className="testFlex">
+                            <div>{option.id}.</div>
+                            <div
+                              onClick={this.optionSelectButton}
+                              className="testName"
+                            >
+                              {option.productName}
+                            </div>
                           </div>
                           <div>{option.productPrice}원~</div>
                         </div>
@@ -170,16 +170,12 @@ export class Detail extends Component {
                     })}
                 </div>
               </div>
-              <div onClick={this.testClick} value="213312">
-                11
-              </div>
-              <div>{testText}</div>
 
               <div className="boxAndBuy">
                 <div className="QuantityBox">
                   <div className="closeButtonFlex">
                     <div className="nameAndColor">
-                      {productName} / {productColor}
+                      {testText} / {productColor}
                     </div>
                     <button>✕</button>
                   </div>
