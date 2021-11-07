@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
@@ -13,6 +14,12 @@ export class Nav extends Component {
       showMenu: false,
     };
   }
+
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+  };
 
   componentDidMount() {
     fetch('/data/Categories.json')
@@ -31,6 +38,7 @@ export class Nav extends Component {
 
   render() {
     const { categories, showMenu } = this.state;
+
     return (
       <nav className="Nav">
         <div className="navWrap">
@@ -41,7 +49,6 @@ export class Nav extends Component {
           <div className="menuLeft">
             <div
               className="categoryMenu"
-              // FIXME: 반복되는 함수라서 줄일 수 있어볼 듯
               onMouseEnter={() => {
                 this.hendleMouseEvent(showMenu);
               }}

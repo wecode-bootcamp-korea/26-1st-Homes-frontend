@@ -82,6 +82,14 @@
       .community {
         width: 64px;
         background-color: #fff;
+        color: black;
+        font-size: 15px;
+      }
+
+      .buttonColor {
+        width: 64px;
+        background-color: #fff;
+        color: $keyColor;
         font-size: 15px;
       }
     }
