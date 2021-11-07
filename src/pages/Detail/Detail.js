@@ -13,6 +13,7 @@ export class Detail extends Component {
       productName: '제품 이름',
       productColor: '색상 이름',
       quantityCalculation: '0',
+      testText: '제품이름ㄱ',
     };
   }
 
@@ -46,6 +47,14 @@ export class Detail extends Component {
     this.setState({
       buttonDropDown: buttonDropDown === true ? false : true,
       secondDropDown: true,
+      testText: event.target.value,
+    });
+    console.log(event.target.childNodes);
+  };
+
+  testClick = event => {
+    this.setState({
+      testText: event.target.value,
     });
   };
 
@@ -58,6 +67,7 @@ export class Detail extends Component {
       productColor,
       quantityCalculation,
       productPrice,
+      testText,
     } = this.state;
 
     const costPrice = () => {
@@ -131,23 +141,39 @@ export class Detail extends Component {
                 >
                   제품이름
                 </div>
-                <div className="testMap">
+                <div
+                  className={buttonDropDown === true ? 'testMap2' : 'testMap'}
+                >
                   {productInfo.productOption &&
                     productInfo.productOption.map(option => {
                       return (
-                        <div key={option.id}>
-                          <ProductSelectOptions
-                            id={option.id}
-                            productName={option.productName}
-                            productPrice={option.productPrice}
-                            secondDropDown={this.secondDropDown}
-                            optionSelectButton={this.optionSelectButton}
-                          />
+                        <div
+                          className="test123"
+                          onClick={this.optionSelectButton}
+                        >
+                          <div value={option.productName}>
+                            {option.id}.{option.productName}
+                          </div>
+                          <div>{option.productPrice}원~</div>
                         </div>
+
+                        // <div key={option.id}>
+                        //   <ProductSelectOptions
+                        //     id={option.id}
+                        //     productName={option.productName}
+                        //     productPrice={option.productPrice}
+                        //     // secondDropDown={this.secondDropDown}
+                        //     optionSelectButton={this.optionSelectButton}
+                        //   />
+                        // </div>
                       );
                     })}
                 </div>
               </div>
+              <div onClick={this.testClick} value="213312">
+                11
+              </div>
+              <div>{testText}</div>
 
               <div className="boxAndBuy">
                 <div className="QuantityBox">

@@ -3,10 +3,7 @@ import React, { Component } from 'react';
 class ProductSelectOptions extends Component {
   render() {
     return (
-      <div
-        className={this.props.secondDropDown === true ? 'testMap2' : 'test123'}
-        onClick={this.props.optionSelectButton}
-      >
+      <div className="test123" onClick={this.props.optionSelectButton}>
         <div>
           {this.props.id}.{this.props.productName}
         </div>
