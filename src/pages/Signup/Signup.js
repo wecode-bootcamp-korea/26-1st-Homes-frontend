@@ -1,4 +1,6 @@
+import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
+import signupInputList from "./signupInputList";
 import './Signup.scss';
 
 class Signup extends React.Component {
@@ -11,6 +13,16 @@ class Signup extends React.Component {
       password: '',
       rePassword: '',
     };
+  }
+
+  componentDidMount() {
+    fetch('./data/inputList.json')
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          inputList: res,
+        });
+      });
   }
 
   gotoLogin = () => {
@@ -183,7 +195,7 @@ class Signup extends React.Component {
       rePassword: event.target.value,
     });
   };
-
+  //비밀번호 확인
   chkPw = event => {
     event.preventDenfault();
 
@@ -210,12 +222,11 @@ class Signup extends React.Component {
       }
     }
   };
-
   gotoMain = () => {
     const { history } = this.props;
     history.push('./Main');
   };
-
+  //가입하기버튼
   handleSubmit = event => {
     event.preventDenfault();
 
@@ -245,6 +256,7 @@ class Signup extends React.Component {
   };
 
   render() {
+    const {inputList} = this.state;
     return (
       <div id="SignupPage">
         <div className="container">
@@ -253,6 +265,18 @@ class Signup extends React.Component {
             <div className="logoName">집꾸미기 회원가입</div>
           </div>
           <div className="signupInputBox">
+             {inputList.map(input =>
+               return (
+                 key={input.id},
+                 name={input.name},
+                 content={input.content},
+                 inputType={input.inputType},
+                 placeholder={input.placeholder},
+                 temp={this.temp}
+                 />
+               );
+             })}
+             </div>
             <input
               className="emailAddress"
               type="email"
