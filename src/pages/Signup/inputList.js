@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.scss';
 
-export class InputList extends Component {
+class inputList extends Component {
   render() {
     return (
       <div className="signupInputBox">
@@ -25,3 +25,5 @@ export class InputList extends Component {
     );
   }
 }
+
+export default inputList;

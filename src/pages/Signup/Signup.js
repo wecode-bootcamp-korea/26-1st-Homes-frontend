@@ -1,10 +1,9 @@
 import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
 import signupInputList from '../Signup/signupInputList';
-import inputImages from '../Signup/inputImages';
+// import inputList from '../Signup/inputList.json';
 
 import './Signup.scss';
-import { InputList } from './inputList';
 
 class Signup extends React.Component {
   constructor() {
@@ -23,7 +22,7 @@ class Signup extends React.Component {
       .then(res => res.json())
       .then(res => {
         this.setState({
-          signupData: res,
+          inputList: res,
         });
       });
   }
@@ -69,7 +68,6 @@ class Signup extends React.Component {
     if (chkEmail(this.state.email) === false) {
       alert('이메일 형식이 유효하지 않습니다.');
       this.setState({
-        //왜 여기서 이걸 주지?
         email: '',
       });
     } else {
@@ -286,10 +284,10 @@ class Signup extends React.Component {
               );
             })}
             ; */}
-
-            {InputList.map(input => {
+            {/* 
+            {inputList.map(input => {
               return (
-                <signupInputList
+                <input
                   key={input.id}
                   name={input.name}
                   content={input.content}
@@ -297,7 +295,8 @@ class Signup extends React.Component {
                   placeholder={input.placeholder}
                 />
               );
-            })}
+            })} */}
+            <signupInputList />
             <signupInputList>
               <input
                 key={signupInputList}
