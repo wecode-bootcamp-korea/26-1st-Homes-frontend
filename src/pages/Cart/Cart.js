@@ -40,10 +40,6 @@ export class Cart extends Component {
           <div className="cartProducts">
             <h1 className="brandName">삼익가구</h1>
             <CheckBox />
-            {/* <div className="cartCheckBox">
-              <input type="checkBox" />
-              <button className="cleanChooseThings">삭제</button>
-            </div> */}
             <div className="productOptionWrap">
               <div className="productOptionInfo">
                 <div className="productInfo">

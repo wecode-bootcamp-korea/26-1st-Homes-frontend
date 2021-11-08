@@ -40,17 +40,17 @@ $color: #28232c;
 
         .point {
           display: flex;
-        }
 
-        .pointInfo {
-          @include flexMix(flex-start, 0);
-          flex-direction: column;
-          margin: 5px 0;
+          .pointInfo {
+            @include flexMix(flex-start, 0);
+            flex-direction: column;
+            margin: 5px 0;
 
-          .moreReviewMorePoint {
-            font-size: 13px;
-            color: #c5c8ce;
-            padding: 5px 0;
+            .moreReviewMorePoint {
+              padding: 5px 0;
+              font-size: 13px;
+              color: #c5c8ce;
+            }
           }
         }
       }
@@ -82,8 +82,8 @@ $color: #28232c;
             .productName {
               width: 200px;
               margin: 10px 0;
-              font-size: 14px;
               color: $color;
+              font-size: 14px;
             }
           }
         }
@@ -132,8 +132,7 @@ $color: #28232c;
       }
 
       .totalPriceOrder {
-        display: flex;
-        justify-content: center;
+        @include flexMix(0, center);
         padding-top: 20px;
         border-top: 1px solid $backgroundColor;
         color: $keyColor;
@@ -162,8 +161,7 @@ $color: #28232c;
     }
 
     .total {
-      display: flex;
-      align-items: center;
+      @include flexMix(center, 0);
       padding: 10px;
 
       .totalNumber {
