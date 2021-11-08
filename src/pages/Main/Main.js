@@ -35,9 +35,10 @@ export class Main extends Component {
 
   onChangeImage = idx => {
     const { events } = this.state;
-    if (events.length <= idx) idx = 0;
-    if (idx < 0) idx = events.length - 1;
-    this.setState({ imgCurrentNo: idx });
+    let num = idx;
+    if (events.length <= num) num = 0;
+    if (num < 0) num = events.length - 1;
+    this.setState({ imgCurrentNo: num });
   };
 
   render() {
@@ -55,7 +56,7 @@ export class Main extends Component {
             {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
               return (
                 <Event
-                  key={event.id}
+                  key={event.id.toString()}
                   img={event.event_img}
                   title={event.event_title}
                   subTilte={event.event_sub_title}
@@ -115,7 +116,7 @@ export class Main extends Component {
             {bestLists.map((best, index) => {
               return (
                 <Best
-                  key={best.id}
+                  key={best.id.toString()}
                   rank={index + 1}
                   company={best.company}
                   discountRate={best.discount_rate}

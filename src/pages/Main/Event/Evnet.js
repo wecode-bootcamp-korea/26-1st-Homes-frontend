@@ -4,9 +4,9 @@ import './Event.scss';
 
 export class Event extends Component {
   render() {
-    const { key, img, title, subTilte, discount, date } = this.props;
+    const { img, title, subTilte, discount, date } = this.props;
     return (
-      <div className="Event" key={key}>
+      <div className="Event">
         <div className="eventList">
           <Link to="/" className="eventLink">
             <img src={img} alt="event slide img" className="eventSlideImg" />

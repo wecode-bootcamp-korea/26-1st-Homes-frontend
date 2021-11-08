@@ -4,7 +4,6 @@ import './Best.scss';
 export class Best extends Component {
   render() {
     const {
-      key,
       rank,
       company,
       discountRate,
@@ -16,7 +15,7 @@ export class Best extends Component {
     } = this.props;
 
     return (
-      <div className="bestProduct" key={key}>
+      <div className="bestProduct">
         <span className="bestNumber">{rank}</span>
         <img src={img} alt="bestImg" className="bestImg" />
         <div className="bestProductInfo">
@@ -34,7 +33,7 @@ export class Best extends Component {
           <div className="product reviewWrap">
             <img
               className="review star"
-              src="/images/star.png"
+              src="./images/star.png"
               alt="star img"
             />
             <span className="review startPoin">
