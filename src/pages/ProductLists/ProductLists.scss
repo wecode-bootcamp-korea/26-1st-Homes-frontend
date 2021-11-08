@@ -13,29 +13,27 @@
     padding: 18px 0px 18px 0px;
 
     .filterBtn {
+      @include alignCenter;
       position: relative;
-      width: 82px;
+      width: 84px;
       height: 30px;
       background-color: white;
       font-size: 14px;
-
-      .modalBox {
-        position: absolute;
-      }
+      z-index: 987;
     }
-  }
 
-  .category {
-    display: flex;
-    justify-content: space-between;
-    width: 870px;
-    padding: 18px;
-    margin-bottom: 30px;
-    border: 1px solid rgba($color: #585858, $alpha: 0.1);
+    .category {
+      display: flex;
+      justify-content: space-between;
+      width: 870px;
+      padding: 18px;
+      margin-bottom: 30px;
+      border: 1px solid rgba($color: #585858, $alpha: 0.1);
+    }
   }
 }
 
-.productContainerFlex {
+.singleProduct {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

@@ -8,7 +8,7 @@ class ProductLists extends Component {
     super();
     this.state = {
       product: [],
-      modalInfo: [],
+      newProduct: [],
       isModalOn: false,
     };
   }
@@ -19,16 +19,19 @@ class ProductLists extends Component {
       .then(info => {
         this.setState({
           product: info,
+          newProduct: info,
         });
       });
 
-    fetch('/data/modalData.json')
-      .then(res => res.json())
-      .then(sequence => {
-        this.setState({
-          modalInfo: sequence,
-        });
-      });
+    // fetch('http://10.58.5.17:8000/product/products?type=1&sort=low_price')
+    //   .then(res => res.json())
+    //   .then(info => {
+    //     console.log(info);
+    //     this.setState({
+    //       product: info.products,
+    //     });
+    //     console.log('product', this.state.product);
+    //   });
   }
 
   //모달창 on/off 함수 구현 시작
@@ -39,52 +42,63 @@ class ProductLists extends Component {
     }));
   };
 
+  //filtering button functionality
+  filteringBtns = e => {
+    let product;
+
+    const { newProduct } = this.state;
+    if (e.target.value === 'all') {
+      product = newProduct;
+    } else if (e.target.value === '낮은가격순') {
+      product = newProduct
+        .filter(item => item.discounted_price)
+        .sort((a, b) => a.discounted_price - b.discounted_price);
+    } else if (e.target.value === '높은가격순') {
+      product = newProduct
+        .filter(item => item.discounted_price)
+        .sort((a, b) => b.discounted_price - a.discounted_price);
+    }
+    this.setState({
+      product: product,
+    });
+  };
+
   render() {
-    const { product, modalInfo, isModalOn, handleBtn } = this.state;
+    const { product, isModalOn } = this.state;
     return (
       <div className="Container">
         <div className="categoryTitle">
           <p>침대</p>
 
-          <div className="checkBox">
-            <button className="filterBtn" onClick={this.handleClick}>
-              인기순 ▼
-              {isModalOn &&
-                modalInfo.map(modalMenu => {
-                  return (
-                    <Modal
-                      key={modalMenu.id}
-                      sequence={modalMenu.sequence}
-                      handleBtn={handleBtn}
-                    />
-                  );
-                })}
-            </button>
+          <div className="filterBtn" onClick={this.handleClick}>
+            Filtering ▼
+            {isModalOn && <Modal filteringBtns={this.filteringBtns} />}
           </div>
         </div>
 
-        {/* <div className="category">
-          <p>일반침대</p>
-          <p>수납침대</p>
-          <p>LED침대</p>
-          <p>깔판/저상형침대</p>
-          <p>2층/벙커침대</p>
-          <p>모션베드</p>
-          <p>패밀리침대</p>
-          <p>돌침대/흙침대</p>
-        </div> */}
-        <div className="productContainerFlex">
+        <div className="singleProduct">
           {product.map(productInfo => {
-            const { id, brandName, productName, percent, discountPrice } =
-              productInfo;
+            const {
+              id,
+              company,
+              product_name,
+              discount_rate,
+              discounted_price,
+              star_rate,
+              review,
+              image_url,
+            } = productInfo;
             return (
               <ProductContainer
                 key={id}
                 id={id}
-                name={brandName}
-                productName={productName}
-                percent={percent}
-                discountPrice={discountPrice}
+                company={company}
+                productName={product_name}
+                discountRate={discount_rate}
+                discountedPrice={discounted_price}
+                starRate={star_rate}
+                review={review}
+                imgUrl={image_url}
               />
             );
           })}

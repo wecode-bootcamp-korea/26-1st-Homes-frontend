@@ -1,19 +1,21 @@
 @import '../../styles/variable.scss';
 
 .Modal {
+  position: absolute;
+  right: 0;
+  top: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 220px;
-  height: 40px;
-  background: lightgray;
-  color: black;
+  flex-direction: column;
+  margin-top: 30px;
 
-  .circleBtn {
-    margin-right: 5px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: $keyColor;
+  .all,
+  .company,
+  .price {
+    right: 5px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: rgba($color: #5ac5f0, $alpha: 0.8);
   }
 }

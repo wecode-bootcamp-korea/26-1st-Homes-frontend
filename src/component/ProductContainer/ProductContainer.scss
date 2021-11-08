@@ -14,7 +14,7 @@
     background-color: rgb(255, 208, 199);
   }
 
-  .brandName {
+  .company {
     color: #ababab;
     font-size: 12px;
     margin-bottom: 4px;
@@ -29,9 +29,17 @@
   .priceInfo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 8px;
 
-    .percent {
+    .discountInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 115px;
+    }
+
+    .discountRate {
       margin-right: 6px;
       font-weight: bolder;
       font-size: 18px;
@@ -40,8 +48,12 @@
 
     .discountPrice {
       font-weight: bolder;
-      font-size: 18px;
+      font-size: 16px;
       color: #ababab;
+    }
+    .cost {
+      width: 78px;
+      font-size: 16px;
     }
   }
 
@@ -49,5 +61,6 @@
     display: flex;
     justify-content: space-between;
     width: 70px;
+    font-size: 13px;
   }
 }
