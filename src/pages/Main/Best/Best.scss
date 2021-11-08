@@ -1,0 +1,61 @@
+@import '../../../styles/variable.scss';
+
+.bestProduct {
+  display: flex;
+  align-items: center;
+  height: 150px;
+  margin: 10px 30px;
+
+  .bestNumber {
+    padding: 40px 15px;
+    font-size: 20px;
+  }
+
+  .bestImg {
+    width: 100px;
+    height: 100px;
+    background-color: rosybrown;
+    border-radius: 10px;
+  }
+
+  .bestProductInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+
+    .product {
+      margin: 5px 0;
+    }
+
+    .brandName {
+      font-size: 13px;
+      color: #7d7d7d;
+      width: 150px;
+    }
+
+    .productName {
+      font-size: 15px;
+      font-size: 15px;
+      width: 193px;
+      height: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .price {
+      font-weight: 700;
+      margin-right: 5px;
+    }
+
+    .review {
+      font-size: 12px;
+      margin-right: 5px;
+    }
+
+    .star,
+    .starPoint {
+      font-weight: 700;
+    }
+  }
+}

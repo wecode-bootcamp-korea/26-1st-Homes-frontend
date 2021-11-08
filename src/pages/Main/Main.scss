@@ -1,24 +1,46 @@
 @import '../../styles/variable.scss';
 
 .main {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  max-width: 1000px;
-  min-width: 1000px;
-  margin: 80px auto;
+  max-width: 900px;
+  min-width: 900px;
+  margin: 100px auto;
 
   .eventSlideWrap {
-    display: flex;
-    align-items: center;
-    height: 500px;
+    @include flexMix(center, 0);
+    position: relative;
+    width: 100%;
+    height: 100%;
     border: 1px solid;
+    color: #fff;
     overflow: hidden;
 
-    .eventSlideImg {
-      height: 100%;
+    .eventSlide {
+      transition: 0.3s;
+
+      .slideInfoWrap {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        color: #fff;
+
+        .slideArrow {
+          width: 100px;
+        }
+      }
     }
+  }
+
+  .buttonPrev {
+    position: absolute;
+    background-color: red;
+    left: 0;
+  }
+
+  .buttonNext {
+    position: absolute;
+    background-color: red;
+    right: 0;
   }
 
   .bestProductLists {
@@ -50,66 +72,6 @@
       flex-wrap: wrap;
       flex-direction: row;
       justify-content: center;
-
-      .bestProduct {
-        display: flex;
-        align-items: center;
-        height: 150px;
-        margin: 10px 30px;
-
-        .bestNumber {
-          padding: 40px 15px;
-          font-size: 20px;
-        }
-
-        .bestImg {
-          width: 100px;
-          height: 100px;
-          background-color: rosybrown;
-          border-radius: 10px;
-        }
-
-        .bestProductInfo {
-          display: flex;
-          flex-direction: column;
-          margin-left: 30px;
-
-          .product {
-            margin: 5px 0;
-          }
-
-          .brandName {
-            font-size: 13px;
-            color: #7d7d7d;
-            width: 150px;
-          }
-
-          .productName {
-            font-size: 15px;
-            font-size: 15px;
-            width: 193px;
-            height: 14px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-
-          .price {
-            font-weight: 700;
-            margin-right: 5px;
-          }
-
-          .review {
-            font-size: 12px;
-            margin-right: 5px;
-          }
-
-          .star,
-          .starPoint {
-            font-weight: 700;
-          }
-        }
-      }
     }
   }
 }
