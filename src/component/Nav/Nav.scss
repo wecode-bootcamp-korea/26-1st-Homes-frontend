@@ -22,7 +22,7 @@
       }
 
       .logo {
-        width: 155px;
+        width: 175px;
         font-size: 35px;
       }
     }
@@ -80,7 +80,7 @@
       .store,
       .contents,
       .community {
-        width: 64px;
+        width: 75px;
         background-color: #fff;
         color: black;
         font-size: 15px;
@@ -124,7 +124,8 @@
       }
 
       .login {
-        width: 100px;
+        @include flexMix();
+        width: 110px;
         height: 35px;
         margin: 20px;
         padding: 10px;
@@ -132,6 +133,7 @@
         color: #fff;
         background-color: $keyColor;
         border-radius: 50px;
+        font-size: 15px;
 
         .loginLink {
           @include flexMix(center, center);

@@ -15,12 +15,6 @@ export class Nav extends Component {
     };
   }
 
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired,
-  };
-
   componentDidMount() {
     fetch('/data/Categories.json')
       .then(res => res.json())
@@ -97,7 +91,7 @@ export class Nav extends Component {
               />
             </div>
             <div className="login">
-              로그인/가입
+              <span>로그인/가입</span>
               <Link to="/login" className="loginLink" />
             </div>
             <button className="help">고객센터</button>
