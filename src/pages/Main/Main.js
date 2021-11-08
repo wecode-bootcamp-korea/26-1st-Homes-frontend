@@ -46,26 +46,24 @@ export class Main extends Component {
     return (
       <main className="main">
         <div className="eventSlideWrap">
-          <ul
+          <div
             className="eventSlide"
             // style={{
             //   transform: `translate3d(${imgCurrentNo * -900}px, 0px, 0px)`,
             // }}
           >
-            {events
-              .slice(imgCurrentNo, imgCurrentNo + 1)
-              .map((event, index) => {
-                return (
-                  <Event
-                    key={event.id}
-                    img={event.event_img}
-                    title={event.event_title}
-                    subTilte={event.event_sub_title}
-                    discount={event.discount_rate}
-                    date={event.event_date}
-                  />
-                );
-              })}
+            {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
+              return (
+                <Event
+                  key={event.id}
+                  img={event.event_img}
+                  title={event.event_title}
+                  subTilte={event.event_sub_title}
+                  discount={event.discount_rate}
+                  date={event.event_date}
+                />
+              );
+            })}
             <div className="slideInfoWrap">
               <span className="current">{imgCurrentNo + 1}</span>
               <span>|</span>
@@ -76,7 +74,7 @@ export class Main extends Component {
                 alt="slide arrow"
               />
             </div>
-          </ul>
+          </div>
           <div
             className="buttonPrev"
             onClick={() => this.onChangeImage(imgCurrentNo - 1)}
@@ -106,10 +104,11 @@ export class Main extends Component {
             <li className="categoryName">반려동물</li>
           </ul>
           <div className="bestProductWrap">
-            {bestLists.map(best => {
+            {bestLists.map((best, index) => {
               return (
                 <Best
                   key={best.id}
+                  rank={index + 1}
                   company={best.company}
                   discountRate={best.discount_rate}
                   discountedPrice={best.discounted_price}

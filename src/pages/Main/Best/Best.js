@@ -5,11 +5,11 @@ export class Best extends Component {
   render() {
     const {
       key,
+      rank,
       company,
       discountRate,
       discountedPrice,
       img,
-      price,
       name,
       review,
       starRate,
@@ -17,19 +17,30 @@ export class Best extends Component {
 
     return (
       <div className="bestProduct" key={key}>
-        <span className="bestNumber">1</span>
+        <span className="bestNumber">{rank}</span>
         <img src={img} alt="bestImg" className="bestImg" />
         <div className="bestProductInfo">
           <p className="product brandName">{company}</p>
           <p className="product productName">{name}</p>
           <div className="product priceWrap">
             <span className="price percent">{Math.round(discountRate)}%</span>
-            <span className="price discountPrice">{discountedPrice}원</span>
+            <span className="price discountPrice">
+              {Math.round(discountedPrice)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              원
+            </span>
           </div>
           <div className="product reviewWrap">
-            <span className="review star">별</span>
-            <span className="review startPoin">{starRate}</span>
-            <span className="review reviewNumber">({starRate})</span>
+            <img
+              className="review star"
+              src="/images/star.png"
+              alt="star img"
+            />
+            <span className="review startPoin">
+              {Math.round(starRate * 10) / 10}
+            </span>
+            <span className="review reviewNumber">({review})</span>
           </div>
         </div>
       </div>

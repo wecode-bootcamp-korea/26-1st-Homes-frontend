@@ -15,8 +15,6 @@
     overflow: hidden;
 
     .eventSlide {
-      transition: 0.3s;
-
       .slideInfoWrap {
         position: absolute;
         bottom: 0;
@@ -41,6 +39,7 @@
     position: absolute;
     background-color: red;
     right: 0;
+    transition: transform 3s;
   }
 
   .bestProductLists {

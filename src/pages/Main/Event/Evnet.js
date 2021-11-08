@@ -7,7 +7,7 @@ export class Event extends Component {
     const { key, img, title, subTilte, discount, date } = this.props;
     return (
       <div className="Event" key={key}>
-        <li className="eventList">
+        <div className="eventList">
           <Link to="/" className="eventLink">
             <img src={img} alt="event slide img" className="eventSlideImg" />
             <div className="eventWrap">
@@ -19,7 +19,7 @@ export class Event extends Component {
               <div className="evnetDate">{date}</div>
             </div>
           </Link>
-        </li>
+        </div>
       </div>
     );
   }
