@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Detail.scss';
-import ProductSelectOptions from './ProductSelectOptions/ProductSelectOptions';
+//나중에 컴포넌트화 할때 쓸 코드입니다.
+// import ProductSelectOptions from './ProductSelectOptions/ProductSelectOptions';
 
 export class Detail extends Component {
   constructor() {
@@ -167,7 +168,6 @@ export class Detail extends Component {
             <div className="contour" />
             <div className="optionBox">
               <p>옵션 선택</p>
-
               <div
                 onClick={this.optionButtonClick}
                 className={
@@ -192,20 +192,9 @@ export class Detail extends Component {
                         </div>
                         <div className="priceBox">{option.productPrice}원~</div>
                       </div>
-
-                      // <div key={option.id}>
-                      //   <ProductSelectOptions
-                      //     id={option.id}
-                      //     productName={option.productName}
-                      //     productPrice={option.productPrice}
-                      //     // secondDropDown={this.secondDropDown}
-                      //     optionSelectButton={this.optionSelectButton}
-                      //   />
-                      // </div>
                     );
                   })}
               </div>
-
               <div
                 className={
                   secondDropDown === true ? 'dropDownOff2' : 'dropDownOn2'
@@ -228,7 +217,7 @@ export class Detail extends Component {
                           <div className="clickBox">{option.color}</div>
                         </div>
                       </div>
-
+                      // 나중에 컴포넌트화 시킬 때 쓸 코드 입니다.
                       // <div key={option.id}>
                       //   <ProductSelectOptions
                       //     id={option.id}
@@ -241,10 +230,8 @@ export class Detail extends Component {
                     );
                   })}
               </div>
-
               <div className="boxAndBuy">
                 <div className={buyBox === true ? 'buyBoxOff' : ''}>
-                  {/* <div> */}
                   <div className="QuantityBox">
                     <div className="closeButtonFlex">
                       <div className="nameAndColor">
