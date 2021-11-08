@@ -5,6 +5,7 @@ export const INFO = [
     content: '이메일',
     inputType: 'text',
     value: '',
+    placeholder: '이메일 주소',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const INFO = [
     content: '닉네임',
     inputType: 'text',
     value: '',
+    placeholder: '닉네임',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const INFO = [
     content: '폰번호',
     inputType: 'text',
     value: '',
+    placeholder: '휴대폰 번호(-제외)',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const INFO = [
     content: '비밀번호',
     inputType: 'password',
     value: '',
+    placeholder: '비밀번호',
   },
   {
     id: 5,
@@ -33,5 +37,6 @@ export const INFO = [
     content: '비밀번호 확인',
     inputType: 'password',
     value: '',
+    placeholder: '비밀번호 확인',
   },
 ];
