@@ -13,21 +13,23 @@
       {
         "id": 1,
         "productName": "캐더린 통수납 침대 SS 프레임만",
-        "productPrice": 189000,
-        "productColor": ["베이지", "그레이"]
+        "productPrice": 189000
       },
       {
         "id": 2,
         "productName": "캐더린린론 수납 침대 AS 프레임만",
-        "productPrice": 229000,
-        "productColor": ["화이트", "그레이"]
+        "productPrice": 229000
       },
       {
         "id": 3,
         "productName": "캐더1린린론 수납 침대 AS 프레임만",
-        "productPrice": 3229000,
-        "productColor": ["옐로우", "화이트"]
+        "productPrice": 3229000
       }
+    ],
+    "productColor": [
+      { "id": 1, "color": "화이트" },
+      { "id": 2, "color": "베이지" },
+      { "id": 3, "color": "그레이" }
     ]
   }
 ]

@@ -241,89 +241,190 @@
     //   display: none;
     // }
 
-    .testBox {
+    .dropDownOn {
+      z-index: 2000;
       border-top-left-radius: 7px;
       border-top-right-radius: 7px;
       align-items: center;
-      margin-bottom: -1px;
+      margin-top: 10px;
       padding-top: 18px;
+      padding-left: 15px;
       width: 370px;
       height: 50px;
-      border: 1px black solid;
+      border: 1px #ababab solid;
+      background-color: white;
+      color: #ababab;
     }
 
-    .testBox2:hover {
-      background-color: rgb(180, 226, 248);
-    }
-    .testMap {
+    .downOn {
+      z-index: 2000;
       position: absolute;
-      margin-bottom: 0px;
-      .test123 {
+
+      background-color: white;
+      .selectBox {
+        z-index: 2000;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: -1px;
+        margin-top: -1px;
         width: 370px;
         height: 50px;
-        border: 1px black solid;
-        .testFlex {
+        border: 1px #ababab solid;
+        background-color: white;
+
+        .textFlex {
+          z-index: 2000;
           display: flex;
-          .testName {
-            position: absolute;
-            width: 369px;
-            height: 49px;
-            padding-top: 16px;
-            margin-top: -16px;
-            padding-left: 15px;
-          }
+          margin-left: 15px;
+        }
+        .priceBox {
+          z-index: 2000;
+          margin-right: 15px;
         }
       }
-      .test123:hover {
+      .selectBox:hover {
         background-color: rgb(180, 226, 248);
       }
     }
-
-    .testBox2 {
+    .dropDownOff {
       border-radius: 7px;
       align-items: center;
-      margin-bottom: 90px;
+      margin-top: 10px;
+      padding-left: 15px;
       padding-top: 18px;
       width: 370px;
       height: 50px;
-      border: 1px black solid;
+      border: 1px #ababab solid;
+      color: #ababab;
     }
-    .testMap2 {
+    .dropDownOff:hover {
+      background-color: rgb(180, 226, 248);
+    }
+    .downOff {
       display: none;
     }
 
+    .dropDownOn2 {
+      z-index: 1000;
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 18px;
+      padding-left: 15px;
+      width: 370px;
+      height: 50px;
+      border: 1px #ababab solid;
+      color: #ababab;
+    }
+
+    .downOn2 {
+      z-index: 1000;
+      position: absolute;
+
+      .selectBox {
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: -1px;
+        width: 370px;
+        height: 50px;
+        background-color: white;
+        border: 1px #ababab solid;
+
+        .textFlex2 {
+          display: flex;
+          margin-left: 15px;
+        }
+        .priceBox {
+          margin-right: 15px;
+        }
+      }
+      .selectBox:hover {
+        background-color: rgb(180, 226, 248);
+      }
+    }
+    .dropDownOff2 {
+      border-radius: 7px;
+      align-items: center;
+      margin-top: 10px;
+      padding-left: 15px;
+      padding-top: 18px;
+      width: 370px;
+      height: 50px;
+      border: 1px #ababab solid;
+      color: #ababab;
+    }
+    .dropDownOff2:hover {
+      background-color: rgb(180, 226, 248);
+    }
+
+    .downOff2 {
+      display: none;
+    }
+
+    .buyBoxOff {
+      display: none;
+    }
     .boxAndBuy {
-      margin-top: 173px;
+      margin-top: 10px;
 
       .QuantityBox {
         width: 370px;
         height: 90px;
         border-radius: 5px;
-        background-color: rgb(248, 248, 248);
+        background-color: rgb(180, 226, 248);
+        border-radius: 7px;
 
         .closeButtonFlex {
           display: flex;
           justify-content: space-between;
-          border: 1px solid black;
 
           .nameAndColor {
-            font-size: 14px;
+            font-size: 13px;
             margin-left: 20px;
             padding-top: 20px;
+          }
+          .removeButton {
+            margin-top: 13px;
+            margin-right: 15px;
+            background-color: rgb(180, 226, 248);
           }
         }
 
         .buttonsAndPrice {
           display: flex;
           justify-content: space-between;
-          border: 1px solid black;
 
           .twoButtons {
             display: flex;
+            text-align: center;
+            margin-top: 10px;
+            margin-left: 10px;
+
+            .minusButton,
+            .plusButton {
+              width: 25px;
+              height: 25px;
+              margin-left: 4px;
+              margin-right: 4px;
+              border-radius: 50%;
+              background-color: rgb(240, 240, 240);
+            }
+            .calculator {
+              width: 50px;
+              height: 25px;
+              padding-top: 5px;
+              background-color: rgb(240, 240, 240);
+              border-radius: 2px;
+            }
+          }
+          .priceCalculator {
+            margin-top: 15px;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 14px;
           }
         }
       }
@@ -336,14 +437,25 @@
         .QuantityAndPrice {
           display: flex;
           justify-content: space-between;
-          border: black solid 1px;
+          margin-top: 20px;
+          .QuantityBottom {
+            margin-left: 3px;
+            font-weight: bold;
+            font-size: 18px;
+          }
+          .PriceBottom {
+            margin-right: 3px;
+            font-size: 20px;
+            font-weight: bold;
+            color: $keyColor;
+          }
         }
       }
 
       .buyButtons {
         display: flex;
         width: 370px;
-        margin-top: 15px;
+
         justify-content: space-between;
 
         .shoppingBasket,

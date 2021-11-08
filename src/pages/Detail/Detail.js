@@ -12,8 +12,10 @@ export class Detail extends Component {
       secondDropDown: true,
       productName: '제품 이름',
       productColor: '색상 이름',
-      quantityCalculation: '0',
-      testText: '제품 이름',
+      quantityCalculation: 1,
+      quantityPrice: 0,
+      productPrice: 0,
+      buyBox: true,
     };
   }
 
@@ -27,30 +29,66 @@ export class Detail extends Component {
       });
   }
 
-  shippingButtonClick = event => {
+  shippingButtonClick = () => {
     const { buttonValue } = this.state;
     this.setState({
       buttonValue: buttonValue === true ? false : true,
     });
   };
 
-  optionButtonClick = event => {
+  optionButtonClick = () => {
+    const { buttonDropDown } = this.state;
+    this.setState({
+      buttonDropDown: buttonDropDown === true ? false : true,
+    });
+  };
+
+  optionSelectButton = option => {
     const { buttonDropDown, secondDropDown } = this.state;
     this.setState({
       buttonDropDown: buttonDropDown === true ? false : true,
+      productPrice: option.productPrice,
+      productName: option.productName,
       secondDropDown: secondDropDown === true ? false : true,
     });
   };
 
-  optionSelectButton = event => {
-    const { buttonDropDown } = this.state;
+  colorSelectButton = option => {
+    const { secondDropDown, productPrice, buyBox } = this.state;
     this.setState({
-      buttonDropDown: buttonDropDown === true ? false : true,
-      secondDropDown: true,
-      testText: event.target.innerText,
+      secondDropDown: secondDropDown === true ? false : true,
+      productColor: option.color,
+      quantityCalculation: 1,
+      quantityPrice: productPrice,
+      buyBox: buyBox === false ? false : false,
     });
-    console.log(event.target.childNodes[0].childNodes[1]);
   };
+
+  minusButton = () => {
+    const { quantityCalculation } = this.state;
+    if (quantityCalculation > 1) {
+      this.setState({
+        quantityCalculation: quantityCalculation - 1,
+      });
+    }
+  };
+
+  plusButton = () => {
+    const { quantityCalculation, productPrice } = this.state;
+    if (productPrice !== 0) {
+      this.setState({
+        quantityCalculation: quantityCalculation + 1,
+      });
+    }
+  };
+
+  removeButton = () => {
+    const { buyBox } = this.state;
+    this.setState({
+      buyBox: buyBox === false,
+    });
+  };
+
   render() {
     const {
       productInfo,
@@ -59,9 +97,12 @@ export class Detail extends Component {
       buttonDropDown,
       productColor,
       quantityCalculation,
-      productPrice,
-      testText,
+      secondDropDown,
+      quantityPrice,
+      buyBox,
     } = this.state;
+
+    const multiplyPrice = quantityCalculation * quantityPrice;
 
     const costPrice = () => {
       return Math.round(
@@ -127,73 +168,121 @@ export class Detail extends Component {
             <div className="optionBox">
               <p>옵션 선택</p>
 
-              <div className="optionsBoxTest">
-                <div
-                  onClick={this.optionButtonClick}
-                  className={buttonDropDown === true ? 'testBox2' : 'testBox'}
-                >
-                  제품이름
-                </div>
-                <div
-                  className={buttonDropDown === true ? 'testMap2' : 'testMap'}
-                >
-                  {productInfo.productOption &&
-                    productInfo.productOption.map(option => {
-                      return (
-                        <div
-                          key={option.id}
-                          className="test123"
-                          value={option.productName}
-                        >
-                          <div className="testFlex">
-                            <div>{option.id}.</div>
-                            <div
-                              onClick={this.optionSelectButton}
-                              className="testName"
-                            >
-                              {option.productName}
-                            </div>
-                          </div>
-                          <div>{option.productPrice}원~</div>
+              <div
+                onClick={this.optionButtonClick}
+                className={
+                  buttonDropDown === true ? 'dropDownOff' : 'dropDownOn'
+                }
+              >
+                {productName}
+              </div>
+              <div className={buttonDropDown === true ? 'downOff' : 'downOn'}>
+                {productInfo.productOption &&
+                  productInfo.productOption.map(option => {
+                    return (
+                      <div
+                        key={option.id}
+                        className="selectBox"
+                        value={option.productName}
+                        onClick={() => this.optionSelectButton(option)}
+                      >
+                        <div className="textFlex">
+                          <div>{option.id}.</div>
+                          <div className="clickBox">{option.productName}</div>
                         </div>
+                        <div className="priceBox">{option.productPrice}원~</div>
+                      </div>
 
-                        // <div key={option.id}>
-                        //   <ProductSelectOptions
-                        //     id={option.id}
-                        //     productName={option.productName}
-                        //     productPrice={option.productPrice}
-                        //     // secondDropDown={this.secondDropDown}
-                        //     optionSelectButton={this.optionSelectButton}
-                        //   />
-                        // </div>
-                      );
-                    })}
-                </div>
+                      // <div key={option.id}>
+                      //   <ProductSelectOptions
+                      //     id={option.id}
+                      //     productName={option.productName}
+                      //     productPrice={option.productPrice}
+                      //     // secondDropDown={this.secondDropDown}
+                      //     optionSelectButton={this.optionSelectButton}
+                      //   />
+                      // </div>
+                    );
+                  })}
+              </div>
+
+              <div
+                className={
+                  secondDropDown === true ? 'dropDownOff2' : 'dropDownOn2'
+                }
+              >
+                {productColor}
+              </div>
+              <div className={secondDropDown === true ? 'downOff2' : 'downOn2'}>
+                {productInfo.productColor &&
+                  productInfo.productColor.map(option => {
+                    return (
+                      <div
+                        key={option.id}
+                        className="selectBox"
+                        value={option.productName}
+                        onClick={() => this.colorSelectButton(option)}
+                      >
+                        <div className="textFlex2">
+                          <div>{option.id}. </div>
+                          <div className="clickBox">{option.color}</div>
+                        </div>
+                      </div>
+
+                      // <div key={option.id}>
+                      //   <ProductSelectOptions
+                      //     id={option.id}
+                      //     productName={option.productName}
+                      //     productPrice={option.productPrice}
+                      //     // secondDropDown={this.secondDropDown}
+                      //     optionSelectButton={this.optionSelectButton}
+                      //   />
+                      // </div>
+                    );
+                  })}
               </div>
 
               <div className="boxAndBuy">
-                <div className="QuantityBox">
-                  <div className="closeButtonFlex">
-                    <div className="nameAndColor">
-                      {testText} / {productColor}
+                <div className={buyBox === true ? 'buyBoxOff' : ''}>
+                  {/* <div> */}
+                  <div className="QuantityBox">
+                    <div className="closeButtonFlex">
+                      <div className="nameAndColor">
+                        {productName} / {productColor}
+                      </div>
+                      <button
+                        onClick={this.removeButton}
+                        className="removeButton"
+                      >
+                        ✕
+                      </button>
                     </div>
-                    <button>✕</button>
+                    <div className="buttonsAndPrice">
+                      <div className="twoButtons">
+                        <button
+                          onClick={this.minusButton}
+                          className="minusButton"
+                        >
+                          -
+                        </button>
+                        <div className="calculator">{quantityCalculation}</div>
+                        <button
+                          onClick={this.plusButton}
+                          className="plusButton"
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div className="priceCalculator">{multiplyPrice}원</div>
+                    </div>
                   </div>
-                  <div className="buttonsAndPrice">
-                    <div className="twoButtons">
-                      <button className="minusButton">-</button>
-                      <div className="calculator">{quantityCalculation}</div>
-                      <button className="plusButton">+</button>
+                  <div className="priceBox">
+                    <div className="QuantityAndPrice">
+                      <div className="QuantityBottom">
+                        총 {quantityCalculation}개
+                      </div>
+                      <div className="PriceBottom">{multiplyPrice}원</div>
                     </div>
-                    <div className="priceCalculator">{productPrice}</div>
-                  </div>
-                </div>
-                <div className="priceBox">
-                  <div className="QuantityAndPrice">
-                    <div className="QuantityBottom">
-                      총 {quantityCalculation}개
-                    </div>
-                    <div className="PriceBottom">{productPrice}원</div>
                   </div>
                 </div>
                 <div className="buyButtons">
