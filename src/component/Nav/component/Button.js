@@ -2,16 +2,34 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export class NavButton extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      selectedIdx: 0,
+    };
+  }
+
+  clickHandler = idx => {
+    this.setState({ selectedIdx: idx });
+  };
+
   render() {
-    return MENU_LEFT_BUTTON_DATA.map(data => {
+    return MENU_LEFT_BUTTON_DATA.map((data, idx) => {
       return (
-        <div className="NavButton" key={data.id}>
+        // FIXME:카테고리에서 아무거나 선택 시 스토어 메뉴 색상 변경 되도록
+        <div
+          className="NavButton"
+          key={data.id}
+          onClick={() => this.clickHandler(idx)}
+        >
           <Link to={data.link} className="loginLink">
-            <button className={data.className}>
+            <button
+              className={
+                this.state.selectedIdx === idx ? 'buttonColor' : data.className
+              }
+            >
               {data.buttonName}
-              {data.img && (
-                <img src={data.img} alt="cart img" className="cartImg" />
-              )}
             </button>
           </Link>
         </div>
@@ -31,13 +49,13 @@ const MENU_LEFT_BUTTON_DATA = [
     id: '2',
     className: 'contents',
     buttonName: '컨텐츠',
-    link: '/',
+    link: '/contents',
   },
   {
     id: '3',
     className: 'community',
     buttonName: '커뮤니티',
-    link: '/',
+    link: '/community',
   },
 ];
 
