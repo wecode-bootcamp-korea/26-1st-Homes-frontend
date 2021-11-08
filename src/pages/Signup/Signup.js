@@ -1,7 +1,7 @@
-import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
+// import { faRocketchat } from '@fortawesome/free-brands-svg-icons';
 import React from 'react';
-import signupInputList from '../Signup/signupInputList';
-// import inputList from '../Signup/inputList.json';
+import SignupInputList from './SignupInputList';
+// import inputList from './inputList.json';
 
 import './Signup.scss';
 
@@ -9,6 +9,7 @@ class Signup extends React.Component {
   constructor() {
     super();
     this.state = {
+      inputList: [],
       email: '',
       nickName: '',
       phone_number: '',
@@ -39,7 +40,7 @@ class Signup extends React.Component {
     this.setState({
       email: value,
     });
-    console.log('이메일 입력>>', event.target.value);
+    console.log('이메일>>', event.target.value);
   };
 
   //이메일 중복검사
@@ -52,7 +53,6 @@ class Signup extends React.Component {
       return regExp.test(str) ? true : false;
     };
 
-    //초기빈 이메일 값을 왜 주었을까
     const inputEmail = {
       email: this.state.email,
     };
@@ -71,7 +71,7 @@ class Signup extends React.Component {
         email: '',
       });
     } else {
-      fetch('http://10.58.4.252/8000', emailInfo)
+      fetch('hhttp://data/inputList.json', emailInfo)
         .then(res => res.json())
         .then(json => {
           if (json === true) {
@@ -105,7 +105,7 @@ class Signup extends React.Component {
     };
 
     const inputnicName = {
-      nickName: this.state.nickMame,
+      nickName: this.state.nickName,
     };
 
     const nickNameInfo = {
@@ -119,7 +119,7 @@ class Signup extends React.Component {
     if (chknickName(this.state.nickName) === false) {
       alert('한글, 영문 대소문자 2~15자리만 사용 가능합니다.');
     } else {
-      fetch('http://10.58.4.252/users/signin', nickNameInfo)
+      fetch('http://data/inputList.json', nickNameInfo)
         .then(res => res.json())
         .then(json => {
           if (json === true) {
@@ -140,10 +140,10 @@ class Signup extends React.Component {
     this.setState({
       phonNumber: event.target.value,
     });
-    console.log('전화번호 입력>>', event.target.value);
+    console.log('폰번호>>', event.target.value);
   };
 
-  //이메일 중복검사
+  //폰넘버 중복검사
   checkPhonNum = event => {
     event.preventDenfault();
 
@@ -168,7 +168,7 @@ class Signup extends React.Component {
     if (chkPhonNum(this.state.phonNumber) === false) {
       alert('-을 제외하고 입력해주세요');
     } else {
-      fetch('http://10.58.4.252/users/signin', phonNumInfo)
+      fetch('http://data/inputList.json', phonNumInfo)
         .then(res => res.json())
         .then(json => {
           if (json === true) {
@@ -189,15 +189,18 @@ class Signup extends React.Component {
     this.setState({
       password: event.target.value,
     });
-    console.log('비번 첫번째 입력>>', event.target.value);
+    console.log('비번>>', event.target.value);
   };
+
   // 비빌번호 두번째
   handlepwdCheck = event => {
     event.preventDefault();
     this.setState({
       rePassword: event.target.value,
     });
+    console.log('비번확인>>', event.target.value);
   };
+
   //비밀번호 확인
   chkPw = event => {
     event.preventDenfault();
@@ -225,16 +228,16 @@ class Signup extends React.Component {
       }
     }
   };
+
   gotoMain = () => {
     const { history } = this.props;
     history.push('./Main');
   };
+
   //가입하기버튼
   handleSubmit = event => {
     event.preventDenfault();
-
     const { email, nickName, phonNumvber, password, rePassword } = this.state;
-
     const signupInfo = {
       method: 'POST',
       body: JSON.stringify(signupInfo),
@@ -250,7 +253,7 @@ class Signup extends React.Component {
       password === rePassword &&
       email === this.checkEmail
     ) {
-      fetch('http://localhost:3000/data/commentData.json/user', signupInfo)
+      fetch('http://data/inputList.json', signupInfo)
         .then(alert('가입이 완료되었습니다.'))
         .then(this.props.history.push('/Main'));
     } else {
@@ -259,6 +262,7 @@ class Signup extends React.Component {
   };
 
   render() {
+    const { inputList } = this.state;
     return (
       <div id="SignupPage">
         <div className="container">
@@ -266,120 +270,57 @@ class Signup extends React.Component {
             <img id="homeLogo" src="./images/home.png" alt="집꾸미기로고" />
             <div className="logoName">집꾸미기 회원가입</div>
           </div>
-
           <div className="signupInputBox">
-            {/* const INPUT_ARR = ['email', 'nickName',
-            'phone_number','password','rePassword'];
-            {INPUT_ARR.map(signupInput => {
+            {inputList.map(inputList => {
               return (
-                <signupInputList>
-                  <input
-                    key={signupInputList}
-                    onChange={this.handleEmail}
-                    className={signupInputList}
-                    type={email}
-                    placeholder={placeholder}
-                  />
-                </signupInputList>
-              );
-            })}
-            ; */}
-            {/* 
-            {inputList.map(input => {
-              return (
-                <input
-                  key={input.id}
-                  name={input.name}
-                  content={input.content}
-                  inputType={input.inputType}
-                  placeholder={input.placeholder}
+                <SignupInputList
+                  key={inputList.id}
+                  name={inputList.name}
+                  type={inputList.inputType}
+                  placeholder={inputList.placeholder}
+                  onChange={this.handleEmail}
                 />
               );
-            })} */}
-            <signupInputList />
-            <signupInputList>
-              <input
-                key={signupInputList}
-                className="emailAddress"
-                type="email"
-                placeholder="이메일 주소"
-                onChange={this.handleEmail}
-              />
-            </signupInputList>
-            <inputImages>
-              <img
-                id="emailaddressIcon"
-                src="./images/email.png"
-                alt="이메일주소아이콘"
-              />
-            </inputImages>
-            <signupInputList>
-              <input
-                key={signupInputList}
-                className="nickName"
-                type="text"
-                placeholder="닉네임"
-                onChange={this.handlenickName}
-              />
-            </signupInputList>
-            <inputImages>
-              <img
-                id="nicknameIcon"
-                src="./images/user.png"
-                alt="닉네임아이콘"
-              />
-            </inputImages>
-            <signupInputList>
-              <input
-                key={signupInputList}
-                className="phonNumver"
-                type="text"
-                placeholder="휴대폰번호 (- 제외)"
-                onChange={this.handlephonNum}
-              />
-            </signupInputList>
-            <inputImages>
-              <img
-                id="phonnumverIcon"
-                src="./images/phone.png"
-                alt="폰번호아이콘"
-              />
-            </inputImages>
-            <signupInputList>
-              <input
-                key={signupInputList}
-                className="signupPassword"
-                type="text"
-                placeholder="비밀번호"
-                onChange={this.handlePwd}
-              />
-            </signupInputList>
-            <inputImages>
-              <img
-                id="signuppwdIcon"
-                src="./images/lock.png"
-                alt="비밀번호아이콘"
-              />
-            </inputImages>
-            <signupInputList>
-              <input
-                key={signupInputList}
-                className="signupPassword_checkt"
-                type="text"
-                placeholder="비밀번호 확인"
-                onChange={this.handlepwdCheck}
-              />
-            </signupInputList>
-            <inputImages>
-              <img
-                id="signupPassword_checktIcon"
-                src="./images/lock.png"
-                alt="가입비밀번호체크아이콘"
-              />
-            </inputImages>
+            })}
+
+            <img
+              id="emailaddressIcon"
+              src="./images/email.png"
+              alt="이메일주소아이콘"
+            />
+
+            <img id="nicknameIcon" src="./images/user.png" alt="닉네임아이콘" />
+
+            <img
+              id="phonnumverIcon"
+              src="./images/phone.png"
+              alt="폰번호아이콘"
+            />
+            <input
+              className="signupPassword"
+              type="password"
+              placeholder="비밀번호"
+              onChange={this.handlePwd}
+            />
+            <img
+              id="signuppwdIcon"
+              src="./images/lock.png"
+              alt="비밀번호아이콘"
+            />
+            <input
+              className="signupPassword_checkt"
+              type="password"
+              placeholder="비밀번호 확인"
+              onChange={this.handlepwdCheck}
+            />
+            <img
+              id="signupPassword_checktIcon"
+              src="./images/lock.png"
+              alt="가입비밀번호체크아이콘"
+            />
           </div>
+
           <div className="checkBox">
-            {/* <input type="checkbox" id="check" name="check"><label for="check">전체 동의</label> */}
             <span className="agreeText" id="agreeText1">
               ㅁ 전체 동의
             </span>

@@ -27,21 +27,22 @@ div#SignupPage {
       }
     }
 
+    input {
+      border-style: solid;
+      border-color: lightgray;
+      border-width: 1px;
+    }
+    .signupInput {
+      position: relative;
+      width: 297px;
+      height: 44px;
+      margin-bottom: 5px;
+      padding-left: 45px;
+      background-color: red;
+    }
+
     .signupInputBox {
       height: 100px;
-
-      input {
-        border-style: solid;
-        border-color: lightgray;
-        border-width: 1px;
-      }
-      .emailAddress {
-        position: relative;
-        width: 297px;
-        height: 44px;
-        margin-bottom: 5px;
-        padding-left: 45px;
-      }
 
       #emailaddressIcon {
         position: absolute;
@@ -51,7 +52,7 @@ div#SignupPage {
         background-color: white;
       }
 
-      .nickName {
+      .SignupInputList {
         position: relative;
         width: 297px;
         height: 44px;

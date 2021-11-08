@@ -1,20 +1,20 @@
 import React from 'react';
-import inputList from '../data/inputList,json';
 import './Signup.scss';
 
-export class signupInputList extends React.Component {
+export class SignupInputList extends React.Component {
   render() {
-    const { className, content, type, placeholder, inputList } = this.props;
+    const { inputType, placeholder, name, onChange } = this.props;
     return (
-     {inputList.map((input,idx)=>(
-       <Input
-        key={idx}
-        className={input.name}
-        content={input.content}
-        type={input.type}
-        placeholder={input.placeholder}
-      />
-     ))}
+      <div signupInputList>
+        <input
+          name={name}
+          className="text"
+          onChange={onChange}
+          type={inputType}
+          placeholder={placeholder}
+        />
+      </div>
+    );
   }
 }
-export default signupInputList;
+export default SignupInputList;
