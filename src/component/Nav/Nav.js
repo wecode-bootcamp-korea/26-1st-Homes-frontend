@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
 
@@ -30,7 +30,6 @@ export class Nav extends Component {
   }
 
   hendleMouseEvent = showMenu => {
-    // this.setState(prev => ({ showMenu: !prev.showMenu }));
     !showMenu
       ? this.setState({ showMenu: true })
       : this.setState({ showMenu: false });

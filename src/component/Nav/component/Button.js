@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export class NavButton extends Component {
   constructor() {
@@ -15,11 +15,9 @@ export class NavButton extends Component {
   };
 
   render() {
-    console.log(this.state);
-
     return MENU_LEFT_BUTTON_DATA.map((data, idx) => {
       return (
-        // FIXME:카테고리에서 아무거나 선택 시
+        // FIXME:카테고리에서 아무거나 선택 시 스토어 메뉴 색상 변경 되도록
         <div
           className="NavButton"
           key={data.id}
@@ -61,4 +59,4 @@ const MENU_LEFT_BUTTON_DATA = [
   },
 ];
 
-export default withRouter(NavButton);
+export default NavButton;

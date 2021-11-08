@@ -6,12 +6,12 @@
   width: 100%;
   background-color: #fff;
   box-shadow: 2px 2px 10px lightgrey;
+  z-index: 999;
 
   .navWrap {
     @include flexMix(center, space-between);
     max-width: 1400px;
     margin: auto;
-    z-index: 999;
 
     .logoWrap {
       @include flexMix(center);
