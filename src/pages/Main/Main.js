@@ -79,13 +79,21 @@ export class Main extends Component {
             className="buttonPrev"
             onClick={() => this.onChangeImage(imgCurrentNo - 1)}
           >
-            앞으로
+            <img
+              className="prevArrow"
+              src="./images/free-icon-arrowhead-thin-outline-to-the-left-32542.png"
+              alt="prev button arrow"
+            />
           </div>
           <div
             className="buttonNext"
             onClick={() => this.onChangeImage(imgCurrentNo + 1)}
           >
-            뒤로
+            <img
+              className="nextArrow"
+              src="./images/free-icon-right-arrow-271228.png"
+              alt="prev button arrow"
+            />
           </div>
         </div>
         <div className="bestProductLists">

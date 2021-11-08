@@ -31,15 +31,23 @@
 
   .buttonPrev {
     position: absolute;
-    background-color: red;
     left: 0;
+
+    .prevArrow {
+      width: 40px;
+      opacity: 0.5;
+    }
   }
 
   .buttonNext {
     position: absolute;
-    background-color: red;
     right: 0;
     transition: transform 3s;
+
+    .nextArrow {
+      width: 40px;
+      opacity: 0.5;
+    }
   }
 
   .bestProductLists {
