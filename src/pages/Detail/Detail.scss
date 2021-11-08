@@ -89,9 +89,11 @@
           width: 253px;
           list-style: none;
         }
+
         .shippingFeeNone {
           display: none;
         }
+
         .shippingLists {
           list-style: none;
 
@@ -121,6 +123,7 @@
       }
     }
   }
+
   .optionBox {
     margin-top: 20px;
 
@@ -160,15 +163,18 @@
           display: flex;
           margin-left: 15px;
         }
+
         .priceBox {
           z-index: 2000;
           margin-right: 15px;
         }
       }
+
       .selectBox:hover {
         background-color: rgb(180, 226, 248);
       }
     }
+
     .dropDownOff {
       border-radius: 7px;
       align-items: center;
@@ -180,9 +186,11 @@
       border: 1px #ababab solid;
       color: #ababab;
     }
+
     .dropDownOff:hover {
       background-color: rgb(180, 226, 248);
     }
+
     .downOff {
       display: none;
     }
@@ -220,14 +228,17 @@
           display: flex;
           margin-left: 15px;
         }
+
         .priceBox {
           margin-right: 15px;
         }
       }
+
       .selectBox:hover {
         background-color: rgb(180, 226, 248);
       }
     }
+
     .dropDownOff2 {
       border-radius: 7px;
       align-items: center;
@@ -239,6 +250,7 @@
       border: 1px #ababab solid;
       color: #ababab;
     }
+
     .dropDownOff2:hover {
       background-color: rgb(180, 226, 248);
     }
@@ -250,6 +262,7 @@
     .buyBoxOff {
       display: none;
     }
+
     .boxAndBuy {
       margin-top: 10px;
 
@@ -268,6 +281,7 @@
             padding-top: 20px;
             font-size: 13px;
           }
+
           .removeButton {
             margin-top: 13px;
             margin-right: 15px;
@@ -294,6 +308,7 @@
               border-radius: 50%;
               background-color: rgb(240, 240, 240);
             }
+
             .calculator {
               width: 50px;
               height: 25px;
@@ -302,6 +317,7 @@
               background-color: rgb(240, 240, 240);
             }
           }
+
           .priceCalculator {
             margin-top: 15px;
             margin-right: 15px;
@@ -320,11 +336,13 @@
           display: flex;
           justify-content: space-between;
           margin-top: 20px;
+
           .QuantityBottom {
             margin-left: 3px;
             font-weight: bold;
             font-size: 18px;
           }
+
           .PriceBottom {
             margin-right: 3px;
             font-size: 20px;
