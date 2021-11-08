@@ -1,0 +1,145 @@
+.Login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    flex-direction: column;
+    height: 400px;
+    width: 300px;
+
+    .logoBox {
+      #homeLogo {
+        display: block;
+        margin: 0 auto;
+        padding: 10px;
+      }
+
+      .logoName {
+        color: rgba(177, 174, 174, 0.808);
+        flex-direction: column;
+        font-size: 13px;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: 110px;
+      }
+    }
+
+    .viewbtnBox {
+      .viewBtnwecode {
+        width: 297px;
+        height: 44px;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-weight: bold;
+        }
+      }
+      .viewBtnkakao {
+        width: 297px;
+        height: 44px;
+        background-color: #fadb02;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .viewBtnnaver {
+        width: 297px;
+        height: 44px;
+        background-color: #20c801;
+        color: white;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+
+    .textOr {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      color: #757575;
+    }
+
+    .inputBox {
+      height: 100px;
+      position: relative;
+
+      input {
+        border: 1px solid lightgray;
+        padding-left: 50px;
+      }
+
+      .email {
+        width: 297px;
+        height: 44px;
+        margin-bottom: 10px;
+      }
+
+      #emailIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 17px;
+      }
+
+      .password {
+        width: 297px;
+        height: 44px;
+      }
+
+      #pwdIcon {
+        position: absolute;
+        margin-top: 14px;
+        margin-left: -282px;
+        width: 15px;
+      }
+    }
+
+    .btnBox {
+      #loginBtn {
+        width: 297px;
+        height: 44px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        color: white;
+        font-weight: bold;
+        background-color: rgb(90, 197, 240);
+      }
+      :hover {
+        cursor: pointer;
+      }
+    }
+
+    .linkBox {
+      display: flex;
+      justify-content: center;
+
+      span {
+        padding: 2px;
+        font-size: 13px;
+        color: #757575;
+      }
+
+      .signupLink {
+        background-color: white;
+        color: #757575;
+        padding-right: 10px;
+        border-right: 2px solid lightgray;
+      }
+
+      .lostpwdLink {
+        padding-left: 10px;
+      }
+
+      :hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
