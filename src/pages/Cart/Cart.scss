@@ -1,13 +1,185 @@
 @import '../../styles/variable.scss';
 $backgroundColor: #f5f5f5;
+$color: #28232c;
 
 .Cart {
-  height: 100%;
+  @include flexMix(0, center);
   background-color: $backgroundColor;
 
   .cartBox {
-    margin-top: 100px;
+    margin: 100px 0;
     width: 900px;
+    background-color: #fff;
     box-shadow: 1px 2px 10px lightgrey;
+
+    .cartInfo {
+      padding: 30px 50px;
+      border-bottom: 2px solid $backgroundColor;
+
+      .cartInfoTitle {
+        font-size: 28px;
+
+        .infoTitle {
+          padding: 5px 0;
+        }
+      }
+
+      .priceInfo {
+        margin: 30px 0;
+
+        .totalPrice {
+          display: inline-block;
+          width: 100px;
+          margin: 5px 0;
+          color: #c5c8ce;
+
+          .totalProductPrice {
+            color: $color;
+          }
+        }
+
+        .point {
+          display: flex;
+        }
+
+        .pointInfo {
+          @include flexMix(flex-start, 0);
+          flex-direction: column;
+          margin: 5px 0;
+
+          .moreReviewMorePoint {
+            font-size: 13px;
+            color: #c5c8ce;
+            padding: 5px 0;
+          }
+        }
+      }
+    }
+
+    .cartProducts {
+      padding: 50px 50px 20px 50px;
+      border-bottom: 5px solid $backgroundColor;
+
+      .brandName {
+        margin: 10px 0;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .productOptionWrap {
+        display: flex;
+        margin: 20px 0;
+
+        .productOptionInfo {
+          flex: 1;
+
+          .productInfo {
+            .productImg {
+              width: 100px;
+              border-radius: 10px;
+            }
+
+            .productName {
+              width: 200px;
+              margin: 10px 0;
+              font-size: 14px;
+              color: $color;
+            }
+          }
+        }
+
+        .productOption {
+          flex: 2;
+          height: 100%;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+
+          .optionWrap {
+            @include flexMix(center, space-between);
+            margin: 15px;
+
+            .optionInfo {
+              font-size: 14px;
+
+              .optionName {
+                padding-right: 10px;
+                margin: 10px;
+                border-right: 2px solid #f0f3f6;
+              }
+            }
+          }
+
+          .productClean {
+            width: 20px;
+          }
+
+          .productQuantity {
+            @include flexMix(center, space-between);
+            margin: 15px;
+
+            .quantity {
+              @include flexMix(center, space-between);
+
+              .minus,
+              .number,
+              .plus {
+                padding: 5px 10px;
+                font-weight: 700;
+              }
+            }
+          }
+        }
+      }
+
+      .totalPriceOrder {
+        display: flex;
+        justify-content: center;
+        padding-top: 20px;
+        border-top: 1px solid $backgroundColor;
+        color: $keyColor;
+      }
+    }
+
+    .notification {
+      padding: 30px 15px;
+      background-color: $backgroundColor;
+
+      .notificationTitle {
+        padding: 13px 0;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      ul {
+        list-style: inside;
+
+        .notiList {
+          padding: 3px;
+          color: #aaafb9;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .total {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+
+      .totalNumber {
+        flex: 0.5;
+        margin-left: 15px;
+      }
+
+      .order {
+        flex: 5;
+        height: 70px;
+        border-radius: 10px;
+        background-color: $keyColor;
+        color: $backgroundColor;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
   }
 }
