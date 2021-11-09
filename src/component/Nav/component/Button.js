@@ -18,10 +18,6 @@ export class NavButton extends Component {
     const { selectedCategory } = this.props;
 
     return MENU_LEFT_BUTTON_DATA.map((data, idx) => {
-      {
-        console.log('idx', idx);
-        console.log('selectedCategory', this.props.selectedCategory);
-      }
       return (
         // FIXME:카테고리에서 아무거나 선택 시 스토어 메뉴 색상 변경 되도록
         <div
