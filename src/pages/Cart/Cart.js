@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CheckBox from './component/CheckBox';
+import CheckBox from './CheckBox/CheckBox';
 import './Cart.scss';
 
 export class Cart extends Component {
