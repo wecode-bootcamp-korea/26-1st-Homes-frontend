@@ -31,7 +31,6 @@ export class Nav extends Component {
 
   isCategoryClick = () => {
     this.setState({ selectedCategory: 0 });
-    console.log('history', this.props);
   };
 
   render() {
