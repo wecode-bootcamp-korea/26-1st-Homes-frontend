@@ -4,10 +4,10 @@ import './CheckBox.scss';
 export class CheckBox extends Component {
   render() {
     return (
-      <div className="cartCheckBox">
+      <div className="CartCheckBox">
         <div className="checkBoxWrap">
-          <input type="checkBox" id="ckb" />
-          <label for="ckb" className="checkBoxLabel">
+          <input type="checkBox" id="checkBox" />
+          <label htmlFor="checkBox" className="checkBoxLabel">
             <img className="checkImg" src="./images/-.png" alt="check img" />
           </label>
           {/* <span className="checkAll">모두선택(2)</span> */}

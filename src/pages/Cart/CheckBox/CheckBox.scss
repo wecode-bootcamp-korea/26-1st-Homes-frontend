@@ -1,13 +1,13 @@
 @import '../../../styles/variable.scss';
 $backgroundColor: #f5f5f5;
 
-.cartCheckBox {
+.CartCheckBox {
   @include flexMix(center, space-between);
 
   .checkBoxWrap {
     @include flexMix(center, 0);
 
-    input[id='ckb'],
+    input[id='checkBox'],
     label {
       display: inline-block;
       width: 30px;
@@ -21,7 +21,7 @@ $backgroundColor: #f5f5f5;
       }
     }
 
-    input[id='ckb'] {
+    input[id='checkBox'] {
       display: none;
     }
 
