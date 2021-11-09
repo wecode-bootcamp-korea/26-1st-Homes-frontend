@@ -1,42 +1,37 @@
-export const INFO = [
+export const SignUpForms = [
   {
-    id: 1,
+    id: 0,
     name: 'email',
     content: '이메일',
     inputType: 'text',
-    value: '',
     placeholder: '이메일 주소',
   },
   {
-    id: 2,
+    id: 1,
     name: 'nickName',
     content: '닉네임',
     inputType: 'text',
-    value: '',
     placeholder: '닉네임',
   },
   {
-    id: 3,
+    id: 2,
     name: 'phone_number',
     content: '폰번호',
     inputType: 'text',
-    value: '',
     placeholder: '휴대폰 번호(-제외)',
   },
   {
-    id: 4,
+    id: 3,
     name: 'password',
     content: '비밀번호',
     inputType: 'password',
-    value: '',
     placeholder: '비밀번호',
   },
   {
-    id: 5,
+    id: 4,
     name: 'rePassword',
     content: '비밀번호 확인',
     inputType: 'password',
-    value: '',
     placeholder: '비밀번호 확인',
   },
 ];
