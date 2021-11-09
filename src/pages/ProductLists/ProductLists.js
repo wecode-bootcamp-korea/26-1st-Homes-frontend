@@ -22,16 +22,6 @@ class ProductLists extends Component {
           newProduct: info,
         });
       });
-
-    // fetch('http://10.58.5.17:8000/product/products?type=1&sort=low_price')
-    //   .then(res => res.json())
-    //   .then(info => {
-    //     console.log(info);
-    //     this.setState({
-    //       product: info.products,
-    //     });
-    //     console.log('product', this.state.product);
-    //   });
   }
 
   //모달창 on/off 함수 구현 시작
@@ -71,37 +61,15 @@ class ProductLists extends Component {
           <p>침대</p>
 
           <div className="filterBtn" onClick={this.handleClick}>
-            Filtering ▼
+            <p>Filtering ▼</p>
             {isModalOn && <Modal filteringBtns={this.filteringBtns} />}
           </div>
         </div>
 
         <div className="singleProduct">
-          {product.map(productInfo => {
-            const {
-              id,
-              company,
-              product_name,
-              discount_rate,
-              discounted_price,
-              star_rate,
-              review,
-              image_url,
-            } = productInfo;
-            return (
-              <ProductContainer
-                key={id}
-                id={id}
-                company={company}
-                productName={product_name}
-                discountRate={discount_rate}
-                discountedPrice={discounted_price}
-                starRate={star_rate}
-                review={review}
-                imgUrl={image_url}
-              />
-            );
-          })}
+          {product.map(productInfo => (
+            <ProductContainer key={productInfo.id} {...productInfo} />
+          ))}
         </div>
         <div className="pageNation">
           <span className="firstPage">1</span>

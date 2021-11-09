@@ -16,9 +16,6 @@ class Modal extends Component {
         <button className="price" value="높은가격순" onClick={filteringBtns}>
           높은 가격순
         </button>
-
-        {/* <div className="circleBtn" />
-        <p onClick={filteringBtns}>{sequence}</p> */}
       </div>
     );
   }
