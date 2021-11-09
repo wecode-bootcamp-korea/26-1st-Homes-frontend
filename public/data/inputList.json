@@ -5,7 +5,10 @@
     "content": "이메일",
     "inputType": "text",
     "value": "",
-    "placeholder": "이메일 주소"
+    "placeholder": "이메일 주소",
+    "onChange": "this.handleEmail",
+    "src": "/images/email.png",
+    "alt": "이메일아이콘"
   },
   {
     "id": 2,
@@ -13,7 +16,10 @@
     "content": "닉네임",
     "inputType": "text",
     "value": "",
-    "placeholder": "닉네임"
+    "placeholder": "닉네임",
+    "onChange": "this.handlenickName",
+    "src": "./images/user.png",
+    "alt": "alt"
   },
   {
     "id": 3,
@@ -21,7 +27,10 @@
     "content": "폰번호",
     "inputType": "text",
     "value": "",
-    "placeholder": "휴대폰 번호(-제외)"
+    "placeholder": "휴대폰 번호(-제외)",
+    "onChange": "this.handelphonNum",
+    "src": "./images/phone.png",
+    "alt": "alt"
   },
   {
     "id": 4,
@@ -29,7 +38,9 @@
     "content": "비밀번호",
     "inputType": "password",
     "value": "",
-    "placeholder": "비밀번호"
+    "placeholder": "비밀번호",
+    "src": "./images/lock.png",
+    "alt": "alt"
   },
   {
     "id": 5,
@@ -37,6 +48,8 @@
     "content": "비밀번호 확인",
     "inputType": "password",
     "value": "",
-    "placeholder": "비밀번호 확인"
+    "placeholder": "비밀번호 확인",
+    "src": "./images/lock.png",
+    "alt": "alt"
   }
 ]

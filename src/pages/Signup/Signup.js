@@ -46,6 +46,7 @@ class Signup extends React.Component {
   //이메일 중복검사
   checkEmail = event => {
     event.preventDenfault();
+    const { email } = this.state;
 
     //이메일 유효성 검사
     const chkEmail = function (str) {
@@ -54,7 +55,7 @@ class Signup extends React.Component {
     };
 
     const inputEmail = {
-      email: this.state.email,
+      email: email,
     };
 
     const emailInfo = {
@@ -65,7 +66,7 @@ class Signup extends React.Component {
       },
     };
 
-    if (chkEmail(this.state.email) === false) {
+    if (chkEmail(email) === false) {
       alert('이메일 형식이 유효하지 않습니다.');
       this.setState({
         email: '',
@@ -77,7 +78,7 @@ class Signup extends React.Component {
           if (json === true) {
             alert('사용가능 한 아이디입니다.');
             this.setState({
-              emailCheck: this.state.email,
+              emailCheck: email,
             });
           } else {
             alert('이미 존재하는 아이디입니다.');
@@ -97,6 +98,7 @@ class Signup extends React.Component {
   //닉네임 중복검사
   checknickName = event => {
     event.preventDenfault();
+    const { nickName } = this.state;
 
     const chknickName = function (str) {
       let regnicName =
@@ -105,7 +107,7 @@ class Signup extends React.Component {
     };
 
     const inputnicName = {
-      nickName: this.state.nickName,
+      nickName: nickName,
     };
 
     const nickNameInfo = {
@@ -116,7 +118,7 @@ class Signup extends React.Component {
       },
     };
 
-    if (chknickName(this.state.nickName) === false) {
+    if (chknickName(nickName) === false) {
       alert('한글, 영문 대소문자 2~15자리만 사용 가능합니다.');
     } else {
       fetch('http://data/inputList.json', nickNameInfo)
@@ -125,7 +127,7 @@ class Signup extends React.Component {
           if (json === true) {
             alert('사용가능 한 닉네임입니다.');
             this.setState({
-              chknickName: this.state.nickName,
+              chknickName: nickName,
             });
           } else {
             alert('이미 존재하는 닉네임입니다.');
@@ -137,6 +139,7 @@ class Signup extends React.Component {
   // 폰넘버
   handlephonNum = event => {
     event.preventDefault();
+
     this.setState({
       phonNumber: event.target.value,
     });
@@ -146,6 +149,7 @@ class Signup extends React.Component {
   //폰넘버 중복검사
   checkPhonNum = event => {
     event.preventDenfault();
+    const { phone_number } = this.state;
 
     //이메일 유효성 검사
     const chkPhonNum = function (str) {
@@ -154,7 +158,7 @@ class Signup extends React.Component {
     };
 
     const inputPhonNum = {
-      phone_number: this.state.phone_number,
+      phone_number: phone_number,
     };
 
     const phonNumInfo = {
@@ -174,7 +178,7 @@ class Signup extends React.Component {
           if (json === true) {
             alert('사용가능 한 전화번호입니다. ');
             this.setState({
-              chkPhonNum: this.state.phone_number,
+              chkPhonNum: phone_number,
             });
           } else {
             alert('이미 존재하는 전화번호입니다.');
@@ -186,6 +190,7 @@ class Signup extends React.Component {
   // 비밀번호 첫번째
   handlePwd = event => {
     event.preventDefault();
+
     this.setState({
       password: event.target.value,
     });
@@ -195,6 +200,7 @@ class Signup extends React.Component {
   // 비빌번호 두번째
   handlepwdCheck = event => {
     event.preventDefault();
+
     this.setState({
       rePassword: event.target.value,
     });
@@ -236,7 +242,7 @@ class Signup extends React.Component {
 
   //가입하기버튼
   handleSubmit = event => {
-    event.preventDenfault();
+    // event.preventDenfault();
     const { email, nickName, phonNumvber, password, rePassword } = this.state;
     const signupInfo = {
       method: 'POST',
@@ -278,46 +284,11 @@ class Signup extends React.Component {
                   name={inputList.name}
                   type={inputList.inputType}
                   placeholder={inputList.placeholder}
-                  onChange={this.handleEmail}
+                  onChange={inputList.onChange}
+                  src={inputList.src}
                 />
               );
             })}
-
-            <img
-              id="emailaddressIcon"
-              src="./images/email.png"
-              alt="이메일주소아이콘"
-            />
-
-            <img id="nicknameIcon" src="./images/user.png" alt="닉네임아이콘" />
-
-            <img
-              id="phonnumverIcon"
-              src="./images/phone.png"
-              alt="폰번호아이콘"
-            />
-            <input
-              className="signupPassword"
-              type="password"
-              placeholder="비밀번호"
-              onChange={this.handlePwd}
-            />
-            <img
-              id="signuppwdIcon"
-              src="./images/lock.png"
-              alt="비밀번호아이콘"
-            />
-            <input
-              className="signupPassword_checkt"
-              type="password"
-              placeholder="비밀번호 확인"
-              onChange={this.handlepwdCheck}
-            />
-            <img
-              id="signupPassword_checktIcon"
-              src="./images/lock.png"
-              alt="가입비밀번호체크아이콘"
-            />
           </div>
 
           <div className="checkBox">
@@ -336,8 +307,8 @@ class Signup extends React.Component {
               disabled={
                 this.state.email.indexOf('@') !== -1 &&
                 this.state.nickName.length > 5
-                  ? false
-                  : true
+                  ? true
+                  : false
               }
             >
               회원가입

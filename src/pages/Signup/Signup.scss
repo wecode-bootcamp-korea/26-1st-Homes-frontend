@@ -3,6 +3,7 @@ div#SignupPage {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 
   .container {
     display: block;
@@ -27,87 +28,25 @@ div#SignupPage {
       }
     }
 
-    input {
-      border-style: solid;
-      border-color: lightgray;
-      border-width: 1px;
-    }
-    .signupInput {
-      position: relative;
-      width: 297px;
-      height: 44px;
-      margin-bottom: 5px;
-      padding-left: 45px;
-      background-color: red;
-    }
-
     .signupInputBox {
       height: 100px;
+      position: relative;
 
-      #emailaddressIcon {
-        position: absolute;
-        margin-top: 16px;
-        margin-left: -282px;
-        width: 15px;
-        background-color: white;
-      }
-
-      .SignupInputList {
-        position: relative;
+      input {
+        // position: relative;
+        border-style: solid;
+        border-color: lightgray;
+        border-width: 1px;
         width: 297px;
         height: 44px;
         margin-bottom: 5px;
         padding-left: 45px;
       }
 
-      #nicknameIcon {
+      img {
         position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
-        width: 15px;
-      }
-
-      .phonNumver {
-        position: relative;
-        width: 297px;
-        height: 44px;
-        margin-bottom: 5px;
-        padding-left: 45px;
-      }
-
-      #phonnumverIcon {
-        position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
-        width: 15px;
-      }
-      .signupPassword {
-        position: relative;
-        width: 297px;
-        height: 44px;
-        margin-bottom: 5px;
-        padding-left: 45px;
-      }
-
-      #signuppwdIcon {
-        position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
-        width: 15px;
-      }
-
-      .signupPassword_checkt {
-        position: relative;
-        width: 297px;
-        height: 44px;
-        margin-bottom: 5px;
-        padding-left: 45px;
-      }
-
-      #signupPassword_checktIcon {
-        position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
+        margin-top: 15px;
+        margin-left: -285px;
         width: 15px;
       }
 
