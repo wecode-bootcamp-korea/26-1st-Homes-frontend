@@ -55,7 +55,7 @@ class ProductLists extends Component {
 
   render() {
     const { product, isModalOn } = this.state;
-    return (
+    return product.id ? (
       <div className="Container">
         <div className="categoryTitle">
           <p>침대</p>
@@ -76,7 +76,7 @@ class ProductLists extends Component {
           <span className="secondPage">2</span>
         </div>
       </div>
-    );
+    ) : null;
   }
 }
 

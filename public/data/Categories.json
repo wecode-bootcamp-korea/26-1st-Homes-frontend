@@ -2,66 +2,81 @@
   {
     "img": "../images/premium-icon-armchair-2355336.png",
     "categoryName": "가구",
+    "categoryLink": "/product-lists",
     "categoryLists": [
       {
         "id": "1",
         "furnitureName": "침대",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "일반침대"
+            "name": "일반침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "2",
-            "name": "수납침대"
+            "name": "수납침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "3",
-            "name": "저상형침대"
+            "name": "저상형침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "4",
-            "name": "벙커침대"
+            "name": "벙커침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "5",
-            "name": "모션베드"
+            "name": "모션베드",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "6",
-            "name": "패밀리침대"
+            "name": "패밀리침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "7",
-            "name": "돌침대/흙침대"
+            "name": "돌침대/흙침대",
+            "categoryLink": "/product-lists"
           }
         ]
       },
       {
         "id": "2",
         "furnitureName": "소파",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "가죽소파"
+            "name": "가죽소파",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "2",
-            "name": "패브릭소파"
+            "name": "패브릭소파",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "3",
-            "name": "신소재소파"
+            "name": "신소재소파",
+            "categoryLink": "/product-lists"
           }
         ]
       },
       {
         "id": "3",
         "furnitureName": "태이블",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "테이블이다 이마리야"
+            "name": "테이블이다 이마리야",
+            "categoryLink": "/product-lists"
           }
         ]
       }
@@ -70,62 +85,76 @@
   {
     "img": "../images/premium-icon-blanket-3328006.png",
     "categoryName": "패브릭",
+    "categoryLink": "/product-lists",
     "categoryLists": [
       {
         "id": "1",
         "furnitureName": "스탠드",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "싱글침대"
+            "name": "싱글침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "2",
-            "name": "더블침대"
+            "name": "더블침대",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "3",
-            "name": "퀸"
+            "name": "퀸",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "4",
-            "name": "왕"
+            "name": "왕",
+            "categoryLink": "/product-lists"
           }
         ]
       },
       {
         "id": "2",
         "furnitureName": "테이블",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "장식 조명"
+            "name": "장식 조명",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "2",
-            "name": "작업등"
+            "name": "작업등",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "3",
-            "name": "LED 전구"
+            "name": "LED 전구",
+            "categoryLink": "/product-lists"
           }
         ]
       },
       {
         "id": "3",
         "furnitureName": "장스탠드",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
-            "name": "수납장"
+            "name": "수납장",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "2",
-            "name": "옷장"
+            "name": "옷장",
+            "categoryLink": "/product-lists"
           },
           {
             "id": "3",
-            "name": "책장"
+            "name": "책장",
+            "categoryLink": "/product-lists"
           }
         ]
       }
@@ -134,10 +163,12 @@
   {
     "img": "../images/premium-icon-table-lamp-4408125.png",
     "categoryName": "조명",
+    "categoryLink": "/product-lists",
     "categoryLists": [
       {
         "id": "1",
         "furnitureName": "스탠드",
+        "categoryLink": "/product-lists",
         "sub_category": [
           {
             "id": "1",
