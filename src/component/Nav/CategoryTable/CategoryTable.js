@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import FurnitureTable from '../FurnitureTable/FurnitureTable';
 import './CategoryTable.scss';
 
@@ -11,7 +12,8 @@ export class CategoryTable extends Component {
   }
 
   render() {
-    const { key, categoryImg, categoryName, categoryLists } = this.props;
+    const { key, categoryImg, categoryName, categoryLists, isCategoryClick } =
+      this.props;
 
     return (
       <div className="CategoryTable" key={key}>
@@ -23,6 +25,7 @@ export class CategoryTable extends Component {
           onMouseLeave={() => {
             this.setState({ showMenu: false });
           }}
+          onClick={() => isCategoryClick()}
         >
           <img src={categoryImg} alt="furniture img" className="furnitureImg" />
           <span className="furniture">{categoryName}</span>
@@ -33,6 +36,7 @@ export class CategoryTable extends Component {
                   key={item.id}
                   furnitureName={item.furnitureName}
                   sub_category={item.sub_category}
+                  isCategoryClick={isCategoryClick}
                 />
               ))}
           </ul>
@@ -42,4 +46,4 @@ export class CategoryTable extends Component {
   }
 }
 
-export default CategoryTable;
+export default withRouter(CategoryTable);

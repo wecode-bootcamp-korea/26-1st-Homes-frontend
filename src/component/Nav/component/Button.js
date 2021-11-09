@@ -6,7 +6,7 @@ export class NavButton extends Component {
     super();
 
     this.state = {
-      selectedIdx: 0,
+      selectedIdx: '',
     };
   }
 
@@ -15,7 +15,13 @@ export class NavButton extends Component {
   };
 
   render() {
+    const { selectedCategory } = this.props;
+
     return MENU_LEFT_BUTTON_DATA.map((data, idx) => {
+      {
+        console.log('idx', idx);
+        console.log('selectedCategory', this.props.selectedCategory);
+      }
       return (
         // FIXME:카테고리에서 아무거나 선택 시 스토어 메뉴 색상 변경 되도록
         <div
@@ -23,10 +29,12 @@ export class NavButton extends Component {
           key={data.id}
           onClick={() => this.clickHandler(idx)}
         >
-          <Link to={data.link} className="loginLink">
+          <Link to={data.link} className="buttonLink">
             <button
               className={
-                this.state.selectedIdx === idx ? 'buttonColor' : data.className
+                this.state.selectedIdx === idx || selectedCategory === idx
+                  ? 'buttonColor'
+                  : data.className
               }
             >
               {data.buttonName}

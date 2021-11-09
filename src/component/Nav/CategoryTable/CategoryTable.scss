@@ -2,10 +2,15 @@
 
 .CategoryTable {
   .category {
-    @include flexMix(center);
+    @include flexMix(center, flex-start);
     width: 170px;
-    padding: 10px 10px;
+    padding: 10px 20px;
     transition: 0.3s;
+
+    .categoryLink {
+      @include flexMix(center);
+      text-decoration: none;
+    }
 
     .furnitureImg {
       width: 50px;

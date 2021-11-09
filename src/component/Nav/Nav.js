@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
@@ -12,6 +11,7 @@ export class Nav extends Component {
     this.state = {
       categories: [],
       showMenu: false,
+      selectedCategory: '',
     };
   }
 
@@ -29,8 +29,13 @@ export class Nav extends Component {
       : this.setState({ showMenu: false });
   };
 
+  isCategoryClick = () => {
+    this.setState({ selectedCategory: 0 });
+    console.log('history', this.props);
+  };
+
   render() {
-    const { categories, showMenu } = this.state;
+    const { categories, showMenu, selectedCategory } = this.state;
 
     return (
       <nav className="Nav">
@@ -62,13 +67,14 @@ export class Nav extends Component {
                         categoryImg={category.img}
                         categoryName={category.categoryName}
                         categoryLists={category.categoryLists}
+                        isCategoryClick={this.isCategoryClick}
                       />
                     );
                   })}
               </ul>
             </div>
 
-            <Button />
+            <Button selectedCategory={selectedCategory} />
           </div>
           <div className="menuRight">
             <div className="searchWrap">

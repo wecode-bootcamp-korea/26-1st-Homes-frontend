@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './FurnitureTable.scss';
 
 export class FurnitureTable extends Component {
@@ -10,7 +11,7 @@ export class FurnitureTable extends Component {
   }
 
   render() {
-    const { key, furnitureName, sub_category } = this.props;
+    const { key, furnitureName, sub_category, isCategoryClick } = this.props;
 
     return (
       <div className="FurnitureTable" key={key}>
@@ -22,6 +23,7 @@ export class FurnitureTable extends Component {
           onMouseLeave={() => {
             this.setState({ showMenu: false });
           }}
+          onClick={() => isCategoryClick()}
         >
           <span className="furnitureName">{furnitureName}</span>
           <div className="furnitureTable">
@@ -29,7 +31,11 @@ export class FurnitureTable extends Component {
               {this.state.showMenu &&
                 sub_category.map(itemName => {
                   return (
-                    <li className="item" key={itemName.id}>
+                    <li
+                      className="item"
+                      key={itemName.id}
+                      onClick={() => isCategoryClick()}
+                    >
                       {itemName.name}
                     </li>
                   );
@@ -42,4 +48,4 @@ export class FurnitureTable extends Component {
   }
 }
 
-export default FurnitureTable;
+export default withRouter(FurnitureTable);
