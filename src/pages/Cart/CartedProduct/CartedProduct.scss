@@ -1,0 +1,51 @@
+@import '../../../styles/variable.scss';
+$backgroundColor: #f5f5f5;
+$color: #28232c;
+
+.CartedProduct {
+  padding: 50px 50px 20px 50px;
+  border-bottom: 5px solid $backgroundColor;
+
+  .brandName {
+    margin: 10px 400px 10px 0;
+    width: 400px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .productOptionWrap {
+    display: flex;
+    margin: 20px 0;
+
+    .productOptionInfo {
+      flex: 1;
+
+      .productInfo {
+        .productImg {
+          width: 100px;
+          border-radius: 10px;
+        }
+
+        .productName {
+          width: 200px;
+          margin: 10px 0;
+          color: $color;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .cartedProductOption {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+    }
+  }
+
+  .totalPriceOrder {
+    @include flexMix(0, center);
+    padding-top: 20px;
+    border-top: 1px solid $backgroundColor;
+    color: $keyColor;
+  }
+}

@@ -1,5 +1,4 @@
 @import '../../../styles/variable.scss';
-$backgroundColor: #f5f5f5;
 
 .CartCheckBox {
   @include flexMix(center, space-between);
@@ -7,38 +6,37 @@ $backgroundColor: #f5f5f5;
   .checkBoxWrap {
     @include flexMix(center, 0);
 
-    input[id='checkBox'],
-    label {
+    .checkBoxLabel {
+      @include flexMix();
       display: inline-block;
       width: 30px;
       height: 30px;
+      margin: 5px;
       background-color: #f0f3f6;
       border-radius: 50%;
+      font-size: 14px;
+    }
+
+    input[type='checkBox'] {
       cursor: pointer;
 
-      &:checked + label {
-        background-color: $keyColor;
+      input[type='checkBox'] {
+        display: none;
       }
     }
 
-    input[id='checkBox'] {
-      display: none;
+    &:checked + label:before {
+      background-color: $keyColor;
     }
 
-    .checkBoxLabel {
-      @include flexMix();
+    .checkImg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .checkAll {
       margin: 5px;
       font-size: 14px;
-
-      .checkImg {
-        width: 15px;
-        height: 15px;
-      }
-
-      .checkAll {
-        margin: 5px;
-        font-size: 14px;
-      }
     }
   }
 
