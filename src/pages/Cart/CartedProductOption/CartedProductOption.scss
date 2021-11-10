@@ -8,7 +8,7 @@
 
   .optionWrap {
     @include flexMix(center, space-between);
-    margin: 15px;
+    margin: 20px;
 
     .optionInfo {
       font-size: 14px;
@@ -17,6 +17,10 @@
         padding-right: 10px;
         margin: 10px;
         border-right: 2px solid #f0f3f6;
+      }
+
+      .optionColor {
+        margin: 0 10px;
       }
     }
   }
@@ -38,6 +42,10 @@
         padding: 5px 10px;
         font-weight: 700;
       }
+    }
+
+    .optionPrice {
+      padding: 0 10px;
     }
   }
 }

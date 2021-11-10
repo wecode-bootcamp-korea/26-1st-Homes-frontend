@@ -14,9 +14,8 @@ export class CheckBox extends Component {
   };
 
   render() {
-    const { isDeleteProductOne } = this.props;
+    const { isDeleteProductOne, id } = this.props;
     const { checked } = this.state;
-    console.log('checked', checked);
 
     return (
       <div className="CartCheckBox">
@@ -34,7 +33,7 @@ export class CheckBox extends Component {
         </div>
         <button
           className="cleanChooseThings"
-          onClick={e => isDeleteProductOne(e, 1)}
+          onClick={e => isDeleteProductOne(id)}
         >
           선택 삭제
         </button>
