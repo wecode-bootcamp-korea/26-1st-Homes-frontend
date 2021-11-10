@@ -41,7 +41,10 @@ export class Nav extends Component {
           <div className="menuLeft">
             <div
               className="categoryMenu"
+<<<<<<< HEAD
               // FIXME: 반복되는 함수라서 줄일 수 있어볼 듯
+=======
+>>>>>>> master
               onMouseEnter={() => {
                 this.hendleMouseEvent(showMenu);
               }}
@@ -54,6 +57,7 @@ export class Nav extends Component {
                 <span className="categoryMenuName">카테고리</span>
               </div>
               <ul className="categoryList">
+<<<<<<< HEAD
                 {this.state.showMenu
                   ? categories.map(category => {
                       return (
@@ -68,6 +72,22 @@ export class Nav extends Component {
                   : null}
               </ul>
             </div>
+=======
+                {showMenu &&
+                  categories.map(category => {
+                    return (
+                      <CategoryTable
+                        key={category.id}
+                        categoryImg={category.img}
+                        categoryName={category.categoryName}
+                        categoryLists={category.categoryLists}
+                      />
+                    );
+                  })}
+              </ul>
+            </div>
+
+>>>>>>> master
             <Button />
           </div>
           <div className="menuRight">
@@ -91,7 +111,11 @@ export class Nav extends Component {
               />
             </div>
             <div className="login">
+<<<<<<< HEAD
               로그인/가입
+=======
+              <span>로그인/가입</span>
+>>>>>>> master
               <Link to="/login" className="loginLink" />
             </div>
             <button className="help">고객센터</button>

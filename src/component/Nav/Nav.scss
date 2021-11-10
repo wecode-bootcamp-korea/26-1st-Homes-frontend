@@ -6,12 +6,19 @@
   width: 100%;
   background-color: #fff;
   box-shadow: 2px 2px 10px lightgrey;
+<<<<<<< HEAD
+=======
+  z-index: 999;
+>>>>>>> master
 
   .navWrap {
     @include flexMix(center, space-between);
     max-width: 1400px;
     margin: auto;
+<<<<<<< HEAD
     z-index: 999;
+=======
+>>>>>>> master
 
     .logoWrap {
       @include flexMix(center);
@@ -22,7 +29,11 @@
       }
 
       .logo {
+<<<<<<< HEAD
         width: 155px;
+=======
+        width: 175px;
+>>>>>>> master
         font-size: 35px;
       }
     }
@@ -30,7 +41,11 @@
     .menuLeft {
       @include flexMix(center, space-between);
       width: 300px;
+<<<<<<< HEAD
       margin: 20px;
+=======
+      margin: 0 20px;
+>>>>>>> master
 
       .categoryMenu {
         position: relative;
@@ -38,6 +53,10 @@
 
         .categoryMenuHover {
           @include flexMix();
+<<<<<<< HEAD
+=======
+          height: 50px;
+>>>>>>> master
 
           .categoryMenuImg {
             height: 20px;
@@ -69,16 +88,36 @@
 
         .categoryList {
           position: absolute;
+<<<<<<< HEAD
           left: -20px;
           background-color: #fff;
+=======
+          top: 50px;
+          left: -20px;
+          background-color: #fff;
+          box-shadow: 1px 1px 5px lightgrey;
+>>>>>>> master
         }
       }
 
       .store,
       .contents,
       .community {
+<<<<<<< HEAD
         width: 64px;
         background-color: #fff;
+=======
+        width: 75px;
+        background-color: #fff;
+        color: black;
+        font-size: 15px;
+      }
+
+      .buttonColor {
+        width: 64px;
+        background-color: #fff;
+        color: $keyColor;
+>>>>>>> master
         font-size: 15px;
       }
     }
@@ -113,7 +152,12 @@
       }
 
       .login {
+<<<<<<< HEAD
         width: 100px;
+=======
+        @include flexMix();
+        width: 110px;
+>>>>>>> master
         height: 35px;
         margin: 20px;
         padding: 10px;
@@ -121,6 +165,10 @@
         color: #fff;
         background-color: $keyColor;
         border-radius: 50px;
+<<<<<<< HEAD
+=======
+        font-size: 15px;
+>>>>>>> master
 
         .loginLink {
           @include flexMix(center, center);
