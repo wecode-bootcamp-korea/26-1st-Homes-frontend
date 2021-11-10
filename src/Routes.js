@@ -6,12 +6,8 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
 import ProductLists from './pages/ProductLists/ProductLists';
-<<<<<<< HEAD
 import SignUpPage from './pages/SignUp';
-=======
-import Signup from './pages/Signup/Signup';
 import Cart from './pages/Cart/Cart';
->>>>>>> master
 
 export class Routes extends Component {
   render() {
@@ -23,12 +19,8 @@ export class Routes extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/product-lists" component={ProductLists} />
-<<<<<<< HEAD
           <Route exact path="/signup" component={SignUpPage} />
-=======
-          <Route exact path="/signup" component={Signup} />
           <Route exact path="/cart" component={Cart} />
->>>>>>> master
         </Switch>
       </Router>
     );

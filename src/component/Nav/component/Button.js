@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 export class NavButton extends Component {
-<<<<<<< HEAD
-  render() {
-    return MENU_LEFT_BUTTON_DATA.map(data => {
-      return (
-        <div className="NavButton" key={data.id}>
-          <Link to={data.link} className="loginLink">
-            <button className={data.className}>
-              {data.buttonName}
-              {data.img && (
-                <img src={data.img} alt="cart img" className="cartImg" />
-              )}
-=======
   constructor() {
     super();
 
@@ -42,7 +30,6 @@ export class NavButton extends Component {
               }
             >
               {data.buttonName}
->>>>>>> master
             </button>
           </Link>
         </div>
@@ -62,21 +49,13 @@ const MENU_LEFT_BUTTON_DATA = [
     id: '2',
     className: 'contents',
     buttonName: '컨텐츠',
-<<<<<<< HEAD
-    link: '/',
-=======
     link: '/contents',
->>>>>>> master
   },
   {
     id: '3',
     className: 'community',
     buttonName: '커뮤니티',
-<<<<<<< HEAD
-    link: '/',
-=======
     link: '/community',
->>>>>>> master
   },
 ];
 
