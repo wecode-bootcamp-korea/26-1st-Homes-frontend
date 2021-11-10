@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "company": "리샘가구",
+    "displayed_price": 599000,
+    "discount_rate": 68,
+    "star_point": 4.8,
+    "discounted_price": 191680.0,
+    "delivery_fee": "35,000",
+    "delivery_type": "직접 배송",
+    "payment_type": "착불",
+    "name": "캐더린 도리스 씨에라 통수납 침대 SSQ",
+    "product": [
+      {
+        "id": 1,
+        "name": "캐더린 통수납 침대 SS 프레임만",
+        "price": 189000.0
+      },
+      {
+        "id": 2,
+        "name": "통나무 수납 침대 AS 프레임만",
+        "price": 229000
+      },
+      {
+        "id": 3,
+        "name": "황금 수납 침대 AS 프레임만",
+        "price": 3229000
+      }
+    ],
+    "color": [
+      { "id": 1, "name": "화이트" },
+      { "id": 2, "name": "베이지" },
+      { "id": 3, "name": "그레이" }
+    ],
+    "image": [
+      "https://images.unsplash.com/photo-1616627561839-074385245ff6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJlZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60,10",
+      "https://i.ibb.co/GsbTkj7/bedbed.jpg"
+    ]
+  }
+]
