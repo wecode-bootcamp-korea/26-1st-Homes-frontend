@@ -171,8 +171,9 @@ export class Detail extends Component {
             </div>
             <div className="grade">
               <div className="starPointText">평점</div>
-              <div className="stars">
+              <div className="starBox">
                 <img className="star" alt="별" src="/images/별이다섯개.png" />
+                <img className="star2" alt="별" src="/images/별이다섯개.png" />
               </div>
               <span className="starPoint">{productInfo.star_point}</span>
             </div>

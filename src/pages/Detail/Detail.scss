@@ -130,15 +130,29 @@
           margin-bottom: 15px;
           color: #ababab;
         }
-        .stars {
+        .starBox {
           margin-left: 55px;
           margin-right: 10px;
+          max-width: 90px;
+          overflow: hidden;
 
           .star {
-            margin-top: -4px;
+            z-index: 10;
+            width: 90px;
+            height: 19px;
+            filter: opacity(1) drop-shadow(0 0 0 black);
+            margin-left: 50%;
+          }
+          .star2 {
+            z-index: -10;
+            position: absolute;
+            margin-top: -24px;
             width: 90px;
             height: 19px;
           }
+        }
+        .starPoint {
+          margin-left: 90px;
         }
       }
 
