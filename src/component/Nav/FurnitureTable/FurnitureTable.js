@@ -11,7 +11,7 @@ export class FurnitureTable extends Component {
 
   render() {
     const { key, furnitureName, sub_category } = this.props;
-
+    const { showMenu } = this.state;
     return (
       <div className="FurnitureTable" key={key}>
         <li
@@ -26,7 +26,7 @@ export class FurnitureTable extends Component {
           <span className="furnitureName">{furnitureName}</span>
           <div className="furnitureTable">
             <ul className="items">
-              {this.state.showMenu &&
+              {showMenu &&
                 sub_category.map(itemName => {
                   return (
                     <li className="item" key={itemName.id}>

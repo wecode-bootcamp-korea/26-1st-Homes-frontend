@@ -12,7 +12,7 @@ export class CategoryTable extends Component {
 
   render() {
     const { key, categoryImg, categoryName, categoryLists } = this.props;
-
+    const { showMenu } = this.state;
     return (
       <div className="CategoryTable" key={key}>
         <li
@@ -27,7 +27,7 @@ export class CategoryTable extends Component {
           <img src={categoryImg} alt="furniture img" className="furnitureImg" />
           <span className="furniture">{categoryName}</span>
           <ul className="furnitureLists">
-            {this.state.showMenu &&
+            {showMenu &&
               categoryLists.map(item => (
                 <FurnitureTable
                   key={item.id}
