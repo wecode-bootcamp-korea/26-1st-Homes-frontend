@@ -1,3 +1,42 @@
+.containerHome {
+  // margin-top: 100px;
+  padding-top: 150px;
+
+  .Logo {
+    #homeLogo {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .logoName {
+      display: flex;
+      justify-content: center;
+      color: lightgray;
+      font-size: 15px;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+  }
+}
 input {
   display: block;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  width: 297px;
+  height: 44px;
+  margin-bottom: 5px;
+}
+
+// .checkBox {
+//   // margin-top: 180px;
+//   display: block;
+//   margin-bottom: 15px;
+//   font-size: 15px;
+//   color: black;
+//   background-color: red;
+// }
+.signBtn {
+  margin-top: 50px;
 }

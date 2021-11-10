@@ -1,10 +1,12 @@
 .container {
-  margin-top: 75px;
-  height: 100vh;
+  margin-top: 10px;
+  // height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  flex-flow: column;
+  padding-top: 11px;
 
   .Logo {
     #homeLogo {
@@ -20,19 +22,6 @@
       font-size: 15px;
       margin-bottom: 20px;
       margin-top: 5px;
-    }
-  }
-
-  .checkBox {
-    // margin-top: 180px;
-    .agreeText {
-      display: block;
-      margin-bottom: 15px;
-      font-size: 15px;
-      color: black;
-    }
-    #agreeText1 {
-      margin-bottom: 25px;
     }
   }
 }

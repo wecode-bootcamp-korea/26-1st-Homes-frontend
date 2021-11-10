@@ -17,7 +17,10 @@ export default class Form extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  gotoLogin = () => {
+    const { history } = this.props;
+    history.push('./Login');
+  };
   /**
    * @description 입력한 Input 값을 state에 반영해주는 함수
    */
@@ -48,18 +51,45 @@ export default class Form extends React.Component {
       [event.target.name]: event.target.value,
     });
   };
-
   /**
    * @description 회원가입 요청을 실행하는 함수
    * Fetch 함수 들어가야함
    */
   handleSubmit = event => {
     event.preventDefault();
+    const { email, nickName, phone_number, password, rePassword } = this.state;
     let userData = this.state;
     // userData 안에 들어있는 값들 유효성 검사 통과시 fetch 함수 실행
-    console.log('submit clicked', userData);
+    fetch('http://10.58.1.116:8000/users/signup', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email,
+        nickname: nickName,
+        phone_number: phone_number,
+        password: password,
+        rePassword: rePassword,
+        name: 'a',
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'EMAIL_VALIDATION_ERROR') {
+          alert('이메일을 확인해주세요.');
+        } else if (result.message === 'PASSWORD_VALIDATION_ERROR') {
+          alert('비밀번호를 확인해주세요.');
+        } else if (result.message === 'DUPLICATED EMAI') {
+          alert('이메일을 확인해주세요.');
+        } else if (result.message === 'DUPLICATED NICKNAME') {
+          alert('닉네임을 확인해주세요.');
+        } else if (result.messag === 'PHONE_NUMBER_ERROR') {
+          alert('전화번호를 확인해주세요');
+        } else if (result.access_token) {
+          alert('로그인 성공');
+          localStorage.setItem('token', result.token);
+        }
+        console.log('submit clicked', userData);
+      });
   };
-
   render() {
     return (
       <div className="container">
@@ -77,22 +107,36 @@ export default class Form extends React.Component {
               </li>
             </ul>
           ))}
+
+          {/* <div className="checkBox">
+            <input className="btn checkAll" type="checkbox" />
+            전체 동의
+            <input className="btn checkTerms" type="checkbox" />
+            서비스 이용약관 동의 (보기)
+            <input className="btn checkInfo" type="checkbox" />
+            개인정보취급방침 동의 (보기)
+            <input className="btn checkAge" type="checkbox" />
+            본인은 만14세 이상입니다.
+          </div> */}
+
           <input
             className="signBtn"
             type="submit"
-            value="가입하기"
+            value="회원가입"
             style={{ cursor: 'pointer' }}
+            onClick={this.handleSubmit}
           />
           <input
             className="loginBtn"
             type="submit"
             value="로그인하기"
             style={{ cursor: 'pointer' }}
+            onClick={this.gotoLogin}
           />
         </form>
-        <button type="button" style={{ cursor: 'pointer' }}>
+        {/* <button type="button" style={{ cursor: 'pointer' }}>
           이메일주소 중복확인
-        </button>
+        </button> */}
       </div>
     );
   }

@@ -6,7 +6,7 @@ export default class FormValidator {
   }
 
   static _checkEmail(props) {
-    let regEmail = new RegExp(/^[a-z0-9\.\-_]+@([a-z0-9\-]+\.)+[a-z]{2,6}$/);
+    let regEmail = new RegExp(/^[a-z0-9.\-_]+@([a-z0-9-]+\.)+[a-z]{2,6}$/);
     return regEmail.test(props) ? true : false;
   }
 
