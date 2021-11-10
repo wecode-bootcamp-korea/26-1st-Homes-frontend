@@ -20,10 +20,13 @@ export class Main extends Component {
         this.setState({ events: data });
       });
 
-    fetch('/data/Best.json')
+    fetch(
+      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-best_ranking&limit=10'
+    )
       .then(res => res.json())
       .then(data => {
-        this.setState({ bestLists: data });
+        console.log(data.product_groups);
+        this.setState({ bestLists: data.product_groups });
       });
 
     // fetch('http://10.58.5.17:8000/product/category')
@@ -56,7 +59,7 @@ export class Main extends Component {
             {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
               return (
                 <Event
-                  key={event.id.toString()}
+                  key={event.id}
                   img={event.event_img}
                   title={event.event_title}
                   subTilte={event.event_sub_title}
@@ -125,7 +128,7 @@ export class Main extends Component {
                   price={best.price}
                   name={best.product_name}
                   review={best.review}
-                  starRate={best.star_rate}
+                  starPoint={best.star_point}
                 />
               );
             })}

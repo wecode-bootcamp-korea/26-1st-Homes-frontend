@@ -11,7 +11,7 @@ export class Best extends Component {
       img,
       name,
       review,
-      starRate,
+      starPoint,
     } = this.props;
 
     return (
@@ -22,11 +22,9 @@ export class Best extends Component {
           <p className="product brandName">{company}</p>
           <p className="product productName">{name}</p>
           <div className="product priceWrap">
-            <span className="price percent">{Math.round(discountRate)}%</span>
+            <span className="price percent">{discountRate}%</span>
             <span className="price discountPrice">
-              {Math.round(discountedPrice)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              {discountedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               원
             </span>
           </div>
@@ -37,7 +35,7 @@ export class Best extends Component {
               alt="star img"
             />
             <span className="review startPoin">
-              {Math.round(starRate * 10) / 10}
+              {Math.round(starPoint * 10) / 10}
             </span>
             <span className="review reviewNumber">({review})</span>
           </div>
