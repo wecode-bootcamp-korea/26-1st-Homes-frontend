@@ -48,7 +48,7 @@ export class Main extends Component {
             {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
               return (
                 <Event
-                  key={event.id.toString()}
+                  key={event.id}
                   img={event.event_img}
                   title={event.event_title}
                   subTilte={event.event_sub_title}
@@ -117,7 +117,7 @@ export class Main extends Component {
                   price={best.price}
                   name={best.product_name}
                   review={best.review}
-                  starRate={best.star_rate}
+                  starPoint={best.star_point}
                 />
               );
             })}

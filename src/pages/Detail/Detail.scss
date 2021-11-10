@@ -76,8 +76,8 @@
       border-radius: 20px;
       background-color: black;
       color: white;
-      padding-top: 11px;
-      padding-left: 16px;
+      padding-top: 8px;
+      padding-left: 13px;
     }
 
     .productInformation {
@@ -130,15 +130,28 @@
           margin-bottom: 15px;
           color: #ababab;
         }
-        .stars {
+        .starBox {
+          z-index: 1000;
           margin-left: 55px;
           margin-right: 10px;
+          height: 19px;
+          overflow: hidden;
 
-          .star {
-            margin-top: -4px;
-            width: 90px;
+          .pointOfStar {
+            z-index: 10;
             height: 19px;
+            width: 100px;
           }
+        }
+        .backgroundStar {
+          position: absolute;
+          margin-left: 84px;
+          width: 100px;
+          height: 19px;
+        }
+        .starPoint {
+          position: absolute;
+          margin-left: 200px;
         }
       }
 
