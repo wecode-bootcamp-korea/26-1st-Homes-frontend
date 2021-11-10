@@ -262,11 +262,11 @@ export class Detail extends Component {
                     return (
                       <div
                         key={index}
-                        className="selectBox2"
+                        className="colorSelectBox"
                         onClick={() => this.colorOptionSelect(colorOption)}
                       >
                         <div>{index + 1}.</div>
-                        <div className="clickBox">{colorOption.name}</div>
+                        <div>{colorOption.name}</div>
                       </div>
                       // 나중에 컴포넌트화 시킬 때 쓸 코드 입니다.
                       // <div key={option.id}>
@@ -296,7 +296,7 @@ export class Detail extends Component {
                       </button>
                     </div>
                     <div className="buttonsAndPrice">
-                      <div className="twoButtons">
+                      <div className="twoButtonsBox">
                         <button
                           onClick={this.quantityMinus}
                           className="quantityMinusButton"
