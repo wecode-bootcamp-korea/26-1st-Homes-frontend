@@ -22,7 +22,7 @@
         font-size: 13px;
         margin-bottom: 20px;
         display: block;
-        margin-left: 110px;
+        margin-left: 105px;
       }
     }
 
@@ -83,9 +83,10 @@
 
       #emailIcon {
         position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
+        margin-top: 12px;
+        margin-left: -280px;
         width: 17px;
+        z-index: 1;
       }
 
       .password {
@@ -95,8 +96,8 @@
 
       #pwdIcon {
         position: absolute;
-        margin-top: 14px;
-        margin-left: -282px;
+        margin-top: 15px;
+        margin-left: -280px;
         width: 15px;
       }
     }

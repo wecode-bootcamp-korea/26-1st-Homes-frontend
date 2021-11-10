@@ -14,17 +14,8 @@ class ProductLists extends Component {
   }
 
   componentDidMount() {
-    // fetch('/data/productData.json')
-    //   .then(res => res.json())
-    //   .then(info => {
-    //     this.setState({
-    //       products: info,
-    //       copiedProducts: info,
-    //     });
-    //   });
-
     fetch(
-      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-review_star_point'
+      'http://10.58.5.129:8000/products?SubCategoryId=1&ordering=-review_star_point'
     )
       .then(res => res.json())
       .then(info => {
@@ -33,6 +24,22 @@ class ProductLists extends Component {
           copiedProducts: info.product_groups,
         });
       });
+  }
+
+  componentDidUpdate(prevProps, _) {
+    const { location } = this.props;
+    if (prevProps.location.search !== location.search) {
+      fetch(
+        `http://10.58.5.129:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
+      )
+        .then(res => res.json())
+        .then(product => {
+          this.setState({
+            products: product.product_groups,
+            copiedProducts: product.product_groups,
+          });
+        });
+    }
   }
 
   toggleModal = () => {
@@ -72,6 +79,13 @@ class ProductLists extends Component {
     });
   };
 
+  movePage = index => {
+    const { history } = this.props;
+    const limit = 16;
+    const query = `limit=${limit}&offset=${index * limit}`;
+    history.push(`/product-lists?${query}`);
+  };
+
   render() {
     const { products, isModalOn } = this.state;
     return (
@@ -90,9 +104,14 @@ class ProductLists extends Component {
             <ProductContainer key={productInfo.id} {...productInfo} />
           ))}
         </div>
+
         <div className="pageNation">
-          <span className="firstPage">1</span>
-          <span className="secondPage">2</span>
+          <button onClick={() => this.movePage(0)} className="firstPage">
+            1
+          </button>
+          <button onClick={() => this.movePage(1)} className="secondPage">
+            2
+          </button>
         </div>
       </div>
     );
