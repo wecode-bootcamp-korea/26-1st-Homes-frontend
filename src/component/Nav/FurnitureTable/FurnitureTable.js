@@ -11,11 +11,11 @@ export class FurnitureTable extends Component {
   }
 
   render() {
-    const { key, furnitureName, sub_category, categoryLink, isCategoryClick } =
+    const { furnitureName, sub_category, categoryLink, isCategoryClick } =
       this.props;
 
     return (
-      <div className="FurnitureTable" key={key}>
+      <div className="FurnitureTable">
         <li
           className="furnitureList"
           onMouseEnter={() => {
