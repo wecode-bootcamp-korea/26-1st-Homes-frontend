@@ -1,0 +1,50 @@
+@import '../../../styles/variable.scss';
+$backgroundColor: #f5f5f5;
+
+.cartCheckBox {
+  @include flexMix(center, space-between);
+
+  .checkBoxWrap {
+    @include flexMix(center, 0);
+
+    input[id='ckb'],
+    label {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #f0f3f6;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:checked + label {
+        background-color: $keyColor;
+      }
+    }
+
+    input[id='ckb'] {
+      display: none;
+    }
+
+    .checkBoxLabel {
+      @include flexMix();
+      margin: 5px;
+      font-size: 14px;
+
+      .checkImg {
+        width: 15px;
+        height: 15px;
+      }
+
+      .checkAll {
+        margin: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .cleanChooseThings {
+    width: 70px;
+    height: 40px;
+    border-radius: 10px;
+  }
+}
