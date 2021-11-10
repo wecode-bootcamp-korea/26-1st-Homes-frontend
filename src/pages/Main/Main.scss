@@ -1,0 +1,83 @@
+@import '../../styles/variable.scss';
+
+.main {
+  max-width: 900px;
+  min-width: 900px;
+  margin: 100px auto;
+
+  .eventSlideWrap {
+    @include flexMix(center, 0);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    color: #fff;
+    overflow: hidden;
+
+    .eventSlide {
+      .slideInfoWrap {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px;
+        color: #fff;
+
+        .slideArrow {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  .buttonPrev {
+    position: absolute;
+    left: 0;
+
+    .prevArrow {
+      width: 40px;
+      opacity: 0.5;
+    }
+  }
+
+  .buttonNext {
+    position: absolute;
+    right: 0;
+    transition: transform 3s;
+
+    .nextArrow {
+      width: 40px;
+      opacity: 0.5;
+    }
+  }
+
+  .bestProductLists {
+    margin-top: 40px;
+
+    .bestProductName {
+      padding: 0 30px;
+      margin: 30px 0;
+      font-size: 26px;
+    }
+
+    .categoryBest {
+      display: flex;
+      justify-content: space-around;
+      width: 1000px;
+
+      .categoryName {
+        color: #4a4a4a;
+
+        &:hover {
+          color: $keyColor;
+        }
+      }
+    }
+
+    .bestProductWrap {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+}
