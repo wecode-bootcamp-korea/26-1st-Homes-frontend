@@ -1,0 +1,41 @@
+@import '../../styles/variable.scss';
+
+.Container {
+  @include alignCenter;
+  flex-direction: column;
+  margin-top: 80px;
+
+  .categoryTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 870px;
+    padding: 18px 0px 18px 0px;
+
+    .filterBtn {
+      @include alignCenter;
+      position: relative;
+      width: 84px;
+      height: 30px;
+      background-color: white;
+      font-size: 14px;
+      z-index: 987;
+    }
+
+    .category {
+      display: flex;
+      justify-content: space-between;
+      width: 870px;
+      padding: 18px;
+      margin-bottom: 30px;
+      border: 1px solid rgba($color: #585858, $alpha: 0.1);
+    }
+  }
+}
+
+.singleProduct {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 860px;
+}
