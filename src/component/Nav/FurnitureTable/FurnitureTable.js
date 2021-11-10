@@ -14,6 +14,8 @@ export class FurnitureTable extends Component {
     const { furnitureName, sub_category, categoryLink, isCategoryClick } =
       this.props;
 
+    const { showMenu } = this.state;
+
     return (
       <div className="FurnitureTable">
         <li
@@ -36,7 +38,7 @@ export class FurnitureTable extends Component {
           </Link>
           <div className="furnitureTable">
             <ul className="items">
-              {this.state.showMenu &&
+              {showMenu &&
                 sub_category.map(itemName => {
                   return (
                     <li

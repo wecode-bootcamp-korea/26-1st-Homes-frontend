@@ -1,0 +1,45 @@
+@import '../../../styles/variable.scss';
+
+@mixin eventImgText {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.Event {
+  position: relative;
+  height: 500px;
+
+  .eventList {
+    &:focus,
+    &:hover,
+    &:visited,
+    &:link,
+    &:active {
+      text-decoration: none;
+    }
+
+    .eventSlideImg {
+      @include eventImgText;
+      width: 900px;
+    }
+
+    .eventWrap {
+      @include eventImgText;
+      margin: 0 50px;
+      color: #fff;
+
+      .eventTitle {
+        width: 400px;
+        padding: 20px;
+        font-size: 45px;
+      }
+
+      .eventSubTitle,
+      .evnetDate {
+        padding: 5px 20px;
+        font-size: 28px;
+      }
+    }
+  }
+}

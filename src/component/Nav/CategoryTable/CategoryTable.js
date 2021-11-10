@@ -20,6 +20,8 @@ export class CategoryTable extends Component {
       isCategoryClick,
     } = this.props;
 
+    const { showMenu } = this.state;
+
     return (
       <div className="CategoryTable">
         <li
@@ -46,7 +48,7 @@ export class CategoryTable extends Component {
             <span className="furniture">{categoryName}</span>
           </Link>
           <ul className="furnitureLists">
-            {this.state.showMenu &&
+            {showMenu &&
               categoryLists.map(item => (
                 <FurnitureTable
                   key={item.id}
