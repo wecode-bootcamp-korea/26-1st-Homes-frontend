@@ -16,10 +16,11 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('/data/Categories.json')
+    fetch('http://10.58.5.129:8000/product/menus')
       .then(res => res.json())
       .then(data => {
-        this.setState({ categories: data });
+        console.log(data);
+        this.setState({ categories: data.menus });
       });
   }
 
@@ -35,6 +36,7 @@ export class Nav extends Component {
 
   render() {
     const { categories, showMenu, selectedCategory } = this.state;
+    const categoryLink = 'product-lists';
 
     return (
       <nav className="Nav">
@@ -59,14 +61,14 @@ export class Nav extends Component {
               </div>
               <ul className="categoryList">
                 {showMenu &&
-                  categories.map(category => {
+                  categories.map(menu => {
                     return (
                       <CategoryTable
-                        key={category.id}
-                        categoryImg={category.img}
-                        categoryName={category.categoryName}
-                        categoryLists={category.categoryLists}
-                        categoryLink={category.categoryLink}
+                        key={menu.menu_id}
+                        menuImg={menu.image_url}
+                        menuName={menu.menu_name}
+                        menuLists={menu.categories}
+                        categoryLink={categoryLink}
                         isCategoryClick={this.isCategoryClick}
                       />
                     );
