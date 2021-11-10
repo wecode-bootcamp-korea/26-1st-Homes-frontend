@@ -14,6 +14,10 @@ export class Best extends Component {
       starRate,
     } = this.props;
 
+    const addComma = Math.round(discountedPrice)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
     return (
       <div className="bestProduct">
         <span className="bestNumber">{rank}</span>
@@ -23,12 +27,7 @@ export class Best extends Component {
           <p className="product productName">{name}</p>
           <div className="product priceWrap">
             <span className="price percent">{Math.round(discountRate)}%</span>
-            <span className="price discountPrice">
-              {Math.round(discountedPrice)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-              원
-            </span>
+            <span className="price discountPrice">{addComma}원</span>
           </div>
           <div className="product reviewWrap">
             <img

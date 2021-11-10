@@ -20,17 +20,14 @@ export class Main extends Component {
         this.setState({ events: data });
       });
 
-    fetch('/data/Best.json')
+    fetch(
+      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-best_ranking&limit=10'
+    )
       .then(res => res.json())
       .then(data => {
-        this.setState({ bestLists: data });
+        console.log(data.menus);
+        this.setState({ bestLists: data.menus });
       });
-
-    // fetch('http://10.58.5.17:8000/product/category')
-    //   .then(res => res.json)
-    //   .then(result => {
-    //     console.log(result);
-    //   });
   }
 
   onChangeImage = idx => {
@@ -47,12 +44,7 @@ export class Main extends Component {
     return (
       <main className="main">
         <div className="eventSlideWrap">
-          <div
-            className="eventSlide"
-            // style={{
-            //   transform: `translate3d(${imgCurrentNo * -900}px, 0px, 0px)`,
-            // }}
-          >
+          <div className="eventSlide">
             {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
               return (
                 <Event
