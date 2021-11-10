@@ -8,16 +8,16 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       email: '',
       nickName: '',
       phone_number: '',
       password: '',
       rePassword: '',
     };
-    this.handleInput = this.handleInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  gotoLogin = () => {
+
+  goToLogin = () => {
     const { history } = this.props;
     history.push('./Login');
   };
@@ -26,6 +26,12 @@ export default class Form extends React.Component {
    */
   handleInput = event => {
     event.preventDefault();
+
+    if (FormValidator._checkName(event.target.value)) {
+      console.log('name 통과');
+    } else {
+      console.log('name 에러');
+    }
     if (FormValidator._checkEmail(event.target.value)) {
       console.log('email 통과');
     } else {
@@ -53,11 +59,11 @@ export default class Form extends React.Component {
   };
   /**
    * @description 회원가입 요청을 실행하는 함수
-   * Fetch 함수 들어가야함
    */
   handleSubmit = event => {
     event.preventDefault();
-    const { email, nickName, phone_number, password, rePassword } = this.state;
+    const { email, nickName, phone_number, password, rePassword, name } =
+      this.state;
     let userData = this.state;
     // userData 안에 들어있는 값들 유효성 검사 통과시 fetch 함수 실행
     fetch('http://10.58.1.116:8000/users/signup', {
@@ -68,57 +74,67 @@ export default class Form extends React.Component {
         phone_number: phone_number,
         password: password,
         rePassword: rePassword,
-        name: 'a',
+        name: name,
       }),
     })
       .then(response => response.json())
       .then(result => {
         if (result.message === 'EMAIL_VALIDATION_ERROR') {
           alert('이메일을 확인해주세요.');
-        } else if (result.message === 'PASSWORD_VALIDATION_ERROR') {
+        }
+        if (result.message === 'PASSWORD_VALIDATION_ERROR') {
           alert('비밀번호를 확인해주세요.');
-        } else if (result.message === 'DUPLICATED EMAI') {
-          alert('이메일을 확인해주세요.');
-        } else if (result.message === 'DUPLICATED NICKNAME') {
+        }
+        if (result.message === 'DUPLICATED EMAI') {
+          alert('존재하고 있는 메일입니다.');
+        }
+        if (result.message === 'DUPLICATED NICKNAME') {
           alert('닉네임을 확인해주세요.');
-        } else if (result.messag === 'PHONE_NUMBER_ERROR') {
-          alert('전화번호를 확인해주세요');
-        } else if (result.access_token) {
-          alert('로그인 성공');
-          localStorage.setItem('token', result.token);
+        }
+        if (result.message === 'PHONE_NUMBER_ERROR') {
+          alert('전화번호를 확인해주세요.');
         }
         console.log('submit clicked', userData);
       });
   };
+
   render() {
+    // const { name, id, src, alt } = this.props;
+
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
-          {SignUpForms.map((item, index) => (
-            <ul key={index}>
+          <ul>
+            {SignUpForms.map((item, index) => (
               <li key={index}>
                 <Input
                   id={item.name}
                   name={item.name}
                   inputType={item.inputType}
                   placeholder={item.placeholder}
+                  src={item.src}
                   onChange={this.handleInput}
                 />
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
 
-          {/* <div className="checkBox">
+          <div className="checkBox checkBoxAll">
             <input className="btn checkAll" type="checkbox" />
-            전체 동의
-            <input className="btn checkTerms" type="checkbox" />
-            서비스 이용약관 동의 (보기)
-            <input className="btn checkInfo" type="checkbox" />
-            개인정보취급방침 동의 (보기)
-            <input className="btn checkAge" type="checkbox" />
-            본인은 만14세 이상입니다.
-          </div> */}
-
+            <span className="checkAllText">전체 동의</span>
+          </div>
+          <div className="checkBox">
+            <input className="btn checkAll" type="checkbox" />
+            <span className="checkAllText">서비스 이용약관 동의 (보기)</span>
+          </div>
+          <div className="checkBox">
+            <input className="btn checkAll" type="checkbox" />
+            <span className="checkAllText">개인정보취급방침 동의 (보기)</span>
+          </div>
+          <div className="checkBox">
+            <input className="btn checkAll" type="checkbox" />
+            <span className="checkAllText">본인은 만14세 이상입니다.</span>
+          </div>
           <input
             className="signBtn"
             type="submit"
@@ -131,7 +147,7 @@ export default class Form extends React.Component {
             type="submit"
             value="로그인하기"
             style={{ cursor: 'pointer' }}
-            onClick={this.gotoLogin}
+            onClick={this.goToLogin}
           />
         </form>
         {/* <button type="button" style={{ cursor: 'pointer' }}>

@@ -1,4 +1,9 @@
 export default class FormValidator {
+  static _checkName(props) {
+    let regcheckName = new RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,10}$/);
+    return regcheckName.test(props) ? true : false;
+  }
+
   // 닉네임 (특수 문자 제외 최소 2자 이상)
   static _checkNickname(props) {
     let regNickName = new RegExp(/^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/);

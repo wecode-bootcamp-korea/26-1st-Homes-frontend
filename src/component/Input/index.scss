@@ -1,5 +1,5 @@
 .input {
-  // position: relative;
+  position: relative;
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
@@ -7,6 +7,17 @@
   height: 44px;
   margin-bottom: 5px;
   padding-left: 45px;
+
+  // img {
+  //   position: absolute;
+  // }
 }
+
+// img {
+//   position: absolute;
+//   margin-top: 15px;
+//   margin-left: -285px;
+//   width: 15px;
+// }
 
 //인풋창과 버튼 적용

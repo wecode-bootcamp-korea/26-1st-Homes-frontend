@@ -1,5 +1,4 @@
 .containerHome {
-  // margin-top: 100px;
   padding-top: 150px;
 
   .Logo {
@@ -21,6 +20,7 @@
 }
 input {
   display: block;
+  position: relative;
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
@@ -28,15 +28,25 @@ input {
   height: 44px;
   margin-bottom: 5px;
 }
+.checkBox {
+  display: flex;
+  align-items: center;
+  height: 30px;
 
-// .checkBox {
-//   // margin-top: 180px;
-//   display: block;
-//   margin-bottom: 15px;
-//   font-size: 15px;
-//   color: black;
-//   background-color: red;
-// }
+  .checkAll {
+    width: 20px;
+    margin-right: 20px;
+    padding: 0px;
+
+    .checkAllText {
+      align-items: center;
+      size: 10px;
+    }
+  }
+}
+.checkBoxAll {
+  padding: 40px 0px 40px 0px;
+}
 .signBtn {
   margin-top: 50px;
 }
