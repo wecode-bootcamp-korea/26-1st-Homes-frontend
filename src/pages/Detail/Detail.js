@@ -18,6 +18,7 @@ export class Detail extends Component {
       productPrice: 0,
       quantityBox: true,
       imageChange: true,
+      imagePage: 1,
     };
   }
   // 통신용
@@ -104,12 +105,14 @@ export class Detail extends Component {
   slidePrevImage = () => {
     this.setState({
       imageChange: true,
+      imagePage: 1,
     });
   };
 
   slideNextImage = () => {
     this.setState({
       imageChange: false,
+      imagePage: 2,
     });
   };
   render() {
@@ -124,6 +127,7 @@ export class Detail extends Component {
       colorOptionDropdown,
       quantityPrice,
       quantityBox,
+      imagePage,
     } = this.state;
 
     const multiplyPrice = productQuantity * quantityPrice;
@@ -137,7 +141,6 @@ export class Detail extends Component {
               alt="제품사진"
               src={productInfo.image && productInfo.image[0]}
             />
-
             <img
               className={imageChange === true ? 'firstImage' : 'secondeImgae'}
               alt="제품사진"
@@ -147,10 +150,10 @@ export class Detail extends Component {
           <button className="imagePrevButton" onClick={this.slidePrevImage}>
             ＜
           </button>
-
           <button className="imageNextButton" onClick={this.slideNextImage}>
             ＞
           </button>
+          <div className="imagePage">{imagePage} / 2</div>
           <div className="productInformation">
             <div className="brandName">{productInfo.company}</div>
             <div className="productName">{productInfo.name}</div>
@@ -171,7 +174,6 @@ export class Detail extends Component {
               <div className="stars">
                 <img className="star" alt="별" src="/images/별이다섯개.png" />
               </div>
-
               <span className="starPoint">{productInfo.star_point}</span>
             </div>
             <div className="shippingFeeBox">

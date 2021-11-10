@@ -8,34 +8,6 @@
     margin: 0 auto;
     margin-top: 140px;
 
-    .imagePrevButton {
-      position: absolute;
-      z-index: 1000;
-      margin-top: 250px;
-      margin-right: 940px;
-      width: 40px;
-      height: 40px;
-      opacity: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      border-radius: 50%;
-      background-color: white;
-    }
-
-    .imageNextButton {
-      position: absolute;
-      font-size: 20px;
-      z-index: 1000;
-      margin-top: 250px;
-      margin-left: 40px;
-      width: 40px;
-      cursor: pointer;
-      height: 40px;
-      border-radius: 50%;
-      opacity: 50%;
-      background-color: white;
-    }
-
     .imageWrap {
       position: relative;
       display: flex;
@@ -62,6 +34,50 @@
         transform: translateX(-100%);
         transition-duration: 0.6s;
       }
+    }
+
+    .imagePrevButton {
+      position: absolute;
+      z-index: 1000;
+      margin-top: 250px;
+      margin-right: 940px;
+      width: 40px;
+      height: 40px;
+      opacity: 60%;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      background-color: black;
+      color: white;
+    }
+
+    .imageNextButton {
+      position: absolute;
+      font-size: 20px;
+      z-index: 1000;
+      margin-top: 250px;
+      margin-left: 30px;
+      width: 40px;
+      cursor: pointer;
+      height: 40px;
+      border-radius: 50%;
+      opacity: 60%;
+      background-color: black;
+      color: white;
+    }
+
+    .imagePage {
+      position: absolute;
+      width: 60px;
+      height: 35px;
+      margin-top: 500px;
+      margin-right: 437px;
+      opacity: 60%;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+      padding-top: 11px;
+      padding-left: 16px;
     }
 
     .productInformation {
