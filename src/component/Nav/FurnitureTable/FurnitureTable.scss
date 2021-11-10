@@ -16,30 +16,17 @@
 
   .items {
     position: absolute;
-<<<<<<< HEAD
-    top: -1px;
-    right: -172px;
-    border: solid 1px #eee;
-    background-color: #fff;
-    box-shadow: 0px 1px 2px lightgrey;
-=======
     top: 0;
     right: -170px;
     background-color: #fff;
     box-shadow: 1px 1px 5px lightgrey;
->>>>>>> master
   }
 
   .item,
   .furniture,
   .categoryMenuName {
-<<<<<<< HEAD
-    padding: 5px 10px;
-    width: 170px;
-=======
     width: 170px;
     padding: 5px 10px;
->>>>>>> master
     margin: 20px 0;
     transition: 0.3s;
 
