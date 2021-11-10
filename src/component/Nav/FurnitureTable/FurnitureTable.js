@@ -24,9 +24,14 @@ export class FurnitureTable extends Component {
           onMouseLeave={() => {
             this.setState({ showMenu: false });
           }}
-          onClick={() => isCategoryClick()}
         >
-          <Link to={`${categoryLink}`} className="categoryLink">
+          <Link
+            to={`${categoryLink}`}
+            className="categoryLink"
+            onClick={() => {
+              isCategoryClick(categoryLink);
+            }}
+          >
             <span className="furnitureName">{furnitureName}</span>
           </Link>
           <div className="furnitureTable">
@@ -34,15 +39,13 @@ export class FurnitureTable extends Component {
               {this.state.showMenu &&
                 sub_category.map(itemName => {
                   return (
-                    <Link to={`${categoryLink}`} className="categoryLink">
-                      <li
-                        className="item"
-                        key={itemName.id}
-                        onClick={() => isCategoryClick()}
-                      >
-                        {itemName.name}
-                      </li>
-                    </Link>
+                    <li
+                      className="item"
+                      onClick={() => isCategoryClick(categoryLink)}
+                    >
+                      {itemName.name}
+                      <Link to={`${categoryLink}`} className="categoryLink" />
+                    </li>
                   );
                 })}
             </ul>

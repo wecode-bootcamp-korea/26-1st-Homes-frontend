@@ -418,5 +418,133 @@
         ]
       }
     ]
+  },
+  {
+    "img": "../images/premium-icon-table-lamp-4408125.png",
+    "categoryName": "조명",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "img": "../images/premium-icon-table-lamp-4408125.png",
+    "categoryName": "조명",
+    "categoryLists": [
+      {
+        "id": "1",
+        "furnitureName": "스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "싱글침대"
+          },
+          {
+            "id": "2",
+            "name": "더블침대"
+          },
+          {
+            "id": "3",
+            "name": "퀸"
+          },
+          {
+            "id": "4",
+            "name": "왕"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "furnitureName": "테이블",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "장식 조명"
+          },
+          {
+            "id": "2",
+            "name": "작업등"
+          },
+          {
+            "id": "3",
+            "name": "LED 전구"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "furnitureName": "장스탠드",
+        "sub_category": [
+          {
+            "id": "1",
+            "name": "수납장"
+          },
+          {
+            "id": "2",
+            "name": "옷장"
+          },
+          {
+            "id": "3",
+            "name": "책장"
+          }
+        ]
+      }
+    ]
   }
 ]

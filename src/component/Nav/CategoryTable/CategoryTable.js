@@ -30,9 +30,14 @@ export class CategoryTable extends Component {
           onMouseLeave={() => {
             this.setState({ showMenu: false });
           }}
-          onClick={isCategoryClick}
         >
-          <Link to={`${categoryLink}`} className="categoryLink">
+          <Link
+            to={`${categoryLink}`}
+            className="categoryLink"
+            onClick={() => {
+              isCategoryClick(categoryLink);
+            }}
+          >
             <img
               src={categoryImg}
               alt="furniture img"

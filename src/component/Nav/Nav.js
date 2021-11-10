@@ -30,7 +30,8 @@ export class Nav extends Component {
   };
 
   isCategoryClick = category => {
-    this.setState({ selectedCategory: 0 });
+    console.log('category', category);
+    this.setState({ selectedCategory: category });
   };
 
   render() {
