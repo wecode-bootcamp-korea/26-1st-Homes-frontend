@@ -4,9 +4,25 @@ import EmptyCart from './EmptyCart/EmptyCart';
 import './Cart.scss';
 
 export class Cart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      dataList: [],
+    };
+  }
   render() {
+    const { dataList } = this.state;
+    const isCartFill = dataList => {
+      console.log(dataList);
+      if (dataList) {
+        this.setState({ dataList });
+      }
+    };
+
     return (
-      <div className="Cart">{1 > 0 ? <CartContents /> : <EmptyCart />}</div>
+      <div className="Cart">
+        {dataList ? <CartContents isCartFill={isCartFill} /> : <EmptyCart />}
+      </div>
     );
   }
 }

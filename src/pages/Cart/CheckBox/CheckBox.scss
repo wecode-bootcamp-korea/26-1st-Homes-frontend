@@ -4,39 +4,37 @@
   @include flexMix(center, space-between);
 
   .checkBoxWrap {
-    @include flexMix(center, 0);
-
     .checkBoxLabel {
       @include flexMix();
+      position: relative;
       display: inline-block;
       width: 30px;
       height: 30px;
       margin: 5px;
-      background-color: #f0f3f6;
       border-radius: 50%;
       font-size: 14px;
-    }
-
-    input[type='checkBox'] {
       cursor: pointer;
 
-      input[type='checkBox'] {
-        display: none;
+      .checkImg {
+        position: absolute;
+        left: 25%;
+        top: 25%;
+        width: 15px;
+        height: 15px;
+      }
+
+      .checkAll {
+        margin: 5px;
+        font-size: 14px;
       }
     }
 
-    &:checked + label:before {
+    .uncheckedLabel {
+      background-color: #f0f3f6;
+    }
+
+    .checkedLabel {
       background-color: $keyColor;
-    }
-
-    .checkImg {
-      width: 15px;
-      height: 15px;
-    }
-
-    .checkAll {
-      margin: 5px;
-      font-size: 14px;
     }
   }
 

@@ -5,11 +5,19 @@ import './CartedProduct.scss';
 
 export class CartedProduct extends Component {
   render() {
-    const { isMinusQuantity, isPlusQuantity, quantity, isDeleteProductOne } =
-      this.props;
+    const {
+      company,
+      productName,
+      quantity,
+      productColor,
+      productPrice,
+      isMinusQuantity,
+      isPlusQuantity,
+      isDeleteProductOne,
+    } = this.props;
     return (
       <div className="CartedProduct">
-        <h1 className="brandName">삼익가구</h1>
+        <h1 className="brandName">{company}</h1>
         <CheckBox isDeleteProductOne={isDeleteProductOne} />
         <div className="productOptionWrap">
           <div className="productOptionInfo">
@@ -19,18 +27,23 @@ export class CartedProduct extends Component {
                 src="./images/HookahWoody.jpeg"
                 alt="product img"
               />
-              <div className="productName">졸립ㄴ다</div>
+              <div className="productName">{productName}</div>
             </div>
           </div>
           <div className="cartedProductOption">
             <CartedProductOption
+              productName={productName}
+              quantity={quantity}
+              productColor={productColor}
+              productPrice={productPrice}
               isMinusQuantity={isMinusQuantity}
               isPlusQuantity={isPlusQuantity}
-              quantity={quantity}
             />
           </div>
         </div>
-        <div className="totalPriceOrder">상품 금액 399,999원 + 배송비 착불</div>
+        <div className="totalPriceOrder">
+          상품 금액 {productPrice}원 + 배송비 착불
+        </div>
       </div>
     );
   }

@@ -8,17 +8,13 @@ export class CartContents extends Component {
     super(props);
     this.state = {
       quantity: 1,
-      dataLists: [1, 2, 3, 4],
-      cartedProductLists: [
-        { id: 1, quantity: 33 },
-        { id: 2, quantity: 2 },
-      ],
+      cartDataLists: [],
     };
   }
   //${플러스 마이너스 딜리트 세개중에 하나}/${id},
 
   // componentDidMount() {
-  //   fetch('http://10.58.1.116:8000/carts/', {
+  //   fetch('http://10.58.1.116:8000/carts', {
   //     headers: {
   //       Authorization:
   //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
@@ -26,13 +22,15 @@ export class CartContents extends Component {
   //   })
   //     .then(res => res.json())
   //     .then(data => {
-  //       console.log(data.cart_itmes[0].color);
-  //       this.setState({ cartLists: data.cart_itmes[0] });
+  //       console.log(data.cart_itmes);
+  //       this.setState({ cartDataLists: data.cart_itmes });
+  //       console.log(this.props.isCartFill(data));
   //     });
   // }
 
-  isMinusQuantity = () => {
-    const { quantity } = this.state;
+  isMinusQuantity = quantity => {
+    // const { quantity } = this.props;
+    console.log('minus');
 
     if (quantity === 1) {
       this.setState({ quantity: 1 });
@@ -42,23 +40,26 @@ export class CartContents extends Component {
   };
 
   isPlusQuantity = () => {
+    console.log('plus');
+
     this.setState(prev => ({ quantity: prev.quantity + 1 }));
   };
 
   isDeleteProductOne = id => {
-    // fetch 를 사용해서 백엔드에 호출한다
-    // fetch(`http://10.58.1.116:8000/carts/&{id}`, {
-    // method: 'DELETE',
-    // Headers: {
-    //       Authorization: 로컬에서 토근 받기 = localStorage.getItem("Token"))
-    //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
-    //     },
-    // body: {필요하다면 전달해줄것}
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //   console.log(data)
-    // })
+    // TODO: fetch 를 사용해서 백엔드에 호출한다
+    fetch(`http://10.58.1.116:8000/carts/&{id}`, {
+      method: 'DELETE',
+      Headers: {
+        // 로컬에서 토근 받기 = localStorage.getItem("Token"))
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+      },
+      // body: {필요하다면 전달해줄것}
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
 
     const { dataLists } = this.state;
     const listUpdate = dataLists.filter(
@@ -73,13 +74,14 @@ export class CartContents extends Component {
   // TODO: 주문 버튼 누르면 브랜드명, 사진, 이름, 색상, 개수, 상품금액 정보 전달
 
   render() {
-    const { id, quantity, cartedProductLists } = this.state;
+    const { cartDataLists } = this.state;
+    // const selectNumner = cartDataLists.length;
 
     return (
       <div className="CartContents">
         <div className="cartInfo">
           <div className="cartInfoTitle">
-            <h1 className="infoTitle">n개의 상품을 선택하셨어요</h1>
+            <h1 className="infoTitle">selectNumner개의 상품을 선택하셨어요</h1>
             <h1 className="infoTitle">예상 결제 금액은 n00,000원 이에요</h1>
           </div>
           <div className="priceInfo">
@@ -95,14 +97,22 @@ export class CartContents extends Component {
 
           <CheckBox />
         </div>
-        {/* TODO: map 으로 돌려질 부분 */}
-        {cartedProductLists.map(product => {
+
+        {cartDataLists.map(product => {
+          // console.log(product);
           return (
             <CartedProduct
-              id={product.id}
+              id={product.cart_id}
+              company={product.company}
+              productName={product.product_name}
+              quantity={product.quantity}
+              productColor={product.color}
+              productPrice={Math.round(product.price)}
+              productImg={product.product_image}
+              deliveryPaymentType={product.delivery_payment_type}
+              deliveryFee={Math.round(product.delivery_fee)}
               isMinusQuantity={this.isMinusQuantity}
               isPlusQuantity={this.isPlusQuantity}
-              quantity={product.quantity}
               isDeleteProductOne={this.isDeleteProductOne}
             />
           );
@@ -124,7 +134,7 @@ export class CartContents extends Component {
           </ul>
         </div>
         <div className="total">
-          <span className="totalNumber">총 n 개</span>
+          <span className="totalNumber">총 selectNumner 개</span>
           <button className="order">588,000원 구매하기</button>
         </div>
       </div>
@@ -133,3 +143,18 @@ export class CartContents extends Component {
 }
 
 export default CartContents;
+
+// const Data = [
+//   {
+//     product_name: cart.product.name,
+//     quantity: cart.quantity,
+//     price: cart.product.price,
+//     color: cart.color.name,
+//     product_image:
+//       cart.product.product_group.productimage_set.all()[0].image_url,
+//     cart_id: cart.id,
+//     company: cart.product.product_group.company,
+//     delivery_payment_type: cart.product.product_group.delivery.payment_type,
+//     delivery_fee: cart.product.product_group.delivery.delivery_fee,
+//   },
+// ];
