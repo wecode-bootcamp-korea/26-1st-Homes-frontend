@@ -45,7 +45,7 @@ export class CategoryTable extends Component {
                   key={item.id}
                   furnitureName={item.name}
                   sub_category={item.subcategories}
-                  categoryLink={item.categoryLink}
+                  categoryLink={categoryLink}
                   isCategoryClick={isCategoryClick}
                 />
               ))}
