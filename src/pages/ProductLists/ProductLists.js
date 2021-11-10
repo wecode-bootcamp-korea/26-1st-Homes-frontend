@@ -28,7 +28,6 @@ class ProductLists extends Component {
     )
       .then(res => res.json())
       .then(info => {
-        // console.log(info);
         this.setState({
           products: info.product_groups,
           copiedProducts: info.product_groups,
@@ -74,8 +73,6 @@ class ProductLists extends Component {
   };
 
   render() {
-    // console.log(this.state.products);
-
     const { products, isModalOn } = this.state;
     return (
       <div className="Container">
