@@ -21,9 +21,11 @@
   }
 
   .productName {
+    height: 32px;
     margin-bottom: 10px;
     font-size: 15px;
     line-height: 115%;
+    word-break: keep-all; //텍스트 정렬할 때 유용한 css
   }
 
   .priceInfo {
@@ -48,12 +50,12 @@
 
     .discountPrice {
       font-weight: bolder;
-      font-size: 16px;
+      font-size: 15px;
       color: #ababab;
     }
     .cost {
       width: 78px;
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 

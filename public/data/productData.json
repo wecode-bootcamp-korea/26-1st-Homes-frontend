@@ -1,178 +1,178 @@
 [
   {
-    "id": 1,
+    "id": "1,",
     "company": "크렌시아",
-    "discount_rate": 30,
+    "discount_rate": 0.3,
     "discounted_price": 160000,
     "product_name": "◆인기절정◆ 비앙카 에이치 클레어 LED 수납3종 침대..",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 2,
     "company": "크렌시아",
-    "discount_rate": 20,
+    "discount_rate": 0.2,
     "discounted_price": 190000,
     "product_name": "(매트 무료 업그레이드)아너스 LED 스탠다드 일반/서랍 침대..",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 3,
     "company": "리샘가구",
     "product_name": "캐더린 도리스 씨에라 통수납 침대 SSQ",
-    "discount_rate": 18,
+    "discount_rate": 0.18,
     "discounted_price": 120000,
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 4,
     "company": "포더홈",
-    "discount_rate": 23,
+    "discount_rate": 0.23,
     "discounted_price": 250000,
     "product_name": "다락 빅 수납침대 SS/Q (논슬립패드 2EA증정)",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 5,
     "company": "도담",
-    "discount_rate": 26,
+    "discount_rate": 0.26,
     "discounted_price": 280000,
     "product_name": "헤르만 루이스 클로이 무헤드 통수납 침대 SSQ",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 6,
     "company": "일룸",
-    "discount_rate": 16,
+    "discount_rate": 0.16,
     "discounted_price": 300000,
     "product_name": "파인 LED 빅수납 헤드 수납침대 SS/Q",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 7,
     "company": "삼익가구",
-    "discount_rate": 21,
+    "discount_rate": 0.21,
     "discounted_price": 140000,
     "product_name": "[방수커버증정] NEW! 슬림 높이조절 패밀리침대",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 8,
     "company": "퍼니코",
-    "discount_rate": 27,
+    "discount_rate": 0.27,
     "discounted_price": 350000,
     "product_name": "단잠 슬림가드 저상형 패밀리 침대 SS+SS / K+SS (단품구매..",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 9,
     "company": "한국갤러리",
-    "discount_rate": 29,
+    "discount_rate": 0.29,
     "discounted_price": 450000,
     "product_name": "멘디 슈퍼싱글 침대(매트리스 포함)",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 10,
     "company": "마티노가구",
-    "discount_rate": 20,
+    "discount_rate": 0.2,
     "discounted_price": 480000,
     "product_name": "빅터 슬라이딩 빅수납 슈퍼싱글 침대프레임(안전가드+..",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 11,
     "company": "라자가구",
-    "discount_rate": 13,
+    "discount_rate": 0.13,
     "discounted_price": 420000,
     "product_name": "[5%쿠폰] 아너스/밀라노 감성 패브릭 LED 수납 침대 SS/..",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 12,
     "company": "썸앤데코",
-    "discount_rate": 23,
+    "discount_rate": 0.23,
     "discounted_price": 190000,
     "product_name": "레아 사계절 고무나무 원목침대 프레임 SS/Q",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 13,
     "company": "지누스",
-    "discount_rate": 18,
+    "discount_rate": 0.18,
     "discounted_price": 240000,
     "product_name": "큐브 책상형 올인원 멀티 수납침대 SS",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 14,
     "company": "모든갤러리",
-    "discount_rate": 40,
+    "discount_rate": 0.4,
     "discounted_price": 80000,
     "product_name": "스텝스 평상형 멀티 수납 계단 침대프레임 SS/Q",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 15,
     "company": "한국갤러리",
-    "discount_rate": 32,
+    "discount_rate": 0.32,
     "discounted_price": 110000,
     "product_name": "몬드리안 SS/Q/K/LK 침대 프레임 호텔식 침대 3color",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   },
   {
     "id": 16,
     "company": "에스에스퍼니처",
-    "discount_rate": 35,
+    "discount_rate": 0.35,
     "discounted_price": 500000,
     "product_name": "코스모 벙커형 원목 책상 이층침대 깔판포함 싱글(S)",
     "image_url": "",
     "price": 304000000,
     "review": 2,
-    "star_rate": 1.5
+    "star_point": "1.5"
   }
 ]

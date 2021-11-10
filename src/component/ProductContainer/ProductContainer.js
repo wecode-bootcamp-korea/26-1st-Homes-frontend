@@ -10,23 +10,20 @@ class ProductContainer extends Component {
       discounted_price,
       price,
       review,
-      star_rate,
+      star_point,
+      image_url,
     } = this.props;
 
     return (
       <main className="ProductContainer">
-        <img
-          alt="상품사진"
-          className="productImage"
-          src="/images/unsplash_bed.jpg"
-        />
+        <img alt="상품사진" className="productImage" src={`${image_url}`} />
         <div className="productInfo">
           <div className="company">{company}</div>
           <div className="productName">{product_name}</div>
 
           <div className="priceInfo">
             <div className="discountInfo">
-              <span className="discountRate">{discount_rate}%</span>
+              <span className="discountRate">{Math.round(discount_rate)}%</span>
               <span className="discountPrice">{discounted_price}원</span>
             </div>
             <del className="cost">{price}원</del>
@@ -34,7 +31,7 @@ class ProductContainer extends Component {
 
           <div className="reviewInfo">
             <span className="star">★</span>
-            <span className="starPoint">{star_rate}</span>
+            <span className="starPoint">{star_point}</span>
             <span className="reviewNumber"> ({review}) </span>
           </div>
         </div>

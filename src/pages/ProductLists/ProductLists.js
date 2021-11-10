@@ -7,67 +7,89 @@ class ProductLists extends Component {
   constructor() {
     super();
     this.state = {
-      product: [],
-      newProduct: [],
+      products: [],
+      copiedProducts: [],
       isModalOn: false,
     };
   }
 
   componentDidMount() {
-    fetch('/data/productData.json')
+    // fetch('/data/productData.json')
+    //   .then(res => res.json())
+    //   .then(info => {
+    //     this.setState({
+    //       products: info,
+    //       copiedProducts: info,
+    //     });
+    //   });
+
+    fetch(
+      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-review_star_point'
+    )
       .then(res => res.json())
       .then(info => {
+        // console.log(info);
         this.setState({
-          product: info,
-          newProduct: info,
+          products: info.product_groups,
+          copiedProducts: info.product_groups,
         });
       });
   }
 
-  //모달창 on/off 함수 구현 시작
-
-  handleClick = () => {
+  toggleModal = () => {
     this.setState(state => ({
       isModalOn: !state.isModalOn,
     }));
   };
 
-  //filtering button functionality
-  filteringBtns = e => {
-    let product;
+  sortLowPrice = (a, b) => {
+    return a.discounted_price - b.discounted_price;
+  };
 
-    const { newProduct } = this.state;
-    if (e.target.value === 'all') {
-      product = newProduct;
-    } else if (e.target.value === '낮은가격순') {
-      product = newProduct
-        .filter(item => item.discounted_price)
-        .sort((a, b) => a.discounted_price - b.discounted_price);
-    } else if (e.target.value === '높은가격순') {
-      product = newProduct
-        .filter(item => item.discounted_price)
-        .sort((a, b) => b.discounted_price - a.discounted_price);
+  sortHighPrice = (a, b) => {
+    return b.discounted_price - a.discounted_price;
+  };
+
+  sortIdStep = (a, b) => {
+    return a.id - b.id;
+  };
+
+  filterProducts = e => {
+    let products;
+    const sequence = e.target.value;
+    const { copiedProducts } = this.state;
+
+    if (sequence === 'all') {
+      products = copiedProducts.sort(this.sortIdStep);
+    }
+
+    if (sequence === '낮은가격순') {
+      products = copiedProducts.sort(this.sortLowPrice);
+    } else if (sequence === '높은가격순') {
+      products = copiedProducts.sort(this.sortHighPrice);
     }
     this.setState({
-      product: product,
+      products,
     });
   };
 
   render() {
-    const { product, isModalOn } = this.state;
-    return product.id ? (
+    // console.log(this.state.products);
+
+    const { products, isModalOn } = this.state;
+    return (
       <div className="Container">
         <div className="categoryTitle">
           <p>침대</p>
 
-          <div className="filterBtn" onClick={this.handleClick}>
+          <div className="filterBtn" onClick={this.toggleModal}>
             <p>Filtering ▼</p>
-            {isModalOn && <Modal filteringBtns={this.filteringBtns} />}
+            {isModalOn && <Modal filterProducts={this.filterProducts} />}
           </div>
         </div>
 
         <div className="singleProduct">
-          {product.map(productInfo => (
+          {products.map(productInfo => (
             <ProductContainer key={productInfo.id} {...productInfo} />
           ))}
         </div>
@@ -76,7 +98,7 @@ class ProductLists extends Component {
           <span className="secondPage">2</span>
         </div>
       </div>
-    ) : null;
+    );
   }
 }
 
