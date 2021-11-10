@@ -13,20 +13,20 @@ export class CartContents extends Component {
   }
   //${플러스 마이너스 딜리트 세개중에 하나}/${id},
 
-  // componentDidMount() {
-  //   fetch('http://10.58.1.116:8000/carts', {
-  //     headers: {
-  //       Authorization:
-  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data.cart_itmes);
-  //       this.setState({ cartDataLists: data.cart_itmes });
-  //       console.log(this.props.isCartFill(data));
-  //     });
-  // }
+  componentDidMount() {
+    fetch('http://10.58.1.116:8000/carts', {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ cartDataLists: data });
+        console.log(this.props.isCartFill(data));
+      });
+  }
 
   isMinusQuantity = quantity => {
     // const { quantity } = this.props;
@@ -98,7 +98,7 @@ export class CartContents extends Component {
           <CheckBox />
         </div>
 
-        {cartDataLists.map(product => {
+        {/* {cartDataLists.map(product => {
           // console.log(product);
           return (
             <CartedProduct
@@ -116,7 +116,7 @@ export class CartContents extends Component {
               isDeleteProductOne={this.isDeleteProductOne}
             />
           );
-        })}
+        })} */}
         <div className="notification">
           <div className="notificationTitle">안내사항</div>
           <ul>
