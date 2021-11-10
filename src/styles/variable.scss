@@ -15,4 +15,9 @@
   align-items: center;
 }
 
+@mixin deleteTextDeco {
+  text-decoration: none;
+  color: #333c45;
+}
+
 $keyColor: rgb(90, 197, 240);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './FurnitureTable.scss';
 
 export class FurnitureTable extends Component {
@@ -11,7 +11,8 @@ export class FurnitureTable extends Component {
   }
 
   render() {
-    const { key, furnitureName, sub_category, isCategoryClick } = this.props;
+    const { key, furnitureName, sub_category, categoryLink, isCategoryClick } =
+      this.props;
 
     return (
       <div className="FurnitureTable" key={key}>
@@ -25,19 +26,23 @@ export class FurnitureTable extends Component {
           }}
           onClick={() => isCategoryClick()}
         >
-          <span className="furnitureName">{furnitureName}</span>
+          <Link to={`${categoryLink}`} className="categoryLink">
+            <span className="furnitureName">{furnitureName}</span>
+          </Link>
           <div className="furnitureTable">
             <ul className="items">
               {this.state.showMenu &&
                 sub_category.map(itemName => {
                   return (
-                    <li
-                      className="item"
-                      key={itemName.id}
-                      onClick={() => isCategoryClick()}
-                    >
-                      {itemName.name}
-                    </li>
+                    <Link to={`${categoryLink}`} className="categoryLink">
+                      <li
+                        className="item"
+                        key={itemName.id}
+                        onClick={() => isCategoryClick()}
+                      >
+                        {itemName.name}
+                      </li>
+                    </Link>
                   );
                 })}
             </ul>

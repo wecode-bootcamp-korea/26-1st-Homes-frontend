@@ -2,14 +2,14 @@
 
 .CategoryTable {
   .category {
-    @include flexMix(center, flex-start);
     width: 170px;
     padding: 10px 20px;
     transition: 0.3s;
+    @include deleteTextDeco;
 
     .categoryLink {
-      @include flexMix(center);
-      text-decoration: none;
+      @include flexMix(center, flex-start);
+      @include deleteTextDeco;
     }
 
     .furnitureImg {

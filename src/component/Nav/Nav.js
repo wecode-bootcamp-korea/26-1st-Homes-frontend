@@ -29,7 +29,7 @@ export class Nav extends Component {
       : this.setState({ showMenu: false });
   };
 
-  isCategoryClick = () => {
+  isCategoryClick = category => {
     this.setState({ selectedCategory: 0 });
   };
 
@@ -66,6 +66,7 @@ export class Nav extends Component {
                         categoryImg={category.img}
                         categoryName={category.categoryName}
                         categoryLists={category.categoryLists}
+                        categoryLink={category.categoryLink}
                         isCategoryClick={this.isCategoryClick}
                       />
                     );
@@ -89,15 +90,19 @@ export class Nav extends Component {
               />
             </div>
             <div className="cartWrap">
-              <img
-                src="./images/shopping-cart (2).png"
-                alt="cart img"
-                className="cartImg"
-              />
+              <Link to="/cart">
+                <img
+                  src="./images/shopping-cart (2).png"
+                  alt="cart img"
+                  className="cartImg"
+                />
+                <div className="notice">1</div>
+              </Link>
             </div>
             <div className="login">
-              <span>로그인/가입</span>
-              <Link to="/login" className="loginLink" />
+              <Link to="/login" className="loginLink">
+                <span>로그인/가입</span>
+              </Link>
             </div>
             <button className="help">고객센터</button>
           </div>
