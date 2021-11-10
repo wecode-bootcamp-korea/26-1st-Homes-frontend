@@ -41,7 +41,7 @@ class Login extends React.Component {
         } else if (result.access_token) {
           alert('로그인 성공');
           localStorage.setItem('token', result.token);
-          history.push('/Main');
+          history.push('');
         }
       });
   };
