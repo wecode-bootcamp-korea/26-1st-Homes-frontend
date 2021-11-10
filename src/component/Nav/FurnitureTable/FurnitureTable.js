@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import './FurnitureTable.scss';
 
 export class FurnitureTable extends Component {
@@ -10,10 +11,13 @@ export class FurnitureTable extends Component {
   }
 
   render() {
-    const { key, furnitureName, sub_category } = this.props;
+    const { furnitureName, sub_category, categoryLink, isCategoryClick } =
+      this.props;
+
     const { showMenu } = this.state;
+
     return (
-      <div className="FurnitureTable" key={key}>
+      <div className="FurnitureTable">
         <li
           className="furnitureList"
           onMouseEnter={() => {
@@ -23,14 +27,27 @@ export class FurnitureTable extends Component {
             this.setState({ showMenu: false });
           }}
         >
-          <span className="furnitureName">{furnitureName}</span>
+          <Link
+            to={`${categoryLink}`}
+            className="categoryLink"
+            onClick={() => {
+              isCategoryClick(categoryLink);
+            }}
+          >
+            <span className="furnitureName">{furnitureName}</span>
+          </Link>
           <div className="furnitureTable">
             <ul className="items">
               {showMenu &&
                 sub_category.map(itemName => {
                   return (
-                    <li className="item" key={itemName.id}>
+                    <li
+                      key={itemName.id}
+                      className="item"
+                      onClick={() => isCategoryClick(categoryLink)}
+                    >
                       {itemName.name}
+                      <Link to={`${categoryLink}`} className="categoryLink" />
                     </li>
                   );
                 })}
@@ -42,4 +59,4 @@ export class FurnitureTable extends Component {
   }
 }
 
-export default FurnitureTable;
+export default withRouter(FurnitureTable);
