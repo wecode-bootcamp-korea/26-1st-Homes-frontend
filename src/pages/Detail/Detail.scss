@@ -8,10 +8,31 @@
     margin: 0 auto;
     margin-top: 140px;
 
-    .detailImage {
+    .imageWrap {
+      position: relative;
+      display: flex;
+      z-index: -1000;
       width: 550px;
       height: 550px;
-      border-radius: 10px;
+      border-radius: 7px;
+      overflow: hidden;
+
+      .imageSize {
+        display: block;
+        width: 550px;
+        height: 550px;
+        border-radius: 7px;
+        transform: translateX(0%);
+        transition-duration: 0.5s;
+      }
+      .imageSize2 {
+        display: block;
+        width: 550px;
+        height: 550px;
+        border-radius: 7px;
+        transform: translateX(-100%);
+        transition-duration: 0.5s;
+      }
     }
 
     .productInformation {
@@ -64,13 +85,15 @@
           margin-bottom: 15px;
           color: #ababab;
         }
-
-        .star {
-          margin-top: -4px;
+        .stars {
           margin-left: 55px;
-          margin-right: 2px;
-          width: 19px;
-          height: 19px;
+          margin-right: 10px;
+          .star {
+            margin-top: -4px;
+
+            width: 19px;
+            height: 19px;
+          }
         }
       }
 
@@ -213,12 +236,12 @@
       position: absolute;
       z-index: 1000;
 
-      .selectBox {
+      .selectBox2 {
         z-index: 1000;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         margin-top: -1px;
+        padding-left: 15px;
         width: 370px;
         height: 50px;
         background-color: white;
@@ -374,4 +397,7 @@
       }
     }
   }
+}
+.displayNone {
+  display: none;
 }
