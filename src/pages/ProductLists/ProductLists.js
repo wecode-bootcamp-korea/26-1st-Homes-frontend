@@ -14,17 +14,8 @@ class ProductLists extends Component {
   }
 
   componentDidMount() {
-    // fetch('/data/productData.json')
-    //   .then(res => res.json())
-    //   .then(info => {
-    //     this.setState({
-    //       products: info,
-    //       copiedProducts: info,
-    //     });
-    //   });
-
     fetch(
-      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-review_star_point'
+      'http://10.58.5.129:8000/products?SubCategoryId=1&ordering=-review_star_point'
     )
       .then(res => res.json())
       .then(info => {
@@ -39,7 +30,7 @@ class ProductLists extends Component {
     const { location } = this.props;
     if (prevProps.location.search !== location.search) {
       fetch(
-        `http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
+        `http://10.58.5.129:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
       )
         .then(res => res.json())
         .then(product => {
