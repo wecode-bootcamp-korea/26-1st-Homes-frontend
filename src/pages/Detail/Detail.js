@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Detail.scss';
+import priceComma from '../../component/Utils/utils.js';
+
 //나중에 컴포넌트화 할때 쓸 코드입니다.
 // import ProductSelectOptions from './ProductSelectOptions/ProductSelectOptions';
 
@@ -131,6 +133,7 @@ export class Detail extends Component {
     } = this.state;
 
     const multiplyPrice = productQuantity * quantityPrice;
+    const starView = productInfo.star_point * 20;
 
     return (
       <div className="Detail">
@@ -159,28 +162,39 @@ export class Detail extends Component {
             <div className="productName">{productInfo.name}</div>
             <div className="productPrice">
               <div>
-                <p className="cost">{productInfo.displayed_price}</p>
+                <p className="cost">
+                  {priceComma(productInfo.displayed_price)}
+                </p>
                 <p className="disconutPercent">{productInfo.discount_rate}%</p>
               </div>
               <div className="discountPriceBox">
                 <p className="discountPrice">
-                  {productInfo.discounted_price}
+                  {priceComma(productInfo.discounted_price)}
                   <span className="won">원</span>
                 </p>
               </div>
             </div>
             <div className="grade">
               <div className="starPointText">평점</div>
-              <div className="stars">
-                <img className="star" alt="별" src="/images/별이다섯개.png" />
+              <div className="starBox" style={{ width: starView }}>
+                <img
+                  className="pointOfStar"
+                  alt="별"
+                  src="/images/파란별들.png"
+                />
               </div>
+              <img
+                className="backgroundStar"
+                alt="별"
+                src="/images/회색별들.png"
+              />
               <span className="starPoint">{productInfo.star_point}</span>
             </div>
             <div className="shippingFeeBox">
               <div className="shippingFee">배송비</div>
               <div className="shippingListsBox">
                 <ul className="shippingFeeLists">
-                  개당 {productInfo.delivery_fee}원
+                  개당 {priceComma(productInfo.delivery_fee)}원
                 </ul>
                 <li
                   className={
@@ -238,7 +252,9 @@ export class Detail extends Component {
                           <div>{index + 1}.</div>
                           <div>{option.name}</div>
                         </div>
-                        <div className="optionPrice">{option.price}원~</div>
+                        <div className="optionPrice">
+                          {priceComma(option.price)}원~
+                        </div>
                       </div>
                     );
                   })}
@@ -313,7 +329,9 @@ export class Detail extends Component {
                           +
                         </button>
                       </div>
-                      <div className="priceCalculator">{multiplyPrice}원</div>
+                      <div className="priceCalculator">
+                        {priceComma(multiplyPrice)}원
+                      </div>
                     </div>
                   </div>
                   <div className="priceBox">
@@ -321,7 +339,9 @@ export class Detail extends Component {
                       <div className="QuantityBottom">
                         총 {productQuantity}개
                       </div>
-                      <div className="PriceBottom">{multiplyPrice}원</div>
+                      <div className="PriceBottom">
+                        {priceComma(multiplyPrice)}원
+                      </div>
                     </div>
                   </div>
                 </div>
