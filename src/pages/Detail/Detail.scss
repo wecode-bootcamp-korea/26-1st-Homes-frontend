@@ -7,31 +7,58 @@
     height: 100%;
     margin: 0 auto;
     margin-top: 140px;
+    .imagePrevButton {
+      position: absolute;
+      z-index: 1000;
+      margin-top: 250px;
+      margin-right: 940px;
+      width: 40px;
+      height: 40px;
+      opacity: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 50%;
+      background-color: white;
+    }
+    .imageNextButton {
+      position: absolute;
+      font-size: 20px;
+      z-index: 1000;
+      margin-top: 250px;
+      margin-left: 40px;
+      width: 40px;
+      cursor: pointer;
+      height: 40px;
 
+      border-radius: 50%;
+      opacity: 50%;
+
+      background-color: white;
+    }
     .imageWrap {
       position: relative;
       display: flex;
-      z-index: -1000;
+      z-index: -2000;
       width: 550px;
       height: 550px;
       border-radius: 7px;
       overflow: hidden;
 
-      .imageSize {
+      .firstImage {
         display: block;
         width: 550px;
         height: 550px;
         border-radius: 7px;
         transform: translateX(0%);
-        transition-duration: 0.5s;
+        transition-duration: 0.6s;
       }
-      .imageSize2 {
+      .secondeImgae {
         display: block;
         width: 550px;
         height: 550px;
         border-radius: 7px;
         transform: translateX(-100%);
-        transition-duration: 0.5s;
+        transition-duration: 0.6s;
       }
     }
 
@@ -60,7 +87,7 @@
           font-size: 20px;
         }
 
-        .percent {
+        .disconutPercent {
           font-size: 35px;
           font-weight: bold;
           margin-bottom: 15px;
@@ -90,8 +117,7 @@
           margin-right: 10px;
           .star {
             margin-top: -4px;
-
-            width: 19px;
+            width: 90px;
             height: 19px;
           }
         }
@@ -120,11 +146,11 @@
         .shippingLists {
           list-style: none;
 
-          .typeBox {
+          .shippingTypeBox {
             display: flex;
 
             .shippingType,
-            .payType {
+            .paymentType {
               margin-left: -42px;
               margin-right: 24px;
               margin-bottom: 17px;
@@ -140,7 +166,7 @@
         }
       }
 
-      .contour {
+      .optionContour {
         width: 370px;
         border-bottom: solid #ababab 1px;
       }
@@ -150,7 +176,7 @@
   .optionBox {
     margin-top: 20px;
 
-    .dropDownOn {
+    .optionDropdownOnRadius {
       z-index: 2000;
       align-items: center;
       margin-top: 10px;
@@ -165,7 +191,7 @@
       color: #ababab;
     }
 
-    .downOn {
+    .optionDropdownOn {
       position: absolute;
       z-index: 2000;
 
@@ -187,7 +213,7 @@
           margin-left: 15px;
         }
 
-        .priceBox {
+        .optionPrice {
           z-index: 2000;
           margin-right: 15px;
         }
@@ -198,7 +224,7 @@
       }
     }
 
-    .dropDownOff {
+    .optionDropdownOffRadius {
       border-radius: 7px;
       align-items: center;
       margin-top: 10px;
@@ -210,15 +236,15 @@
       color: #ababab;
     }
 
-    .dropDownOff:hover {
+    .optionDropdownOffRadius:hover {
       background-color: rgb(180, 226, 248);
     }
 
-    .downOff {
+    .optionDropdownOff {
       display: none;
     }
 
-    .dropDownOn2 {
+    .colorDropdownOnRadius {
       z-index: 1000;
       border-top-left-radius: 7px;
       border-top-right-radius: 7px;
@@ -232,7 +258,7 @@
       color: #ababab;
     }
 
-    .downOn2 {
+    .colorOptionDropdownOn {
       position: absolute;
       z-index: 1000;
 
@@ -262,7 +288,7 @@
       }
     }
 
-    .dropDownOff2 {
+    .colorDropdownOffRadius {
       border-radius: 7px;
       align-items: center;
       margin-top: 10px;
@@ -274,11 +300,11 @@
       color: #ababab;
     }
 
-    .dropDownOff2:hover {
+    .colorDropdownOffRadius:hover {
       background-color: rgb(180, 226, 248);
     }
 
-    .downOff2 {
+    .colorOptionDropdownOff {
       display: none;
     }
 
@@ -289,7 +315,7 @@
     .boxAndBuy {
       margin-top: 10px;
 
-      .QuantityBox {
+      .quantityBox {
         width: 370px;
         height: 90px;
         border-radius: 7px;
@@ -305,7 +331,7 @@
             font-size: 13px;
           }
 
-          .removeButton {
+          .quantityBoxRemoveButton {
             margin-top: 13px;
             margin-right: 15px;
             background-color: rgb(180, 226, 248);
@@ -322,8 +348,8 @@
             margin-top: 10px;
             margin-left: 10px;
 
-            .minusButton,
-            .plusButton {
+            .quantityMinusButton,
+            .quantityPlusButton {
               width: 25px;
               height: 25px;
               margin-left: 4px;
