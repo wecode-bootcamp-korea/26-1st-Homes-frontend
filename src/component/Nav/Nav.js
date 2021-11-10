@@ -19,7 +19,6 @@ export class Nav extends Component {
     fetch('http://10.58.5.129:8000/product/menus')
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         this.setState({ categories: data.menus });
       });
   }
