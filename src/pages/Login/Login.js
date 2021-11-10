@@ -31,7 +31,7 @@ class Login extends React.Component {
       },
     };
 
-    fetch('http://10.58.4.252:8000/users/signin', login_info)
+    fetch('http://10.58.1.116:8000/users/signin', login_info)
       .then(response => response.json())
       .then(result => {
         if (result.message === 'INVALID_USER') {
