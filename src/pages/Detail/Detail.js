@@ -26,11 +26,22 @@ export class Detail extends Component {
     };
   }
 
+  // componentDidMount() {
+  //   fetch(
+  //     `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
+  //   )
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         productInfo: data.product_group,
+  //       });
+  //     });
+  // }
+
   componentDidMount() {
     fetch('http://10.58.7.212:8000/products/product/1')
       .then(res => res.json())
       .then(data => {
-        // console.log(data);
         this.setState({
           productInfo: data.product_group,
         });
@@ -90,7 +101,6 @@ export class Detail extends Component {
       this.setState({
         productQuantity: productQuantity - 1,
       });
-      console.log('- 결과', productQuantity);
     }
   };
 
@@ -139,9 +149,10 @@ export class Detail extends Component {
           ColorId: colorId,
           quantity: productQuantity,
         }),
-      })
-        .then(response => response.json())
-        .then(result => console.log('결과: ', result));
+      }).then(response => response.json());
+      alert('물건을 장바구니에 담았어요!');
+    } else {
+      alert('장바구니에 담을 제품을 골라주세요!');
     }
   };
 
@@ -152,16 +163,14 @@ export class Detail extends Component {
         method: 'POST',
         headers: {
           Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0', // 발행된 액세스 토큰
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
         },
         body: JSON.stringify({
           ProductId: productId,
           ColorId: colorId,
           quantity: productQuantity,
         }),
-      })
-        .then(response => response.json())
-        .then(result => console.log('결과: ', result));
+      }).then(response => response.json());
     }
   };
 
