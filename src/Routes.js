@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Detail from './pages/Detail/Detail';
 import ProductLists from './pages/ProductLists/ProductLists';
-import SignUpPage from './pages/SignUp';
+import SignUpPage from './pages/Signup/Signup';
 import Cart from './pages/Cart/Cart';
 
 export class Routes extends Component {

@@ -1,0 +1,51 @@
+@import '../../../styles/variable.scss';
+
+.ProductOption {
+  height: 100%;
+  margin: 5px 0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px lightgrey;
+
+  .optionWrap {
+    @include flexMix(center, space-between);
+    margin: 20px;
+
+    .optionInfo {
+      font-size: 14px;
+
+      .optionName {
+        padding-right: 10px;
+        margin: 10px;
+        border-right: 2px solid #f0f3f6;
+      }
+
+      .optionColor {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  .productClean {
+    width: 20px;
+  }
+
+  .productQuantity {
+    @include flexMix(center, space-between);
+    margin: 15px;
+
+    .quantity {
+      @include flexMix(center, space-between);
+
+      .minus,
+      .number,
+      .plus {
+        padding: 5px 10px;
+        font-weight: 700;
+      }
+    }
+
+    .optionPrice {
+      padding: 0 10px;
+    }
+  }
+}

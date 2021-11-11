@@ -1,0 +1,24 @@
+@import '../../../styles/variable.scss';
+
+.EmptyCart {
+  margin: 100px 0 60px 0;
+  background-color: #fff;
+
+  .isEmpty {
+    @include flexMix(center, 0);
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 1px 1px 10px lightgray;
+    opacity: 0.5;
+
+    .cartImg {
+      margin: 250px 200px 10px 200px;
+      padding: 10px 250px;
+    }
+
+    .nothing {
+      padding-bottom: 250px;
+      font-weight: 700;
+    }
+  }
+}
