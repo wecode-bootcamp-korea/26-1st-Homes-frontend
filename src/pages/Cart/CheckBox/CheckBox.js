@@ -14,7 +14,8 @@ export class CheckBox extends Component {
   };
 
   render() {
-    const { isDeleteProductOne, id } = this.props;
+    const { isDeleteProductOne, isDeleteAll, id, selectAll, select } =
+      this.props;
     const { checked } = this.state;
 
     return (
@@ -26,16 +27,16 @@ export class CheckBox extends Component {
               !checked ? 'uncheckedLabel' : 'checkedLabel'
             }`}
           >
-            {/* <input type="checkbox" className="checkBox" /> */}
+            {/* {selectAll<input type="checkbox" className="checkBox" />} */}
             <img className="checkImg" src="./images/-.png" alt="check img" />
           </label>
-          {/* <span className="checkAll">모두선택(2)</span> */}
+          {selectAll && <span className="checkAll">모두선택</span>}
         </div>
         <button
           className="cleanChooseThings"
           onClick={e => isDeleteProductOne(id)}
         >
-          선택 삭제
+          {select} 삭제
         </button>
       </div>
     );

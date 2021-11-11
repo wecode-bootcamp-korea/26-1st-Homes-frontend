@@ -6,13 +6,14 @@ import './CartedProduct.scss';
 export class CartedProduct extends Component {
   render() {
     const { company, image, name, color, quantity, price } = this.props.product;
-
     const {
       cart_id,
+      isDeleteProductOne,
+      priceComma,
+      getQuantity,
+      updateQuantity,
       isMinusQuantity,
       isPlusQuantity,
-      isDeleteProductOne,
-      priceRgu,
     } = this.props;
 
     return (
@@ -29,18 +30,20 @@ export class CartedProduct extends Component {
           <div className="cartedProductOption">
             <CartedProductOption
               cart_id={cart_id}
+              updateQuantity={updateQuantity}
               productName={name}
               quantity={quantity}
               productColor={color}
               productPrice={price}
+              priceComma={priceComma}
+              getQuantity={getQuantity}
               isMinusQuantity={isMinusQuantity}
               isPlusQuantity={isPlusQuantity}
-              priceRgu={priceRgu}
             />
           </div>
         </div>
         <div className="totalPriceOrder">
-          상품 금액 {priceRgu(price)}원 + 배송비 착불
+          상품 금액 {priceComma(price)}원 + 배송비 착불
         </div>
       </div>
     );

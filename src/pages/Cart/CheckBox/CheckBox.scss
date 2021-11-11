@@ -4,6 +4,8 @@
   @include flexMix(center, space-between);
 
   .checkBoxWrap {
+    @include flexMix();
+
     .checkBoxLabel {
       @include flexMix();
       position: relative;
@@ -39,7 +41,7 @@
   }
 
   .cleanChooseThings {
-    width: 70px;
+    min-width: 50px;
     height: 40px;
     border-radius: 10px;
   }

@@ -7,20 +7,15 @@ export class Cart extends Component {
   constructor() {
     super();
     this.state = {
-      dataList: 0,
+      cart: 1,
     };
   }
-  render() {
-    // const { dataList } = this.state;
-    // const isCartFill = dataList => {
-    //   console.log(dataList);
-    //   if (dataList) {
-    //     this.setState({ dataList });
-    //   }
-    // };
 
+  render() {
     return (
-      <div className="Cart">{1 > 0 ? <CartContents /> : <EmptyCart />}</div>
+      <div className="Cart">
+        {this.state.cart > 0 ? <CartContents /> : <EmptyCart />}
+      </div>
     );
   }
 }

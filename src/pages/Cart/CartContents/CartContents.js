@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
 import CheckBox from '../CheckBox/CheckBox';
 import CartedProduct from '../CartedProduct/CartedProduct';
+import priceComma from '../../../component/Utils/utils';
 import './CartContents.scss';
 
-// TODO 플러스 마이너스 수량 체크
-// TODO: 상품 삭제
-// TODO: 체크박스
 // TODO: 주문 버튼 누르면 브랜드명, 사진, 이름, 색상, 개수, 상품금액 정보 전달
+// TODO: 전체 삭제 버튼 구현
+// TODO: 수량 조정 버튼
 
 export class CartContents extends Component {
   constructor(props) {
     super(props);
     this.state = {
       updateQuantity: 1,
-      peymentTabel: [],
       cartDataLists: [],
-      dataList: [{ id: 1, quantity: 2 }],
+      peymentTabel: [],
+      updateDataList: [],
+      selectedLists: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://10.58.1.116:8000/carts', {
+    fetch('http://10.58.7.212:8000/carts', {
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
@@ -36,24 +37,25 @@ export class CartContents extends Component {
   }
 
   isUpdateQuantity = (updateQuantity, cart_id) => {
-    fetch(`http://10.58.1.116:8000/carts/${cart_id}`, {
-      method: 'PETCH',
+    console.log('updateQuantity', updateQuantity);
+    fetch(`http://10.58.7.212:8000/carts/${cart_id}`, {
+      method: 'PATCH',
       headers: {
         Authorization:
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
       },
-      body: {
+      body: JSON.stringify({
         quantity: updateQuantity,
-      },
+      }),
     })
       .then(res => res.json())
       .then(data => {
-        console.log('is Worked');
+        console.log('data', data);
       });
   };
 
   isDeleteProductOne = cart_id => {
-    fetch(`http://10.58.1.116:8000/carts/delete/${cart_id}`, {
+    fetch(`http://10.58.7.212:8000/carts/${cart_id}`, {
       method: 'DELETE',
       headers: {
         Authorization:
@@ -71,38 +73,69 @@ export class CartContents extends Component {
     });
   };
 
-  isMinusQuantity = () => {
-    const { updateQuantity, cartDataLists } = this.state;
+  // isDeleteAll = cart_id => {
+  //   fetch(`http://10.58.7.212:8000/carts/delete/${cart_id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       Authorization:
+  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+  //     },
+  //   }).then(res => {
+  //     this.setState({
+  //       cartDataLists: this.state.cartDataLists.filter(product => {
+  //         if (product.cart_id === cart_id) {
+  //           return false;
+  //         }
+  //         return true;
+  //       }),
+  //     });
+  //   });
+  // };
 
-    console.log('minus');
-    this.setState({ updateQuantity: 1 });
+  // order = (updateQuantity, product_id, cart_id) => {
+  //   fetch(`http://10.58.0.131:8000/order/${cart_id}`, {
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization:
+  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+  //     },
+  //     body: {
+  //       product_id: product_id,
+  //       // color_id: color,
+  //       purchase_quantity: updateQuantity,
+  //     },
+  //   }).then(res => {
+  //     this.setState({
+  //       cartDataLists: this.state.cartDataLists.filter(product => {
+  //         if (product.cart_id === cart_id) {
+  //           return false;
+  //         }
+  //         return true;
+  //       }),
+  //     });
+  //   });
+  // };
 
-    if (cartDataLists.quantity === 1) {
-      this.setState({ updateQuantity: 1 });
-    } else if (cartDataLists.quantity > 1) {
-      this.setState(prev => ({ updateQuantity: prev.updateQuantity - 1 }));
+  getQuantity = (number, cart_id) => {
+    const { cartDataLists, updateDataList } = this.state;
+    this.setState({
+      updateQuantity: number,
+      updateDataList: JSON.parse(JSON.stringify(cartDataLists)),
+    });
+    this.isUpdateQuantity(number, cart_id);
+
+    console.log('updateDataList', updateDataList);
+    for (const id of updateDataList) {
+      if (cart_id === id.cart_id) {
+        id.product.quantity = number;
+        console.log('id.product.quantity', id.product.quantity);
+      }
     }
-    console.log(updateQuantity);
-  };
-
-  isPlusQuantity = () => {
-    const { updateQuantity, cartDataLists } = this.state;
-
-    console.log('plus');
-
-    this.setState(prev => ({ updateQuantity: prev.updateQuantity + 1 }));
-    console.log(updateQuantity);
-  };
-
-  priceRgu = price => {
-    const result = Math.round(price)
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return result;
   };
 
   render() {
-    const { cartDataLists, peymentTabel, quantityLists } = this.state;
+    const { cartDataLists, peymentTabel, updateQuantity, updateDataList } =
+      this.state;
     const { total_product_price, payment_price, prepayment_delivery_fee } =
       peymentTabel;
 
@@ -117,25 +150,29 @@ export class CartContents extends Component {
             </h1>
             <h1 className="infoTitle">
               예상 결제 금액은
-              {this.priceRgu(total_product_price)}원 이에요
+              {priceComma(total_product_price)}원 이에요
             </h1>
           </div>
           <div className="priceInfo">
             <div className="totalPriceWrap">
               <span className="totalPrice">총 상품 금액</span>
               <span className="totalProductPrice">
-                {this.priceRgu(payment_price)}원
+                {priceComma(payment_price)}원
               </span>
             </div>
             <div className="totalPriceWrap">
               <span className="totalPrice">총 배송비</span>
               <span className="totalProductPrice">
-                {this.priceRgu(prepayment_delivery_fee)}원 + 착불 배송비
+                {priceComma(prepayment_delivery_fee)}원 + 착불 배송비
               </span>
             </div>
           </div>
 
-          <CheckBox />
+          <CheckBox
+            isDeleteAll={this.isDeleteAll}
+            selectAll="모두 선택"
+            select="선택"
+          />
         </div>
 
         {cartDataLists.map(cart => {
@@ -143,14 +180,15 @@ export class CartContents extends Component {
             <CartedProduct
               key={cart.cart_id}
               {...cart}
-              quantityLists={quantityLists}
+              updateQuantity={updateQuantity}
               paymentPrice={cart.payment_price}
               prepaymentDeliveryFee={cart.prepayment_delivery_fee}
               totalProductPrice={cart.total_product_price}
-              priceRgu={this.priceRgu}
-              isMinusQuantity={this.isMinusQuantity}
-              isPlusQuantity={this.isPlusQuantity}
+              priceComma={priceComma}
               isDeleteProductOne={this.isDeleteProductOne}
+              getQuantity={this.getQuantity}
+              // sMinusQuantity={this.isMinusQuantity}
+              // isPlusQuantity={this.isPlusQuantity}
             />
           );
         })}
@@ -172,8 +210,11 @@ export class CartContents extends Component {
         </div>
         <div className="total">
           <span className="totalNumber">총 {selectNumner} 개</span>
-          <button className="order">
-            {this.priceRgu(total_product_price)}원 구매하기
+          <button
+            className="order"
+            // onClick={this.order(cartDataLists.cart_id, cartDataLists.cart_id)}
+          >
+            {priceComma(total_product_price)}원 구매하기
           </button>
         </div>
       </div>
