@@ -26,6 +26,7 @@ export class Detail extends Component {
     };
   }
 
+  // 목데이터
   componentDidMount() {
     fetch('http://10.58.7.212:8000/products/product/1')
       .then(res => res.json())

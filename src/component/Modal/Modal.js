@@ -16,6 +16,9 @@ class Modal extends Component {
         <button className="price" value="높은가격순" onClick={filterProducts}>
           높은 가격순
         </button>
+        <button className="starPoint" value="별점순" onClick={filterProducts}>
+          별점순
+        </button>
       </div>
     );
   }
