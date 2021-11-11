@@ -21,31 +21,32 @@ export class Detail extends Component {
       quantityBox: true,
       imageChange: true,
       imagePage: 1,
+      productId: 0,
+      colorId: 0,
     };
   }
-  // 통신용
-  // componentDidMount() {
-  //   fetch(
-  //     `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
-  //   )
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         productInfo: data.product_group,
-  //       });
-  //     });
-  // }
 
   // 목데이터
   componentDidMount() {
-    fetch('http://10.58.0.131:8000/products/product/1')
+    fetch('http://10.58.7.212:8000/products/product/1')
       .then(res => res.json())
       .then(data => {
+        // console.log(data);
         this.setState({
-          productInfo: data[0],
+          productInfo: data.product_group,
         });
       });
   }
+
+  // componentDidMount() {
+  //   fetch('/data/data.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       this.setState({
+  //         productInfo: data[0],
+  //       });
+  //     });
+  // }
 
   shippingDropdown = () => {
     const { shippingDropdown } = this.state;
@@ -67,6 +68,7 @@ export class Detail extends Component {
       productOptionDropdown: !productOptionDropdown === true,
       productPrice: option.price,
       productName: option.name,
+      productId: option.id,
       colorOptionDropdown: !colorOptionDropdown === true,
     });
   };
@@ -79,6 +81,7 @@ export class Detail extends Component {
       productQuantity: 1,
       quantityPrice: productPrice,
       quantityBox: false,
+      colorId: colorOption.id,
     });
   };
 
@@ -88,6 +91,7 @@ export class Detail extends Component {
       this.setState({
         productQuantity: productQuantity - 1,
       });
+      console.log('- 결과', productQuantity);
     }
   };
 
@@ -103,6 +107,7 @@ export class Detail extends Component {
   quantityBoxRemove = () => {
     this.setState({
       quantityBox: true,
+      colorId: 0,
     });
   };
 
@@ -119,6 +124,48 @@ export class Detail extends Component {
       imagePage: 2,
     });
   };
+
+  shippingBasketDataTransfer = () => {
+    const { productQuantity, productId, colorId } = this.state;
+
+    if (colorId !== 0) {
+      fetch('http://10.58.7.212:8000/carts', {
+        method: 'POST',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0', // 발행된 액세스 토큰
+        },
+        body: JSON.stringify({
+          ProductId: productId,
+          ColorId: colorId,
+          quantity: productQuantity,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => console.log('결과: ', result));
+    }
+  };
+
+  orderDataTransfer = () => {
+    const { productQuantity, productId, colorId } = this.state;
+    if (colorId !== 0) {
+      fetch('http://10.58.7.212:8000/carts', {
+        method: 'POST',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0', // 발행된 액세스 토큰
+        },
+        body: JSON.stringify({
+          ProductId: productId,
+          ColorId: colorId,
+          quantity: productQuantity,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => console.log('결과: ', result));
+    }
+  };
+
   render() {
     const {
       imageChange,
@@ -215,12 +262,12 @@ export class Detail extends Component {
                   </div>
                 </li>
               </div>
-              <bitton
+              <button
                 className="shippingFeeButton"
                 onClick={this.shippingDropdown}
               >
                 ∨
-              </bitton>
+              </button>
             </div>
             <div className="optionContour" />
             <div className="optionBox">
@@ -336,6 +383,7 @@ export class Detail extends Component {
                       </div>
                     </div>
                   </div>
+
                   <div className="priceBox">
                     <div className="QuantityAndPrice">
                       <div className="QuantityBottom">
@@ -348,8 +396,15 @@ export class Detail extends Component {
                   </div>
                 </div>
                 <div className="buyButtons">
-                  <button className="shoppingBasket">장바구니</button>
-                  <button className="nowBuy">바로구매</button>
+                  <button
+                    onClick={this.shippingBasketDataTransfer}
+                    className="shoppingBasket"
+                  >
+                    장바구니
+                  </button>
+                  <button onClick={this.orderDataTransfer} className="nowBuy">
+                    바로구매
+                  </button>
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ import './Event.scss';
 export class Event extends Component {
   render() {
     const { img, title, subTilte, discount, date } = this.props;
+
     return (
       <div className="Event">
         <div className="eventList">
