@@ -23,6 +23,7 @@ export class Detail extends Component {
     };
   }
 
+  // 목데이터
   componentDidMount() {
     fetch(
       `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`

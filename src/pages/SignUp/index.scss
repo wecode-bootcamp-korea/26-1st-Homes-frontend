@@ -1,0 +1,26 @@
+.container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-flow: column;
+  padding-top: 11px;
+
+  .Logo {
+    #homeLogo {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+    }
+
+    .logoName {
+      display: flex;
+      justify-content: center;
+      color: lightgray;
+      font-size: 15px;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    }
+  }
+}
