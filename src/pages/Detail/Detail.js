@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './Detail.scss';
 import priceComma from '../../component/Utils/utils.js';
 
-//나중에 컴포넌트화 할때 쓸 코드입니다.
-// import ProductSelectOptions from './ProductSelectOptions/ProductSelectOptions';
-
 export class Detail extends Component {
   constructor() {
     super();
@@ -26,20 +23,10 @@ export class Detail extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch(
-  //     `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
-  //   )
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         productInfo: data.product_group,
-  //       });
-  //     });
-  // }
-
   componentDidMount() {
-    fetch('http://10.58.7.212:8000/products/product/1')
+    fetch(
+      `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -47,16 +34,6 @@ export class Detail extends Component {
         });
       });
   }
-
-  // componentDidMount() {
-  //   fetch('/data/data.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       this.setState({
-  //         productInfo: data[0],
-  //       });
-  //     });
-  // }
 
   shippingDropdown = () => {
     const { shippingDropdown } = this.state;
@@ -343,16 +320,6 @@ export class Detail extends Component {
                         <div>{index + 1}.</div>
                         <div>{colorOption.name}</div>
                       </div>
-                      // 나중에 컴포넌트화 시킬 때 쓸 코드 입니다.
-                      // <div key={option.id}>
-                      //   <ProductSelectOptions
-                      //     id={option.id}
-                      //     productName={option.productName}
-                      //     productPrice={option.productPrice}
-                      //     // colorOptionDropdown={this.colorOptionDropdown}
-                      //     productOptionSelect={this.productOptionSelect}
-                      //   />
-                      // </div>
                     );
                   })}
               </div>
