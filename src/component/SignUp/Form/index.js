@@ -1,10 +1,11 @@
 import React from 'react';
-import './index.scss';
 import Input from '../../Input';
+import { withRouter } from 'react-router-dom';
 import { SignUpForms } from '../signUpForms';
-import FormValidator from '../../../utils/formValidator';
 
-export default class Form extends React.Component {
+import './index.scss';
+
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,54 +20,25 @@ export default class Form extends React.Component {
 
   goToLogin = () => {
     const { history } = this.props;
-    history.push('./Login');
+    history.push('/Login');
   };
-  /**
-   * @description 입력한 Input 값을 state에 반영해주는 함수
-   */
+
   handleInput = event => {
     event.preventDefault();
 
-    if (FormValidator._checkName(event.target.value)) {
-      console.log('name 통과');
-    } else {
-      console.log('name 에러');
-    }
-    if (FormValidator._checkEmail(event.target.value)) {
-      console.log('email 통과');
-    } else {
-      console.log('email 에러');
-    }
-    if (FormValidator._checkNickname(event.target.value)) {
-      console.log('nick 통과');
-    } else {
-      console.log('nick 에러');
-    }
-    if (FormValidator._checkPhoneNumber(event.target.value)) {
-      console.log('phone 통과');
-    } else {
-      console.log('phone 에러');
-    }
-    if (FormValidator._checkPassword(event.target.value)) {
-      console.log('password 통과');
-    } else {
-      console.log('password 에러');
-    }
     this.setState({
       ...this.state,
       [event.target.name]: event.target.value,
     });
   };
-  /**
-   * @description 회원가입 요청을 실행하는 함수
-   */
+
   handleSubmit = event => {
     event.preventDefault();
+    const { history } = this.props;
     const { email, nickName, phone_number, password, rePassword, name } =
       this.state;
     let userData = this.state;
-    // userData 안에 들어있는 값들 유효성 검사 통과시 fetch 함수 실행
-    fetch('http://10.58.1.116:8000/users/signup', {
+    fetch('http://10.58.7.212:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -76,48 +48,79 @@ export default class Form extends React.Component {
         rePassword: rePassword,
         name: name,
       }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then(response => response.json())
       .then(result => {
         if (result.message === 'EMAIL_VALIDATION_ERROR') {
           alert('이메일을 확인해주세요.');
-        }
-        if (result.message === 'PASSWORD_VALIDATION_ERROR') {
-          alert('비밀번호를 확인해주세요.');
-        }
-        if (result.message === 'DUPLICATED EMAI') {
-          alert('존재하고 있는 메일입니다.');
-        }
-        if (result.message === 'DUPLICATED NICKNAME') {
-          alert('닉네임을 확인해주세요.');
-        }
-        if (result.message === 'PHONE_NUMBER_ERROR') {
+        } else if (result.message === 'DUPLICATED EMAIL') {
+          alert(
+            '다른 계정에서 이미 사용중인 이메일 주소입니다. 다른 이메일주소를 선택해주세요.'
+          );
+        } else if (result.message === 'DUPLICATED NICKNAME') {
+          alert('사용하고 있는 닉네임입니다. 다른 닉네임을 선택해주세요.');
+        } else if (result.message === 'PHONE_NUMBER_ERROR') {
           alert('전화번호를 확인해주세요.');
+        } else if (result.message === 'PASSWORD_VALIDATION_ERROR') {
+          alert('비밀번호를 확인해주세요.');
+        } else if (result.message === 'access_token') {
+          alert('환영합니다!');
+          history.push('/');
+          localStorage.setItem('token', result.token);
         }
-        console.log('submit clicked', userData);
       });
   };
 
   render() {
-    // const { name, id, src, alt } = this.props;
-
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <ul>
-            {SignUpForms.map((item, index) => (
-              <li key={index}>
-                <Input
-                  id={item.name}
-                  name={item.name}
-                  inputType={item.inputType}
-                  placeholder={item.placeholder}
-                  src={item.src}
-                  onChange={this.handleInput}
-                />
-              </li>
-            ))}
+            {SignUpForms &&
+              SignUpForms.map((item, index) => (
+                <li key={index}>
+                  <Input
+                    id={item.name}
+                    name={item.name}
+                    inputType={item.inputType}
+                    placeholder={item.placeholder}
+                    src={item.src}
+                    onChange={this.handleInput}
+                  />
+                </li>
+              ))}
           </ul>
+          <div className="inputImeges">
+            <img className="nameImg" src="./images/user.png" alt="이름아이콘" />{' '}
+            <img
+              className="emailImg"
+              src="./images/email.png"
+              alt="이메일아이콘"
+            />{' '}
+            <img
+              className="nicNameImg"
+              src="./images/user.png"
+              alt="닉네임아이콘"
+            />{' '}
+            <img
+              className="phonImg"
+              src="./images/phone.png"
+              alt="핸드폰아이콘"
+            />{' '}
+            <img
+              className="pwdImg"
+              src="./images/lock.png"
+              alt="비밀번호아이콘"
+            />{' '}
+            <img
+              className="repwdImg"
+              src="/images/lock.png"
+              alt="비밀번호확인아이콘"
+            />
+          </div>
 
           <div className="checkBox checkBoxAll">
             <input className="btn checkAll" type="checkbox" />
@@ -150,10 +153,8 @@ export default class Form extends React.Component {
             onClick={this.goToLogin}
           />
         </form>
-        {/* <button type="button" style={{ cursor: 'pointer' }}>
-          이메일주소 중복확인
-        </button> */}
       </div>
     );
   }
 }
+export default withRouter(Form);

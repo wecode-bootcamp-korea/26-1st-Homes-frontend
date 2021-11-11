@@ -5,8 +5,6 @@ export const SignUpForms = [
     content: '이름',
     inputType: 'text',
     placeholder: '이름',
-    // src: './images/user.png',
-    // alt: '이메일아이콘',
   },
   {
     id: 1,

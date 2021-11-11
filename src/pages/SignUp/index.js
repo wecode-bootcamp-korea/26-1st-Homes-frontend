@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.scss';
 import Form from '../../component/SignUp/Form';
+import './index.scss';
 
 export default class SignUpPage extends React.Component {
   render() {
