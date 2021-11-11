@@ -14,6 +14,10 @@ export class Best extends Component {
       starPoint,
     } = this.props;
 
+    const addComma = Math.round(discountedPrice)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
     return (
       <div className="bestProduct">
         <span className="bestNumber">{rank}</span>
