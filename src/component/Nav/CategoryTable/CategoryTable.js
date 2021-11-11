@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import FurnitureTable from '../FurnitureTable/FurnitureTable';
 import './CategoryTable.scss';
 
@@ -11,10 +12,13 @@ export class CategoryTable extends Component {
   }
 
   render() {
-    const { key, categoryImg, categoryName, categoryLists } = this.props;
+    const { menuImg, menuName, menuLists, categoryLink, isCategoryClick } =
+      this.props;
+
     const { showMenu } = this.state;
+
     return (
-      <div className="CategoryTable" key={key}>
+      <div className="CategoryTable">
         <li
           className="category"
           onMouseEnter={() => {
@@ -24,15 +28,25 @@ export class CategoryTable extends Component {
             this.setState({ showMenu: false });
           }}
         >
-          <img src={categoryImg} alt="furniture img" className="furnitureImg" />
-          <span className="furniture">{categoryName}</span>
+          <Link
+            to={`${categoryLink}`}
+            className="categoryLink"
+            onClick={() => {
+              isCategoryClick(categoryLink);
+            }}
+          >
+            <img src={menuImg} alt="furniture img" className="furnitureImg" />
+            <span className="furniture">{menuName}</span>
+          </Link>
           <ul className="furnitureLists">
             {showMenu &&
-              categoryLists.map(item => (
+              menuLists.map(item => (
                 <FurnitureTable
                   key={item.id}
-                  furnitureName={item.furnitureName}
-                  sub_category={item.sub_category}
+                  furnitureName={item.name}
+                  sub_category={item.subcategories}
+                  categoryLink={categoryLink}
+                  isCategoryClick={isCategoryClick}
                 />
               ))}
           </ul>
@@ -42,4 +56,4 @@ export class CategoryTable extends Component {
   }
 }
 
-export default CategoryTable;
+export default withRouter(CategoryTable);

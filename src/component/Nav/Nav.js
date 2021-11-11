@@ -11,14 +11,15 @@ export class Nav extends Component {
     this.state = {
       categories: [],
       showMenu: false,
+      selectedCategory: '',
     };
   }
 
   componentDidMount() {
-    fetch('/data/Categories.json')
+    fetch('http://10.58.5.129:8000/product/menus')
       .then(res => res.json())
       .then(data => {
-        this.setState({ categories: data });
+        this.setState({ categories: data.menus });
       });
   }
 
@@ -28,8 +29,13 @@ export class Nav extends Component {
       : this.setState({ showMenu: false });
   };
 
+  isCategoryClick = category => {
+    this.setState({ selectedCategory: category });
+  };
+
   render() {
-    const { categories, showMenu } = this.state;
+    const { categories, showMenu, selectedCategory } = this.state;
+    const categoryLink = 'product-lists';
 
     return (
       <nav className="Nav">
@@ -54,20 +60,22 @@ export class Nav extends Component {
               </div>
               <ul className="categoryList">
                 {showMenu &&
-                  categories.map(category => {
+                  categories.map(menu => {
                     return (
                       <CategoryTable
-                        key={category.id}
-                        categoryImg={category.img}
-                        categoryName={category.categoryName}
-                        categoryLists={category.categoryLists}
+                        key={menu.menu_id}
+                        menuImg={menu.image_url}
+                        menuName={menu.menu_name}
+                        menuLists={menu.categories}
+                        categoryLink={categoryLink}
+                        isCategoryClick={this.isCategoryClick}
                       />
                     );
                   })}
               </ul>
             </div>
 
-            <Button />
+            <Button selectedCategory={selectedCategory} />
           </div>
           <div className="menuRight">
             <div className="searchWrap">
@@ -83,15 +91,19 @@ export class Nav extends Component {
               />
             </div>
             <div className="cartWrap">
-              <img
-                src="./images/shopping-cart (2).png"
-                alt="cart img"
-                className="cartImg"
-              />
+              <Link to="/cart">
+                <img
+                  src="./images/shopping-cart (2).png"
+                  alt="cart img"
+                  className="cartImg"
+                />
+                <div className="notice">1</div>
+              </Link>
             </div>
             <div className="login">
-              <span>로그인/가입</span>
-              <Link to="/login" className="loginLink" />
+              <Link to="/login" className="loginLink">
+                <span>로그인/가입</span>
+              </Link>
             </div>
             <button className="help">고객센터</button>
           </div>
