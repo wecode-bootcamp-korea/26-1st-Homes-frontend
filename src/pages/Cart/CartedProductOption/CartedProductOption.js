@@ -27,7 +27,7 @@ export class CartedProductOption extends Component {
       <div className="ProductOption">
         <div className="optionWrap">
           <div className="optionInfo">
-            <span className="optionColor">{productColor}</span>
+            <span className="optionColor">{productColor.color_name}</span>
           </div>
           <img
             className="productClean"
@@ -41,17 +41,19 @@ export class CartedProductOption extends Component {
               className="minus"
               src="./images/minus.png"
               alt="minus"
-              onClick={() => this.isMinusQuantity(quantity, cart_id)}
+              onClick={this.isMinusQuantity}
             />
             <span class="number">{quantity}</span>
             <img
               className="plus"
               src="./images/plus.png"
               alt="plus"
-              onClick={() => this.isPlusQuantity(quantity, cart_id)}
+              onClick={this.isPlusQuantity}
             />
           </div>
-          <span className="optionPrice">{priceComma(productPrice)}원</span>
+          <span className="optionPrice">
+            {priceComma(quantity * productPrice)}원
+          </span>
         </div>
       </div>
     );

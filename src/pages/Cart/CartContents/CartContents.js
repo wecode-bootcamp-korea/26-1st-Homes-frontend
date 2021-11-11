@@ -15,8 +15,6 @@ export class CartContents extends Component {
       updateQuantity: 1,
       cartDataLists: [],
       peymentTabel: [],
-      updateDataList: [],
-      selectedLists: [],
     };
   }
 
@@ -29,6 +27,7 @@ export class CartContents extends Component {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         this.setState({
           cartDataLists: data.cart_items,
           peymentTabel: data,
@@ -37,7 +36,6 @@ export class CartContents extends Component {
   }
 
   isUpdateQuantity = (updateQuantity, cart_id) => {
-    console.log('updateQuantity', updateQuantity);
     fetch(`http://10.58.7.212:8000/carts/${cart_id}`, {
       method: 'PATCH',
       headers: {
@@ -73,24 +71,19 @@ export class CartContents extends Component {
     });
   };
 
-  // isDeleteAll = cart_id => {
-  //   fetch(`http://10.58.7.212:8000/carts/delete/${cart_id}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       Authorization:
-  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
-  //     },
-  //   }).then(res => {
-  //     this.setState({
-  //       cartDataLists: this.state.cartDataLists.filter(product => {
-  //         if (product.cart_id === cart_id) {
-  //           return false;
-  //         }
-  //         return true;
-  //       }),
-  //     });
-  //   });
-  // };
+  isDeleteAll = () => {
+    fetch(`http://10.58.7.212:8000/carts`, {
+      method: 'DELETE',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+      },
+    }).then(res => {
+      this.setState({
+        cartDataLists: [],
+      });
+    });
+  };
 
   // order = (updateQuantity, product_id, cart_id) => {
   //   fetch(`http://10.58.0.131:8000/order/${cart_id}`, {
@@ -101,7 +94,7 @@ export class CartContents extends Component {
   //     },
   //     body: {
   //       product_id: product_id,
-  //       // color_id: color,
+  //       color_id: color_id,
   //       purchase_quantity: updateQuantity,
   //     },
   //   }).then(res => {
@@ -117,25 +110,24 @@ export class CartContents extends Component {
   // };
 
   getQuantity = (number, cart_id) => {
-    const { cartDataLists, updateDataList } = this.state;
+    const { cartDataLists } = this.state;
     this.setState({
       updateQuantity: number,
-      updateDataList: JSON.parse(JSON.stringify(cartDataLists)),
     });
     this.isUpdateQuantity(number, cart_id);
 
-    console.log('updateDataList', updateDataList);
-    for (const id of updateDataList) {
-      if (cart_id === id.cart_id) {
-        id.product.quantity = number;
-        console.log('id.product.quantity', id.product.quantity);
+    const updateNumber = cartDataLists.map(cart => {
+      if (cart.cart_id === cart_id) {
+        return { ...cart, product: { ...cart.product, quantity: number } };
       }
-    }
+      return cart;
+    });
+
+    this.setState({ cartDataLists: updateNumber });
   };
 
   render() {
-    const { cartDataLists, peymentTabel, updateQuantity, updateDataList } =
-      this.state;
+    const { cartDataLists, peymentTabel, updateQuantity } = this.state;
     const { total_product_price, payment_price, prepayment_delivery_fee } =
       peymentTabel;
 
@@ -176,19 +168,19 @@ export class CartContents extends Component {
         </div>
 
         {cartDataLists.map(cart => {
+          console.log(cart);
           return (
             <CartedProduct
               key={cart.cart_id}
               {...cart}
+              // checked={(cart.checked = false)}
               updateQuantity={updateQuantity}
-              paymentPrice={cart.payment_price}
-              prepaymentDeliveryFee={cart.prepayment_delivery_fee}
-              totalProductPrice={cart.total_product_price}
+              // paymentPrice={cart.payment_price}
+              // prepaymentDeliveryFee={cart.prepayment_delivery_fee}
+              // totalProductPrice={cart.total_product_price}
               priceComma={priceComma}
               isDeleteProductOne={this.isDeleteProductOne}
               getQuantity={this.getQuantity}
-              // sMinusQuantity={this.isMinusQuantity}
-              // isPlusQuantity={this.isPlusQuantity}
             />
           );
         })}

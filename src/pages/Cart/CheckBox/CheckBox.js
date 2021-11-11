@@ -34,7 +34,7 @@ export class CheckBox extends Component {
         </div>
         <button
           className="cleanChooseThings"
-          onClick={e => isDeleteProductOne(id)}
+          onClick={selectAll ? isDeleteAll : e => isDeleteProductOne(id)}
         >
           {select} 삭제
         </button>

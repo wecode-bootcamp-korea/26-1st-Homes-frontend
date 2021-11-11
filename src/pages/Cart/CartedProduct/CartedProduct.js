@@ -11,7 +11,6 @@ export class CartedProduct extends Component {
       isDeleteProductOne,
       priceComma,
       getQuantity,
-      updateQuantity,
       isMinusQuantity,
       isPlusQuantity,
     } = this.props;
@@ -30,7 +29,6 @@ export class CartedProduct extends Component {
           <div className="cartedProductOption">
             <CartedProductOption
               cart_id={cart_id}
-              updateQuantity={updateQuantity}
               productName={name}
               quantity={quantity}
               productColor={color}
