@@ -2,7 +2,6 @@ import React from 'react';
 import Input from '../../Input';
 import { withRouter } from 'react-router-dom';
 import { SIGN_UP_FORMS } from '../data';
-
 import './index.scss';
 
 class Form extends React.Component {
