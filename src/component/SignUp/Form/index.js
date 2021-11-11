@@ -33,11 +33,11 @@ class Form extends React.Component {
   };
 
   handleSubmit = event => {
+    console.log(this.state);
     event.preventDefault();
     const { history } = this.props;
     const { email, nickName, phone_number, password, rePassword, name } =
       this.state;
-    let userData = this.state;
     fetch('http://10.58.7.212:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
@@ -55,7 +55,7 @@ class Form extends React.Component {
       .then(response => response.json())
       .then(result => {
         if (result.message === 'EMAIL_VALIDATION_ERROR') {
-          alert('이메일을 확인해주세요.');
+          alert('항목을 작성해주세요.');
         } else if (result.message === 'DUPLICATED EMAIL') {
           alert(
             '다른 계정에서 이미 사용중인 이메일 주소입니다. 다른 이메일주소를 선택해주세요.'
@@ -66,10 +66,12 @@ class Form extends React.Component {
           alert('전화번호를 확인해주세요.');
         } else if (result.message === 'PASSWORD_VALIDATION_ERROR') {
           alert('비밀번호를 확인해주세요.');
-        } else if (result.message === 'access_token') {
+        } else if (result.message === 'NO_DATA') {
+          alert('빈 칸을 모두 입력해주세요.');
+        } else if (result.message === 'SUCCESS') {
           alert('환영합니다!');
-          history.push('/');
           localStorage.setItem('token', result.token);
+          history.push('/');
         }
       });
   };
