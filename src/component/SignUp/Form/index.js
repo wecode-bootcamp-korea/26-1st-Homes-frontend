@@ -70,7 +70,7 @@ class Form extends React.Component {
           alert('빈 칸을 모두 입력해주세요.');
         } else if (result.message === 'SUCCESS') {
           alert('환영합니다!');
-          localStorage.setItem('token', result.token);
+          localStorage.setItem('token', result.access_token);
           history.push('/');
         }
       });
