@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '../../Input';
 import { withRouter } from 'react-router-dom';
-import { SignUpForms } from '../signUpForms';
+import { SIGN_UP_FORMS } from '../data';
 
 import './index.scss';
 
@@ -33,7 +33,6 @@ class Form extends React.Component {
   };
 
   handleSubmit = event => {
-    console.log(this.state);
     event.preventDefault();
     const { history } = this.props;
     const { email, nickName, phone_number, password, rePassword, name } =
@@ -81,42 +80,41 @@ class Form extends React.Component {
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <ul>
-            {SignUpForms &&
-              SignUpForms.map((item, index) => (
-                <li key={index}>
-                  <Input
-                    id={item.name}
-                    name={item.name}
-                    inputType={item.inputType}
-                    placeholder={item.placeholder}
-                    src={item.src}
-                    onChange={this.handleInput}
-                  />
-                </li>
-              ))}
+            {SIGN_UP_FORMS.map((item, index) => (
+              <li key={index}>
+                <Input
+                  id={item.name}
+                  name={item.name}
+                  inputType={item.inputType}
+                  placeholder={item.placeholder}
+                  src={item.src}
+                  onChange={this.handleInput}
+                />
+              </li>
+            ))}
           </ul>
-          <div className="inputImeges">
+          <div className="inputImages">
             <img className="nameImg" src="./images/user.png" alt="이름아이콘" />{' '}
             <img
               className="emailImg"
               src="./images/email.png"
               alt="이메일아이콘"
-            />{' '}
+            />
             <img
               className="nicNameImg"
               src="./images/user.png"
               alt="닉네임아이콘"
-            />{' '}
+            />
             <img
               className="phonImg"
               src="./images/phone.png"
               alt="핸드폰아이콘"
-            />{' '}
+            />
             <img
               className="pwdImg"
               src="./images/lock.png"
               alt="비밀번호아이콘"
-            />{' '}
+            />
             <img
               className="repwdImg"
               src="/images/lock.png"
@@ -144,14 +142,12 @@ class Form extends React.Component {
             className="signBtn"
             type="submit"
             value="회원가입"
-            style={{ cursor: 'pointer' }}
             onClick={this.handleSubmit}
           />
           <input
             className="loginBtn"
             type="submit"
             value="로그인하기"
-            style={{ cursor: 'pointer' }}
             onClick={this.goToLogin}
           />
         </form>

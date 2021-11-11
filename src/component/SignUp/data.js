@@ -1,4 +1,4 @@
-export const SignUpForms = [
+export const SIGN_UP_FORMS = [
   {
     id: 0,
     name: 'name',
