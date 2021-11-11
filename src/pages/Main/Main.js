@@ -21,7 +21,7 @@ export class Main extends Component {
       });
 
     fetch(
-      'http://10.58.5.129:8000/product/products?SubCategoryId=1&ordering=-best_ranking&limit=10'
+      'http://3.35.131.23:8000/product/products?SubCategoryId=1&ordering=-best_ranking&limit=10'
     )
       .then(res => res.json())
       .then(data => {

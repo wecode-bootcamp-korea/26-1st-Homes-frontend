@@ -16,7 +16,7 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('http://10.58.5.129:8000/product/menus')
+    fetch('http://3.35.131.23:8000/product/menus')
       .then(res => res.json())
       .then(data => {
         this.setState({ categories: data.menus });
