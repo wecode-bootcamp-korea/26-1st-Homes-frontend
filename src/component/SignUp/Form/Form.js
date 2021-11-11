@@ -2,6 +2,7 @@ import React from 'react';
 import Input from '../../Input';
 import { withRouter } from 'react-router-dom';
 import { SIGN_UP_FORMS } from '../data';
+import { MIN_URL } from '../../../config.js';
 import './Form.scss';
 
 class Form extends React.Component {
@@ -36,7 +37,7 @@ class Form extends React.Component {
     const { history } = this.props;
     const { email, nickName, phone_number, password, rePassword, name } =
       this.state;
-    fetch('http://10.58.7.212:8000/users/signup', {
+    fetch(`${MIN_URL}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
