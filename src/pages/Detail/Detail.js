@@ -25,18 +25,20 @@ export class Detail extends Component {
   }
   // 통신용
   // componentDidMount() {
-  //   fetch('http://10.58.1.116:8000/products/product/1')
+  //   fetch(
+  //     `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
+  //   )
   //     .then(res => res.json())
   //     .then(data => {
-  //       // console.log(data);
   //       this.setState({
   //         productInfo: data.product_group,
   //       });
   //     });
   // }
 
+  // 목데이터
   componentDidMount() {
-    fetch('/data/data.json')
+    fetch('http://10.58.0.131:8000/products/product/1')
       .then(res => res.json())
       .then(data => {
         this.setState({

@@ -3,6 +3,8 @@ import ProductContainer from '../../component/ProductContainer/ProductContainer'
 import Modal from '../../component/Modal/Modal';
 import '../ProductLists/ProductLists.scss';
 
+import { Link } from 'react-router-dom';
+
 class ProductLists extends Component {
   constructor() {
     super();
@@ -15,7 +17,7 @@ class ProductLists extends Component {
 
   componentDidMount() {
     fetch(
-      'http://10.58.5.129:8000/products?SubCategoryId=1&ordering=-review_star_point'
+      'http://10.58.0.131:8000/products?SubCategoryId=1&ordering=-review_star_point'
     )
       .then(res => res.json())
       .then(info => {
@@ -30,7 +32,7 @@ class ProductLists extends Component {
     const { location } = this.props;
     if (prevProps.location.search !== location.search) {
       fetch(
-        `http://10.58.5.129:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
+        `http://10.58.0.131:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
       )
         .then(res => res.json())
         .then(product => {
@@ -60,6 +62,10 @@ class ProductLists extends Component {
     return a.id - b.id;
   };
 
+  sortStarPoint = (a, b) => {
+    return b.star_point - a.star_point;
+  };
+
   filterProducts = e => {
     let products;
     const sequence = e.target.value;
@@ -73,6 +79,8 @@ class ProductLists extends Component {
       products = copiedProducts.sort(this.sortLowPrice);
     } else if (sequence === '높은가격순') {
       products = copiedProducts.sort(this.sortHighPrice);
+    } else if (sequence === '별점순') {
+      products = copiedProducts.sort(this.sortStarPoint);
     }
     this.setState({
       products,
@@ -88,6 +96,7 @@ class ProductLists extends Component {
 
   render() {
     const { products, isModalOn } = this.state;
+
     return (
       <div className="Container">
         <div className="categoryTitle">
@@ -95,15 +104,20 @@ class ProductLists extends Component {
 
           <div className="filterBtn" onClick={this.toggleModal}>
             <p>Filtering ▼</p>
-            {isModalOn && <Modal filterProducts={this.filterProducts} />}
+            {isModalOn && (
+              <Modal className="modal" filterProducts={this.filterProducts} />
+            )}
           </div>
         </div>
 
-        <div className="singleProduct">
-          {products.map(productInfo => (
-            <ProductContainer key={productInfo.id} {...productInfo} />
-          ))}
-        </div>
+        <Link to={`/detail/${products.id}`} className="goDetail">
+          <div className="singleProduct">
+            {products &&
+              products.map(productInfo => (
+                <ProductContainer key={productInfo.id} {...productInfo} />
+              ))}
+          </div>
+        </Link>
 
         <div className="pageNation">
           <button onClick={() => this.movePage(0)} className="firstPage">

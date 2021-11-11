@@ -25,7 +25,6 @@ export class Main extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data.product_groups);
         this.setState({ bestLists: data.product_groups });
       });
 
