@@ -31,7 +31,7 @@ class Login extends React.Component {
       },
     };
 
-    fetch('http://10.58.1.116:8000/users/signin', login_info)
+    fetch('http://10.58.7.212:8000/users/signin', login_info)
       .then(response => response.json())
       .then(result => {
         if (result.message === 'INVALID_USER') {
@@ -40,7 +40,7 @@ class Login extends React.Component {
           alert('비밀번호가 틀렸습니다.');
         } else if (result.access_token) {
           alert('로그인 성공');
-          localStorage.setItem('token', result.token);
+          localStorage.setItem('token', result.access_token);
           history.push('');
         }
       });
