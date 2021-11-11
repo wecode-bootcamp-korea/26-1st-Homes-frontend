@@ -12,13 +12,8 @@ export class CategoryTable extends Component {
   }
 
   render() {
-    const {
-      categoryImg,
-      categoryName,
-      categoryLists,
-      categoryLink,
-      isCategoryClick,
-    } = this.props;
+    const { menuImg, menuName, menuLists, categoryLink, isCategoryClick } =
+      this.props;
 
     const { showMenu } = this.state;
 
@@ -40,21 +35,17 @@ export class CategoryTable extends Component {
               isCategoryClick(categoryLink);
             }}
           >
-            <img
-              src={categoryImg}
-              alt="furniture img"
-              className="furnitureImg"
-            />
-            <span className="furniture">{categoryName}</span>
+            <img src={menuImg} alt="furniture img" className="furnitureImg" />
+            <span className="furniture">{menuName}</span>
           </Link>
           <ul className="furnitureLists">
             {showMenu &&
-              categoryLists.map(item => (
+              menuLists.map(item => (
                 <FurnitureTable
                   key={item.id}
-                  furnitureName={item.furnitureName}
-                  sub_category={item.sub_category}
-                  categoryLink={item.categoryLink}
+                  furnitureName={item.name}
+                  sub_category={item.subcategories}
+                  categoryLink={categoryLink}
                   isCategoryClick={isCategoryClick}
                 />
               ))}

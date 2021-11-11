@@ -41,14 +41,18 @@ export class FurnitureTable extends Component {
               {showMenu &&
                 sub_category.map(itemName => {
                   return (
-                    <li
+                    <Link
+                      to={`${categoryLink}`}
+                      className="categoryLink"
                       key={itemName.id}
-                      className="item"
-                      onClick={() => isCategoryClick(categoryLink)}
                     >
-                      {itemName.name}
-                      <Link to={`${categoryLink}`} className="categoryLink" />
-                    </li>
+                      <li
+                        className="item"
+                        onClick={() => isCategoryClick(categoryLink)}
+                      >
+                        {itemName.name}
+                      </li>
+                    </Link>
                   );
                 })}
             </ul>

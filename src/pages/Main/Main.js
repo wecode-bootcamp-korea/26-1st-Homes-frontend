@@ -25,15 +25,9 @@ export class Main extends Component {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data.product_groups);
-        this.setState({ bestLists: data.product_groups });
+        console.log(data.menus);
+        this.setState({ bestLists: data.menus });
       });
-
-    // fetch('http://10.58.5.17:8000/product/category')
-    //   .then(res => res.json)
-    //   .then(result => {
-    //     console.log(result);
-    //   });
   }
 
   onChangeImage = idx => {
@@ -50,12 +44,7 @@ export class Main extends Component {
     return (
       <main className="main">
         <div className="eventSlideWrap">
-          <div
-            className="eventSlide"
-            // style={{
-            //   transform: `translate3d(${imgCurrentNo * -900}px, 0px, 0px)`,
-            // }}
-          >
+          <div className="eventSlide">
             {events.slice(imgCurrentNo, imgCurrentNo + 1).map(event => {
               return (
                 <Event
