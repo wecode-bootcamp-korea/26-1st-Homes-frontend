@@ -20,6 +20,11 @@
       background-color: white;
       font-size: 14px;
       z-index: 987;
+
+      p:hover {
+        cursor: pointer;
+        color: $keyColor;
+      }
     }
 
     .category {
@@ -31,11 +36,31 @@
       border: 1px solid rgba($color: #585858, $alpha: 0.1);
     }
   }
-}
+  .pageNation {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
 
-.singleProduct {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 860px;
+    button:hover {
+      cursor: pointer;
+    }
+
+    .firstPage,
+    .secondPage {
+      padding: 10px;
+      color: white;
+      background-color: rgb(144, 223, 255);
+    }
+  }
+}
+.goDetail {
+  text-decoration: none;
+  color: black;
+
+  .singleProduct {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 860px;
+  }
 }
