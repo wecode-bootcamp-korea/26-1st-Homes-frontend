@@ -2,7 +2,8 @@ import React from 'react';
 import Input from '../../Input';
 import { withRouter } from 'react-router-dom';
 import { SIGN_UP_FORMS } from '../data';
-import { MIN_URL } from '../../../config.js';
+import { API } from '../../../config.js';
+
 import './Form.scss';
 
 class Form extends React.Component {
@@ -37,7 +38,7 @@ class Form extends React.Component {
     const { history } = this.props;
     const { email, nickName, phone_number, password, rePassword, name } =
       this.state;
-    fetch(`${MIN_URL}/users/signup`, {
+    fetch(`${API.signup}/users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email: email,
