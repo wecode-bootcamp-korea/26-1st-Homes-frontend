@@ -93,7 +93,7 @@ class ProductLists extends Component {
 
   render() {
     const { products, isModalOn } = this.state;
-
+    console.log(products);
     return (
       <div className="Container">
         <div className="categoryTitle">

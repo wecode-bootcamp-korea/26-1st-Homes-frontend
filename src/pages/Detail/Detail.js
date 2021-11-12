@@ -28,7 +28,7 @@ export class Detail extends Component {
     fetch(`http://3.35.131.23:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         this.setState({
           productInfo: data.product_group,
         });
