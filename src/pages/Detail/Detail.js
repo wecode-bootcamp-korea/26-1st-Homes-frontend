@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Detail.scss';
 import priceComma from '../../component/Utils/utils.js';
+import { CHAN_URL } from '../../config';
 
 export class Detail extends Component {
   constructor() {
@@ -25,9 +26,7 @@ export class Detail extends Component {
 
   // 목데이터
   componentDidMount() {
-    fetch(
-      `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
-    )
+    fetch(`${CHAN_URL}/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -116,11 +115,10 @@ export class Detail extends Component {
     const { productQuantity, productId, colorId } = this.state;
 
     if (colorId !== 0) {
-      fetch('http://10.58.7.212:8000/carts', {
+      fetch(`${CHAN_URL}/carts`, {
         method: 'POST',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0', // 발행된 액세스 토큰
+          Authorization: localStorage.getItem('token'), // 발행된 액세스 토큰
         },
         body: JSON.stringify({
           ProductId: productId,
@@ -137,11 +135,10 @@ export class Detail extends Component {
   orderDataTransfer = () => {
     const { productQuantity, productId, colorId } = this.state;
     if (colorId !== 0) {
-      fetch('http://10.58.7.212:8000/carts', {
+      fetch(`${CHAN_URL}/carts`, {
         method: 'POST',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+          Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify({
           ProductId: productId,

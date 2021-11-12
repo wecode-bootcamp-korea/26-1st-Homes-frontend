@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CheckBox from '../CheckBox/CheckBox';
 import CartedProduct from '../CartedProduct/CartedProduct';
 import priceComma from '../../../component/Utils/utils';
-import { MIN_URL } from '../../../config';
+import { CHAN_URL } from '../../../config';
 import './CartContents.scss';
 
 // TODO: 주문 버튼 누르면 브랜드명, 사진, 이름, 색상, 개수, 상품금액 정보 전달
@@ -20,10 +20,9 @@ export class CartContents extends Component {
   }
 
   componentDidMount() {
-    fetch(`${MIN_URL}/carts`, {
+    fetch(`${CHAN_URL}/carts`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())
@@ -37,11 +36,10 @@ export class CartContents extends Component {
   }
 
   isUpdateQuantity = (updateQuantity, cart_id) => {
-    fetch(`${MIN_URL}/carts/${cart_id}`, {
+    fetch(`${CHAN_URL}/carts/${cart_id}`, {
       method: 'PATCH',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         quantity: updateQuantity,
@@ -54,11 +52,10 @@ export class CartContents extends Component {
   };
 
   isDeleteProductOne = cart_id => {
-    fetch(`${MIN_URL}/carts/${cart_id}`, {
+    fetch(`${CHAN_URL}/carts/${cart_id}`, {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+        Authorization: localStorage.getItem('token'),
       },
     }).then(res => {
       this.setState({
@@ -73,11 +70,10 @@ export class CartContents extends Component {
   };
 
   isDeleteAll = () => {
-    fetch(`${MIN_URL}/carts`, {
+    fetch(`${CHAN_URL}/carts`, {
       method: 'DELETE',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.I5qie6smz2YzB6OsqsGevPDZ7QuS-Z4dtnrXEYoaLw0',
+        Authorization: localStorage.getItem('token'),
       },
     }).then(res => {
       this.setState({

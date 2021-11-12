@@ -1,4 +1,5 @@
 import React from 'react';
+import { CHAN_URL } from '../../config';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -31,7 +32,7 @@ class Login extends React.Component {
       },
     };
 
-    fetch('http://10.58.7.212:8000/users/signin', login_info)
+    fetch(`${CHAN_URL}/users/signin`, login_info)
       .then(response => response.json())
       .then(result => {
         if (result.message === 'INVALID_USER') {
