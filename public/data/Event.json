@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "event_img": "./images/_ (2).jpeg",
+    "event_img": "./images/17560_12351_5947.jpeg",
     "event_title": "강동원과 가을캠핑! 강동원 세일",
     "event_sub_title": "캠핑준비는 여기서",
     "discount_rate": "~83%",
@@ -18,8 +18,8 @@
   {
     "id": 4,
     "event_img": "./images/오늘도 행복한  시골집.jpeg",
-    "event_title": "강동원과 가을캠핑! 강동원 세일",
-    "event_sub_title": "캠핑준비는 여기서",
+    "event_title": "겨울에도 뜨끈뜨끈, 한옥에서 한달살기",
+    "event_sub_title": "특멸한 한달살이",
     "discount_rate": "~83%",
     "event_date": "11.04-11.30"
   }
