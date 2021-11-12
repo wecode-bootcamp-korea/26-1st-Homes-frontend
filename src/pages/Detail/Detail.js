@@ -25,11 +25,10 @@ export class Detail extends Component {
 
   // 목데이터
   componentDidMount() {
-    fetch(
-      `http://10.58.0.131:8000/products/product/${this.props.match.params.id}`
-    )
+    fetch(`http://3.35.131.23:8000/products/${this.props.match.params.id}`)
       .then(res => res.json())
       .then(data => {
+        // console.log(data);
         this.setState({
           productInfo: data.product_group,
         });
@@ -116,7 +115,7 @@ export class Detail extends Component {
     const { productQuantity, productId, colorId } = this.state;
 
     if (colorId !== 0) {
-      fetch('http://10.58.7.212:8000/carts', {
+      fetch('http://3.35.131.23:8000/carts', {
         method: 'POST',
         headers: {
           Authorization:
@@ -137,7 +136,7 @@ export class Detail extends Component {
   orderDataTransfer = () => {
     const { productQuantity, productId, colorId } = this.state;
     if (colorId !== 0) {
-      fetch('http://10.58.7.212:8000/carts', {
+      fetch('http://3.35.131.23:8000/carts', {
         method: 'POST',
         headers: {
           Authorization:

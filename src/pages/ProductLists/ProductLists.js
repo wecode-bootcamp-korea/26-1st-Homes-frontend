@@ -4,8 +4,6 @@ import Modal from '../../component/Modal/Modal';
 import { MIN_URL } from '../../config';
 import '../ProductLists/ProductLists.scss';
 
-import { Link } from 'react-router-dom';
-
 class ProductLists extends Component {
   constructor() {
     super();
@@ -31,7 +29,7 @@ class ProductLists extends Component {
     const { location } = this.props;
     if (prevProps.location.search !== location.search) {
       fetch(
-        `http://10.58.0.131:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
+        `http://3.35.131.23:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
       )
         .then(res => res.json())
         .then(product => {
@@ -48,7 +46,6 @@ class ProductLists extends Component {
       isModalOn: !state.isModalOn,
     }));
   };
-
   sortLowPrice = (a, b) => {
     return a.discounted_price - b.discounted_price;
   };
@@ -95,7 +92,7 @@ class ProductLists extends Component {
 
   render() {
     const { products, isModalOn } = this.state;
-
+    console.log(products);
     return (
       <div className="Container">
         <div className="categoryTitle">
@@ -109,14 +106,18 @@ class ProductLists extends Component {
           </div>
         </div>
 
-        <Link to={`/detail/${products.id}`} className="goDetail">
+        <div className="goDetail">
           <div className="singleProduct">
             {products &&
               products.map(productInfo => (
-                <ProductContainer key={productInfo.id} {...productInfo} />
+                <ProductContainer
+                  key={productInfo.id}
+                  {...productInfo}
+                  movepage={this.movePage}
+                />
               ))}
           </div>
-        </Link>
+        </div>
 
         <div className="pageNation">
           <button onClick={() => this.movePage(0)} className="firstPage">
