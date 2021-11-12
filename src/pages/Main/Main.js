@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Event from './Event/Evnet';
 import Best from './Best/Best';
+import { CHAN_URL } from '../../config';
+
 import './Main.scss';
 
 export class Main extends Component {
@@ -21,12 +23,12 @@ export class Main extends Component {
       });
 
     fetch(
-      'http://3.35.131.23:8000/product/products?SubCategoryId=1&ordering=-best_ranking&limit=10'
+      `${CHAN_URL}/products?SubCategoryId=1&ordering=-best_ranking&limit=10`
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data.menus);
-        this.setState({ bestLists: data.menus });
+        console.log(data);
+        this.setState({ bestLists: data.product_groups });
       });
   }
 

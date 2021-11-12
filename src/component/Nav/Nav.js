@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { CHAN_URL } from '../../config';
+
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
 
@@ -16,7 +18,7 @@ export class Nav extends Component {
   }
 
   componentDidMount() {
-    fetch('http://3.35.131.23:8000/product/menus')
+    fetch(`${CHAN_URL}/products/menus`)
       .then(res => res.json())
       .then(data => {
         this.setState({ categories: data.menus });
