@@ -1,68 +1,73 @@
 @import '../../styles/variable.scss';
 
-.ProductContainer {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  margin-bottom: 50px;
-  z-index: -1;
+.goDetail {
+  text-decoration: none;
+  color: black;
 
-  .productImage {
-    overflow: hidden;
-    margin-bottom: 10px;
-    height: 200px;
-    background-color: rgb(255, 208, 199);
-  }
-
-  .company {
-    color: #ababab;
-    font-size: 12px;
-    margin-bottom: 4px;
-  }
-
-  .productName {
-    height: 32px;
-    margin-bottom: 10px;
-    font-size: 15px;
-    line-height: 115%;
-    word-break: keep-all; //텍스트 정렬할 때 유용한 css
-  }
-
-  .priceInfo {
+  .ProductContainer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 50px;
+    z-index: -1;
 
-    .discountInfo {
+    .productImage {
+      overflow: hidden;
+      margin-bottom: 10px;
+      height: 200px;
+      background-color: rgb(255, 208, 199);
+    }
+
+    .company {
+      color: #ababab;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .productName {
+      height: 32px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 115%;
+      word-break: keep-all; //텍스트 정렬할 때 유용한 css
+    }
+
+    .priceInfo {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 115px;
+      margin-bottom: 8px;
+
+      .discountInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 115px;
+      }
+
+      .discountRate {
+        margin-right: 6px;
+        font-weight: bolder;
+        font-size: 18px;
+        color: $keyColor;
+      }
+
+      .discountPrice {
+        font-weight: bolder;
+        font-size: 15px;
+      }
+      .cost {
+        width: 78px;
+        font-size: 15px;
+        color: #ababab;
+      }
     }
 
-    .discountRate {
-      margin-right: 6px;
-      font-weight: bolder;
-      font-size: 18px;
-      color: $keyColor;
+    .reviewInfo {
+      display: flex;
+      justify-content: space-between;
+      width: 70px;
+      font-size: 13px;
     }
-
-    .discountPrice {
-      font-weight: bolder;
-      font-size: 15px;
-      color: #ababab;
-    }
-    .cost {
-      width: 78px;
-      font-size: 15px;
-    }
-  }
-
-  .reviewInfo {
-    display: flex;
-    justify-content: space-between;
-    width: 70px;
-    font-size: 13px;
   }
 }

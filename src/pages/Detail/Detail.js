@@ -26,7 +26,8 @@ export class Detail extends Component {
 
   // 목데이터
   componentDidMount() {
-    fetch(`${CHAN_URL}/products/${this.props.match.params.id}`)
+    const { match } = this.props;
+    fetch(`${CHAN_URL}/products/${match.params.id}`)
       .then(res => res.json())
       .then(data => {
         this.setState({

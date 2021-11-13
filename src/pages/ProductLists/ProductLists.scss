@@ -53,14 +53,10 @@
     }
   }
 }
-.goDetail {
-  text-decoration: none;
-  color: black;
 
-  .singleProduct {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 860px;
-  }
+.singleProduct {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 860px;
 }
