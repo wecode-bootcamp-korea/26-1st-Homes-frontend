@@ -30,6 +30,7 @@ export class Detail extends Component {
     fetch(`${CHAN_URL}/products/${match.params.id}`)
       .then(res => res.json())
       .then(data => {
+        // console.log(data);
         this.setState({
           productInfo: data.product_group,
         });

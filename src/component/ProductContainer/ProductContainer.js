@@ -17,7 +17,7 @@ class ProductContainer extends Component {
     } = this.props;
 
     return (
-      <Link to={`detail/${id}`} className="goDetail">
+      <Link to={`/detail/${id}`} className="goDetail">
         <main className="ProductContainer">
           <img alt="상품사진" className="productImage" src={`${image_url}`} />
           <div className="productInfo">

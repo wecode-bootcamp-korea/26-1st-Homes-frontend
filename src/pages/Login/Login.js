@@ -1,6 +1,7 @@
 import React from 'react';
 import { CHAN_URL } from '../../config';
 import './Login.scss';
+import '../../config';
 
 class Login extends React.Component {
   constructor(props) {

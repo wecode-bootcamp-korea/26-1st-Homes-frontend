@@ -4,8 +4,6 @@ import Modal from '../../component/Modal/Modal';
 import { CHAN_URL } from '../../config';
 import '../ProductLists/ProductLists.scss';
 
-import { Link } from 'react-router-dom';
-
 class ProductLists extends Component {
   constructor() {
     super();
@@ -48,7 +46,6 @@ class ProductLists extends Component {
       isModalOn: !state.isModalOn,
     }));
   };
-
   sortLowPrice = (a, b) => {
     return a.discounted_price - b.discounted_price;
   };
@@ -109,14 +106,18 @@ class ProductLists extends Component {
           </div>
         </div>
 
-        <Link to={`/detail/${products.id}`} className="goDetail">
+        <div className="goDetail">
           <div className="singleProduct">
             {products &&
               products.map(productInfo => (
-                <ProductContainer key={productInfo.id} {...productInfo} />
+                <ProductContainer
+                  key={productInfo.id}
+                  {...productInfo}
+                  movepage={this.movePage}
+                />
               ))}
           </div>
-        </Link>
+        </div>
 
         <div className="pageNation">
           <button onClick={() => this.movePage(0)} className="firstPage">
