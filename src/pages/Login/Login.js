@@ -1,7 +1,7 @@
 import React from 'react';
+import { CHAN_URL } from '../../config';
 import './Login.scss';
 import '../../config';
-import { MIN_URL } from '../../config';
 
 class Login extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Login extends React.Component {
       },
     };
 
-    fetch(`${MIN_URL}/users/signin`, login_info)
+    fetch(`${CHAN_URL}/users/signin`, login_info)
       .then(response => response.json())
       .then(result => {
         if (result.message === 'INVALID_USER') {

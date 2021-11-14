@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProductContainer from '../../component/ProductContainer/ProductContainer';
 import Modal from '../../component/Modal/Modal';
-import { MIN_URL } from '../../config';
+import { CHAN_URL } from '../../config';
 import '../ProductLists/ProductLists.scss';
 
 class ProductLists extends Component {
@@ -15,7 +15,7 @@ class ProductLists extends Component {
   }
 
   componentDidMount() {
-    fetch(`${MIN_URL}/products?SubCategoryId=1&ordering=-review_star_point`)
+    fetch(`${CHAN_URL}/products?SubCategoryId=1&ordering=-review_star_point`)
       .then(res => res.json())
       .then(info => {
         this.setState({
@@ -29,7 +29,7 @@ class ProductLists extends Component {
     const { location } = this.props;
     if (prevProps.location.search !== location.search) {
       fetch(
-        `http://3.35.131.23:8000/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
+        `${CHAN_URL}/products?SubCategoryId=1&ordering=review_star_point&${location.search}`
       )
         .then(res => res.json())
         .then(product => {
@@ -92,7 +92,7 @@ class ProductLists extends Component {
 
   render() {
     const { products, isModalOn } = this.state;
-    console.log(products);
+
     return (
       <div className="Container">
         <div className="categoryTitle">

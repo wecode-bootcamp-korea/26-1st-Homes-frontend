@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { CHAN_URL } from '../../config';
-
 import CategoryTable from './CategoryTable/CategoryTable';
 import Button from './component/Button';
 
